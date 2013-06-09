@@ -17,7 +17,7 @@ function feupDemic::create( %this )
 exec("./scripts/scenewindow.cs");
 exec("./scripts/scene.cs");
 exec("./gui/guiProfiles.cs");
-populateFonts();
+//populateFonts();
 createSceneWindow();
 createScene();
 
