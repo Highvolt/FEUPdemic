@@ -1,4 +1,4 @@
-//-------------------------- 5/16/2013 -- 14:16:02 -----
+//-------------------------- 6/9/2013 -- 17:46:25 -----
 Console trace is off.
 using display 0x42732c0
 Activating the OpenGL display device...
@@ -6,7 +6,7 @@ Activating the OpenGL display device...
 OpenGL driver information:
   Vendor: Intel Inc.
   Renderer: Intel HD Graphics 3000 OpenGL Engine
-  Version: 2.1 INTEL-8.10.44
+  Version: 2.1 INTEL-8.12.47
 OpenGL Init: Enabled Extensions
   ARB_multitexture (Max Texture Units: 8)
   EXT_blend_color
@@ -26,9 +26,9 @@ OpenGL Init: Disabled Extensions
   NV_vertex_array_range
   3DFX_texture_compression_FXT1
 
- set screen mode 1024 x 768 x 32, windowed, force it, dont repaint
+ set screen mode 1138 x 640 x 32, windowed, force it, dont repaint
 Max Texture Size reported as: 8192
- set screen mode 1024 x 768 x 32, windowed, dont force it, repaint
+ set screen mode 1138 x 640 x 32, windowed, dont force it, repaint
 Killing the texture manager...
 Resurrecting the texture manager...
 OpenAL Driver Init
