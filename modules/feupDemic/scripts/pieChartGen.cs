@@ -12,7 +12,7 @@ function createPieChart(%vals, %radius){
 	//echo(%count);
 	if(%count==100){
 		%count=0;
-		%stepVal=1;
+		%stepVal=360/20;
 		%start=0;
 		for(%i=0;%i<%len;%i++){
 			
@@ -30,6 +30,7 @@ function createPieChart(%vals, %radius){
 					%f=%f SPC mCos(%start1)*%radius SPC mSin(%start1)*%radius;
 				}
 			}
+			%start-=%stepVal;
 			//echo("Result position: "@%f);
 			if(%ret$=""){
 				%ret=%f SPC "0 0";

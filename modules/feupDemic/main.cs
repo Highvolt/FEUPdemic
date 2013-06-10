@@ -45,7 +45,7 @@ myScene.add(%shape);*/
 
 
 function populatePie(){
-	%pieData=createPieChart("30 30 40",0.5);
+	%pieData=createPieChart("70 20 10",0.5);
 if(%pieData!$=""){
 	%len=getUnitCount(%pieData,",");
 	for(%i=0;%i<%len;%i++){
