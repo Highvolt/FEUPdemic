@@ -29,15 +29,16 @@ function AppCore::create( %this )
     exec("./scripts/openal.cs");
     
     // Initialize the canvas
-    initializeCanvas("feupDemic");
+    initializeCanvas("Manic Miner");
     
     // Set the canvas color
-    Canvas.BackgroundColor = "CornflowerBlue";
+    Canvas.BackgroundColor = "Black";
     Canvas.UseBackgroundColor = true;
     
     // Initialize audio
     initializeOpenAL();
     
+   // ModuleDatabase.loadGroup("gameBase");
     ModuleDatabase.loadExplicit("feupDemic");
 }
 
