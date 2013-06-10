@@ -2,7 +2,7 @@ function createSidebar(){
 
 
 	
-	
+
 		new GuiControl(sidebar) {
 		   canSaveDynamicFields = "0";
 		   Profile = "GuiDefaultProfile";   
@@ -45,6 +45,63 @@ function createSidebar(){
 					 
 					
 				};
+
+				 new GuiSceneObjectCtrl(wellChart) {
+				   canSaveDynamicFields = "0";
+				   Profile = "GuiDefaultProfile";   
+				   HorizSizing = "right";
+				   VertSizing = "bottom";
+				   position = "91 75";
+				   Extent = "150 150";
+				   MinExtent = "2 70";
+				   canSave = "1";
+				   Visible = "1";
+				   hovertime = "1000";
+				  // isContainer=true;
+				   //text="FEUPDEMIC";
+				
+					 
+					
+				};
+
+				new GuiSceneObjectCtrl(infectedChart) {
+				   canSaveDynamicFields = "0";
+				   Profile = "GuiMenuProfile";   
+				   HorizSizing = "right";
+				   VertSizing = "bottom";
+				   position = "91 75";
+				   Extent = "150 150";
+				   MinExtent = "2 70";
+				   canSave = "1";
+				   Visible = "1";
+				   hovertime = "1000";
+				   //renderMargin=30;
+				  // isContainer=true;
+				   //text="FEUPDEMIC";
+				
+					 
+					
+				};
+
+				new GuiSceneObjectCtrl(deadChart) {
+				   canSaveDynamicFields = "0";
+				   Profile = "GuiDefaultProfile";   
+				   HorizSizing = "right";
+				   VertSizing = "bottom";
+				   position = "91 75";
+				   Extent = "150 150";
+				   MinExtent = "2 70";
+				   canSave = "1";
+				   Visible = "1";
+				   hovertime = "1000";
+				  // isContainer=true;
+				   //text="FEUPDEMIC";
+				
+					 
+					
+				};
+
+
 
 				new GuiButtonCtrl(){
 					 canSaveDynamicFields = "0";
