@@ -20,13 +20,16 @@ exec("./gui/guiProfiles.cs");
 //myScene.setDebugOn("fps collision");
 exec(".scripts/menu.cs");
 exec(".scripts/pieChartGen.cs");
+exec(".scripts/area.cs");
 //populateFonts();
-
-
+feupDemic.zonesCount=0;
 createSceneWindow();
 createScene();
 createSidebar();
 mySceneWindow.setScene(myScene);
+createArea(2, "0 0;10 10 -10 10 -10 -10 10 -10,100 100;10 10 -10 10 -10 -10 10 -10");
+
+drawAreas();
 
 populatePie();
 /*%shape=new ShapeVector(){
@@ -84,4 +87,6 @@ function feupDemic::destroy( %this )
 {
 	destroySceneWindow();
 }
+
+
 
