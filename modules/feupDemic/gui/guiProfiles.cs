@@ -97,7 +97,7 @@ new GuiControlProfile (GuiButtonProfile){
     bitmap = "^feupDemic/gui/images/redButton.png";
 
     fontColor = "255 255 255";
-    fontColorHL = "128 128 128";
+    fontColorHL = "255 255 255";
     fontColorNA = "0 0 0";
     fontColorSEL= "10 10 10";
     opaque=1;
