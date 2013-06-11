@@ -14,7 +14,7 @@ function createArea(%id,%data){
 				Position=%pos;
 				PolyList=%polPos;
 				FillMode=true;
-				id=%id;
+				id_Area=%id;
 			};
 
 			%shape.setPolyCustom(getWordCount(%polPos)/2,%polPos);
