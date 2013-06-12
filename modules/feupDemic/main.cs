@@ -13,11 +13,11 @@ function populateFonts()
 function feupDemic::create( %this )
 {
 	//activateDirectInput();
-		
+		enableWinConsole(true);
 	exec("./scripts/scenewindow.cs");
 	exec("./scripts/scene.cs");
 	exec("./gui/guiProfiles.cs");
-	//myScene.setDebugOn("fps collision");
+	
 	exec(".scripts/menu.cs");
 	exec(".scripts/pieChartGen.cs");
 	exec(".scripts/area.cs");
@@ -32,6 +32,7 @@ function feupDemic::create( %this )
 	createSidebar();
 	configureSceneWindow();
 	createScene();
+	//myScene.setDebugOn("fps collision");
 	
 	mySceneWindow.setScene(myScene);
 	mySceneWindow.setUseObjectInputEvents(true);
@@ -41,7 +42,7 @@ function feupDemic::create( %this )
 	//mySceneWindow.setUseInputEvents();
 	mySceneWindow.addInputListener(%obj);
 	createArea(2, "0 0;10 10 -10 10 -10 -10 10 -10,100 100;10 10 -10 10 -10 -10 10 -10");
-
+	createArea(3, "200 200;10 10 -10 10 -10 -10 10 -10,200 -200;10 10 -10 10 -10 -10 10 -10");
 	drawAreas();
 
 	populatePie();
@@ -59,16 +60,14 @@ function feupDemic::create( %this )
 
 	//Canvas.BackgroundColor = "Black";
 	//echo(Canvas.getMouseControl());
-	mySceneWindow.setLockMouse(true);	
-
+	//mySceneWindow.setLockMouse(true);	
+	
 	echo(mySceneWindow.getLockMouse());
 
 }
 
 
-function coiso(){
-	echo("click");
-}
+
 
 function populatePie(){
 	%pieData=createPieChart("50 25 25",0.5);
@@ -112,9 +111,16 @@ function feupDemic::destroy( %this )
 }
 
 
+function Sprite::onTouchDown(%this, %touchid, %worldposition)  
+{  
+	echo("click Sprite");
+	 
+	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
+}
+
 function mySceneWindow::onTouchUp(%this, %touchID, %worldPosition)  
 {  
-	echo("click");
+	//echo("click");
 	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
 }  
 
@@ -145,9 +151,20 @@ function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClic
 
 function SceneWindow::onTouchDown(%this, %touchid, %worldposition)  
 {  
-	echo("click");
+	//echo("click");
 	 %this.OldTouchPosition = %worldposition;
 	 %this.OldCameraPosition= mySceneWindow.getCameraPosition();
+	/* %ret=myScene.pickPoint(%worldposition,"","","any");
+	 echo(%ret);
+	 if(%ret!$=""){
+	 	%len=getWordCount(%ret);
+	 	for(%i=0;%i<%len;%i++){
+	 		%obj=getWord(%ret,%i);
+	 		if(%obj.id_Area){
+	 			echo(%obj.id_Area);
+	 		}
+	 	}
+	 }*/
 	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
 }  
 

@@ -144,6 +144,23 @@ function createSidebar(){
 					
 				};
 
+				new GuiTextCtrl(LogClick) {   ////TODO REMOVE
+					   canSaveDynamicFields = "0";
+					   Profile = "GuiLogProfile";   
+					   HorizSizing = "right";
+					   VertSizing = "bottom";
+					   position = "0 310";
+					   Extent = "323 50";
+					   MinExtent = "2 4";
+					   canSave = "1";
+					   Visible = "1";
+					   hovertime = "1000";
+					  // isContainer=true;
+					   text="";
+					
+						 
+						
+				};
 
 				new GuiButtonCtrl(){
 					 canSaveDynamicFields = "0";
