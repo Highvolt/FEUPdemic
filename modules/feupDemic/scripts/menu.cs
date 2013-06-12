@@ -204,7 +204,7 @@ function createSidebar(){
 				   Visible = "1";
 				   hovertime = "1000";
 				  // isContainer=true;
-				   text="DISEASE";
+				   text="TRANSMISSION";
 				};
 				new GuiButtonCtrl(){
 					 canSaveDynamicFields = "0";
@@ -218,7 +218,7 @@ function createSidebar(){
 				   Visible = "1";
 				   hovertime = "1000";
 				  // isContainer=true;
-				   text="TRANSMISSION";
+				   text="SYMPTOMS";
 				};
 				new GuiButtonCtrl(){
 					 canSaveDynamicFields = "0";
@@ -232,10 +232,10 @@ function createSidebar(){
 				   Visible = "1";
 				   hovertime = "1000";
 				  // isContainer=true;
-				   text="SYMPTOMS";
+				   text="RESISTANCE";
 				};
 
-				new GuiTabBookCtrl() {
+				new GuiControl() {
 				   canSaveDynamicFields = "0";
 				   Profile = "GuiDefaultProfile";   
 				   HorizSizing = "right";
@@ -247,6 +247,99 @@ function createSidebar(){
 				   Visible = "1";
 				   hovertime = "1000";
 				   isContainer=true;
+					   new GuiControl(transmissionTab) {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiDefaultProfile";   
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = " 0";
+						   Extent = "600 400";
+						   MinExtent = "2 2";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						   isContainer=true;
+						   new GuiTextCtrl() {  
+							   canSaveDynamicFields = "0";
+							   Profile = "GuiLogProfile";   
+							   HorizSizing = "right";
+							   VertSizing = "bottom";
+							   position = "0 0";
+							   Extent = "323 50";
+							   MinExtent = "2 4";
+							   canSave = "1";
+							   Visible = "1";
+							   hovertime = "1000";
+							  // isContainer=true;
+							   text="1";
+							
+								 
+								
+							};
+					   
+						};
+						 new GuiControl(symptomsTab) {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiDefaultProfile";   
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "0 0";
+						   Extent = "600 400";
+						   MinExtent = "2 2";
+						   canSave = "1";
+						   Visible = "0";
+						   hovertime = "1000";
+						   isContainer=true;
+						   new GuiTextCtrl() {  
+							   canSaveDynamicFields = "0";
+							   Profile = "GuiLogProfile";   
+							   HorizSizing = "right";
+							   VertSizing = "bottom";
+							   position = "0 0";
+							   Extent = "323 50";
+							   MinExtent = "2 4";
+							   canSave = "1";
+							   Visible = "1";
+							   hovertime = "1000";
+							  // isContainer=true;
+							   text="2";
+							
+								 
+								
+							};
+					   
+						};
+						new GuiControl(resistenceTab) {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiDefaultProfile";   
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "0 0";
+						   Extent = "600 400";
+						   MinExtent = "2 2";
+						   canSave = "1";
+						   Visible = "0";
+						   hovertime = "1000";
+						   isContainer=true;
+						   new GuiTextCtrl() {  
+							   canSaveDynamicFields = "0";
+							   Profile = "GuiLogProfile";   
+							   HorizSizing = "right";
+							   VertSizing = "bottom";
+							   position = "0 0";
+							   Extent = "323 50";
+							   MinExtent = "2 4";
+							   canSave = "1";
+							   Visible = "1";
+							   hovertime = "1000";
+							  // isContainer=true;
+							   text="3";
+							
+								 
+								
+							};
+					   
+						};
 				};
 
 			};
