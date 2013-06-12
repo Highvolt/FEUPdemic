@@ -20,9 +20,10 @@ function createSidebar(){
 
 		   new SceneWindow(mySceneWindow){
 		   		Profile = GuiDefaultProfile;
-		   		position = "0 0";
-			   	Extent = "1000 640";
+		   		position = "333 0";
+			   	Extent = "667 640";
 		   };
+
 
 			new GuiControl() {
 			   canSaveDynamicFields = "0";
@@ -167,8 +168,37 @@ function createSidebar(){
 				   Profile = "GuiButtonProfile";   
 				   HorizSizing = "right";
 				   VertSizing = "bottom";
-				   position = "115 580";
+				   position = "115 610";
 				   Extent = "100 40";
+				   MinExtent = "2 2";
+				   canSave = "1";
+				   Visible = "1";
+				   hovertime = "1000";
+				  // isContainer=true;
+				   text="MENU";
+				};
+				
+			};
+
+			new GuiControl() {
+			   canSaveDynamicFields = "0";
+			   Profile = "GuiMenuProfile";   
+			   HorizSizing = "right";
+			   VertSizing = "bottom";
+			   position = "0 0";
+			   Extent = "1000 640";
+			   MinExtent = "333 640";
+			   canSave = "1";
+			   Visible = "1";
+			   hovertime = "1000";
+			   isContainer=true;
+			   new GuiButtonCtrl(){
+					 canSaveDynamicFields = "0";
+				   Profile = "GuiButtonProfile";   
+				   HorizSizing = "right";
+				   VertSizing = "bottom";
+				   position = "275 100";
+				   Extent = "150 40";
 				   MinExtent = "2 2";
 				   canSave = "1";
 				   Visible = "1";
@@ -176,7 +206,49 @@ function createSidebar(){
 				  // isContainer=true;
 				   text="DISEASE";
 				};
-				
+				new GuiButtonCtrl(){
+					 canSaveDynamicFields = "0";
+				   Profile = "GuiButtonProfile";   
+				   HorizSizing = "right";
+				   VertSizing = "bottom";
+				   position = "400 100";
+				   Extent = "200 40";
+				   MinExtent = "2 2";
+				   canSave = "1";
+				   Visible = "1";
+				   hovertime = "1000";
+				  // isContainer=true;
+				   text="TRANSMISSION";
+				};
+				new GuiButtonCtrl(){
+					 canSaveDynamicFields = "0";
+				   Profile = "GuiButtonProfile";   
+				   HorizSizing = "right";
+				   VertSizing = "bottom";
+				   position = "575 100";
+				   Extent = "150 40";
+				   MinExtent = "2 2";
+				   canSave = "1";
+				   Visible = "1";
+				   hovertime = "1000";
+				  // isContainer=true;
+				   text="SYMPTOMS";
+				};
+
+				new GuiTabBookCtrl() {
+				   canSaveDynamicFields = "0";
+				   Profile = "GuiDefaultProfile";   
+				   HorizSizing = "right";
+				   VertSizing = "bottom";
+				   position = "200 150";
+				   Extent = "600 400";
+				   MinExtent = "2 2";
+				   canSave = "1";
+				   Visible = "1";
+				   hovertime = "1000";
+				   isContainer=true;
+				};
+
 			};
 				 
 			

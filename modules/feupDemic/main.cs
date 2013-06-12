@@ -35,7 +35,7 @@ function feupDemic::create( %this )
 	configureSceneWindow();
 	createScene();
 	
-	//myScene.setDebugOn("fps collision");
+	myScene.setDebugOn("fps collision");
 	
 	mySceneWindow.setScene(myScene);
 	mySceneWindow.setUseObjectInputEvents(true);
@@ -149,20 +149,20 @@ function mySceneWindow::onTouchUp(%this, %touchID, %worldPosition)
 function SceneWindow::onMouseWheelUp(%this, %modifier, %mousePoint, %mouseClickCount)
 {  
 	echo(%this.getMousePosition());
-	mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()+0.5);
-	mySceneWindow.setCameraPosition(%mousePoint);
+	mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()+0.1);
+	//mySceneWindow.setCameraPosition(%mousePoint);
 } 
 
 
 function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClickCount)
 {  
 	//echo("down");
-	if(mySceneWindow.getCameraZoom()-0.5<=0){
-		mySceneWindow.setCameraZoom(0.5);
+	if(mySceneWindow.getCameraZoom()-0.1<=0){
+		mySceneWindow.setCameraZoom(0.1);
 		mySceneWindow.setCameraPosition(0,0);
 	}else{
-		mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()-0.5);
-		mySceneWindow.setCameraPosition(%mousePoint);
+		mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()-0.1);
+		//mySceneWindow.setCameraPosition(%mousePoint);
 	}
 
 } 

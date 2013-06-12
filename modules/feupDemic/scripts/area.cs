@@ -19,6 +19,7 @@ function createArea(%id,%data){
 			};
 			%shape.setUseInputEvents(true);
 			%shape.setPolyCustom(getWordCount(%polPos)/2,%polPos);
+			echo("Vals:"@%polPos);
 			%shape.createPolygonCollisionShape(%polPos);
 			feupDemic.zones[feupDemic.zonesCount]=%shape;
 			feupDemic.zonesCount++;
