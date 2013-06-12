@@ -79,7 +79,7 @@ function feupDemic::create( %this )
 
 
 function populatePie(){
-	%pieData=createPieChart("50 25 25",0.5);
+	%pieData=createPieChart("45 30 25",0.5);
 if(%pieData!$=""){
 	%len=getUnitCount(%pieData,",");
 	for(%i=0;%i<%len;%i++){
