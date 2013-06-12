@@ -1,5 +1,5 @@
 function create_cure(){
-	%this=new ScriptObject(){ class="cure" };
+	%this=new ScriptObject(){ class="cure"; };
 	%this.progression=0;
 	%this.curing=0;
 }
