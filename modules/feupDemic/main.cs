@@ -50,7 +50,7 @@ function feupDemic::create( %this )
 	//mySceneWindow.setUseInputEvents();
 	mySceneWindow.addInputListener(%obj);
 
-
+	//createArea(1,"0/0 -0;-334 320 334 320 334 -320 -334 -320");
 	createAreas();
   drawAreas();
 
@@ -124,7 +124,7 @@ function createGrass(){
 
    new Sprite(grass);
  	 grass.setBodyType( static );
-    grass.Size = "1000" SPC "640";
+    grass.Size = "667" SPC "640";
     
     // Set the position.
     grass.setPosition("0 0");
