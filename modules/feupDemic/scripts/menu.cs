@@ -3,18 +3,27 @@ function createSidebar(){
 
 	
 
-		new GuiControl(sidebar) {
+		$bar=new GuiBackgroundCtrl(sidebar) {
 		   canSaveDynamicFields = "0";
-		   Profile = "GuiDefaultProfile";   
+		   Profile = "GuiMenuProfile";   
 		   HorizSizing = "right";
 		   VertSizing = "bottom";
-		   position = "300 0";
-		   Extent = "333 640";
-		   MinExtent = "333 640";
+		   position = "0 0";
+		   Extent = "0 0";
+		   MinExtent = "0 0";
 		   canSave = "1";
 		   Visible = "1";
+
 		   hovertime = "1000";
 		   isContainer=true;
+
+
+		   new SceneWindow(mySceneWindow){
+		   		Profile = GuiDefaultProfile;
+		   		position = "0 0";
+			   	Extent = "1000 640";
+		   };
+
 			new GuiControl() {
 			   canSaveDynamicFields = "0";
 			   Profile = "GuiMenuProfile";   
@@ -157,6 +166,8 @@ function createSidebar(){
 		};
 	
 	Canvas.pushDialog(sidebar);
-   
+   	
+				
+
 
 }

@@ -12,50 +12,63 @@ function populateFonts()
 
 function feupDemic::create( %this )
 {
+	//activateDirectInput();
+		
+	exec("./scripts/scenewindow.cs");
+	exec("./scripts/scene.cs");
+	exec("./gui/guiProfiles.cs");
+	//myScene.setDebugOn("fps collision");
+	exec(".scripts/menu.cs");
+	exec(".scripts/pieChartGen.cs");
+	exec(".scripts/area.cs");
+	//populateFonts();
+	
+	feupDemic.zonesCount=0;
+
+	%obj = new ScriptObject(Listener)  
+	{  
+	   //class="Listener";  
+	};  
+	createSidebar();
+	configureSceneWindow();
+	createScene();
+	
+	mySceneWindow.setScene(myScene);
+	mySceneWindow.setUseObjectInputEvents(true);
 	
 	
-exec("./scripts/scenewindow.cs");
-exec("./scripts/scene.cs");
-exec("./gui/guiProfiles.cs");
-//myScene.setDebugOn("fps collision");
-exec(".scripts/menu.cs");
-exec(".scripts/pieChartGen.cs");
-exec(".scripts/area.cs");
-//populateFonts();
+	SceneWindow.UseObjectInputEvents = true;  
+	//mySceneWindow.setUseInputEvents();
+	mySceneWindow.addInputListener(%obj);
+	createArea(2, "0 0;10 10 -10 10 -10 -10 10 -10,100 100;10 10 -10 10 -10 -10 10 -10");
 
-feupDemic.zonesCount=0;
+	drawAreas();
 
-%obj = new ScriptObject()  
-{  
-   class="Listener";  
-};  
+	populatePie();
+	echoInputState();
 
-createSceneWindow();
-createScene();
-createSidebar();
-mySceneWindow.addInputListener(%obj);
-mySceneWindow.setScene(myScene);
-createArea(2, "0 0;10 10 -10 10 -10 -10 10 -10,100 100;10 10 -10 10 -10 -10 10 -10");
-
-drawAreas();
-
-populatePie();
-
-
-/*%shape=new ShapeVector(){
-	Angle=90;
-	CircleRadius=100;
-	isCircle=true;
-	Position="0 0";
-};
-myScene.add(%shape);*/
+	/*%shape=new ShapeVector(){
+		Angle=90;
+		CircleRadius=100;
+		isCircle=true;
+		Position="0 0";
+	};
+	myScene.add(%shape);*/
 
 
 
-//Canvas.BackgroundColor = "Black";
+	//Canvas.BackgroundColor = "Black";
+	//echo(Canvas.getMouseControl());
+	mySceneWindow.setLockMouse(true);	
+
+	echo(mySceneWindow.getLockMouse());
 
 }
 
+
+function coiso(){
+	echo("click");
+}
 
 function populatePie(){
 	%pieData=createPieChart("50 25 25",0.5);
@@ -98,5 +111,37 @@ function feupDemic::destroy( %this )
 	destroySceneWindow();
 }
 
+
+function mySceneWindow::onTouchUp(%this, %touchID, %worldPosition)  
+{  
+	echo("click");
+}  
+
+
+
+function SceneWindow::onMouseWheelUp(%this, %modifier, %mousePoint, %mouseClickCount)
+{  
+	echo("up");
+	mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()+0.5);
+} 
+
+
+function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClickCount)
+{  
+	echo("down");
+	if(mySceneWindow.getCameraZoom()-0.5<=0){
+		mySceneWindow.setCameraZoom(0.5);
+	}else{
+		mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()-0.5);
+	}
+
+} 
+
+
+
+function SceneWindow::onTouchDown(%this, %touchid, %worldposition)  
+{  
+	echo("click");
+}  
 
 

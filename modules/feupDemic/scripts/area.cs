@@ -15,8 +15,9 @@ function createArea(%id,%data){
 				PolyList=%polPos;
 				FillMode=true;
 				id_Area=%id;
+				class="Area";
 			};
-
+			%shape.setUseInputEvents(true);
 			%shape.setPolyCustom(getWordCount(%polPos)/2,%polPos);
 			feupDemic.zones[feupDemic.zonesCount]=%shape;
 			feupDemic.zonesCount++;
@@ -30,3 +31,7 @@ function drawAreas(){
 	}
 }
 
+function Area::onTouchDown(%this, %touchID, %worldPosition)  
+{  
+	echo('click');
+}   
