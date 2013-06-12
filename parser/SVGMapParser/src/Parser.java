@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,17 +34,26 @@ public class Parser {
 		regions_ = importRegions();
 	}
 	
-	public void write(String path) {
+	public void write(String path) throws IOException {
 		if (regions_ == null) {
 			throw new NullPointerException();
 		}
 		
 		Locale default_locale = Locale.getDefault();
 		Locale.setDefault(Locale.US);
+			
+		File file = new File(SVGMapParser.OUTPUT_FILE);
+		FileWriter writer = new FileWriter(file);
+		
+		writer.write("function createAreas() {\n");
 		
 		for (Region region : regions_) {
-			System.out.println(region.toScript());
+			writer.write("\t" + region.toScript() + "\n");
 		}
+		
+		writer.write("}");
+		writer.flush();
+		writer.close();
 		
 		Locale.setDefault(default_locale);
 	}

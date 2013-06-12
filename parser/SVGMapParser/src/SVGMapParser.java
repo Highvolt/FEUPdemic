@@ -1,4 +1,6 @@
 
+import java.io.IOException;
+
 import org.dom4j.DocumentException;
 
 public class SVGMapParser {
@@ -19,6 +21,8 @@ public class SVGMapParser {
 		} catch (DocumentException e) {
 			e.printStackTrace();
 			return;
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		
 	}
