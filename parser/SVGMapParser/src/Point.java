@@ -1,15 +1,15 @@
 
 public class Point {
-	public final double x_;
-	public final double y_;
+	public final double x;
+	public final double y;
 	
 	public Point(double x, double y) {
-		x_ = x;
-		y_ = y;
+		this.x = x;
+		this.y = y;
 	}
 	
 	@Override
 	public String toString() {
-		return "x: " + x_ + " y: " + y_;
+		return "x: " + x + " y: " + y;
 	}
 }

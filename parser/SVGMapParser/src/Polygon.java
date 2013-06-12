@@ -26,19 +26,25 @@ public class Polygon {
 	}
 
 	public String toScript() {
-		StringBuilder xx_coordinates = new StringBuilder("[");
-		StringBuilder yy_coordinates = new StringBuilder("[");
+//		StringBuilder xx_coordinates = new StringBuilder("[");
+//		StringBuilder yy_coordinates = new StringBuilder("[");
 		
-		for (Point point : points_) {
-			xx_coordinates.append(point.x_).append(", ");
-			yy_coordinates.append(point.y_).append(", ");
-		}
-
-		xx_coordinates.deleteCharAt(xx_coordinates.length() - 1);
-		xx_coordinates.setCharAt(xx_coordinates.length() - 1, ']');
-		yy_coordinates.deleteCharAt(yy_coordinates.length() - 1);
-		yy_coordinates.setCharAt(yy_coordinates.length() - 1, ']');
+		double area = MathHelper.polygonArea(points_);
+		double centroid_x = MathHelper.centroidX(points_, area);
+		double centroid_y = MathHelper.centroidY(points_, area);
 		
-		return "[" + xx_coordinates.toString() + ", " + yy_coordinates.toString() + "]";
+//		for (Point point : points_) {
+//			xx_coordinates.append(point.x_).append(", ");
+//			yy_coordinates.append(point.y_).append(", ");
+//		}
+//
+//		xx_coordinates.deleteCharAt(xx_coordinates.length() - 1);
+//		xx_coordinates.setCharAt(xx_coordinates.length() - 1, ']');
+//		yy_coordinates.deleteCharAt(yy_coordinates.length() - 1);
+//		yy_coordinates.setCharAt(yy_coordinates.length() - 1, ']');
+//		
+//		return "[" + xx_coordinates.toString() + ", " + yy_coordinates.toString() + "]";
+		
+		return "\n[ centroid x: " + centroid_x + " centroid y: " + centroid_y + " area: " + area + "]\n";
 	}
 }
