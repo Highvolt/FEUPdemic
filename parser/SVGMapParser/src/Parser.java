@@ -61,7 +61,7 @@ public class Parser {
 			Node group = iterator.next();
 			id = group.valueOf("@id");
 			
-			Region region = new Region(id);
+			Region region = new Region(Integer.parseInt(id.substring(1)));
 			
 			List<Node> shapes_nodes = shapes.selectNodes(group);
 			Iterator<Node> shapes_iterator = shapes_nodes.iterator();

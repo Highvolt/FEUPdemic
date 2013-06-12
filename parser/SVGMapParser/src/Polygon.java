@@ -26,25 +26,22 @@ public class Polygon {
 	}
 
 	public String toScript() {
-//		StringBuilder xx_coordinates = new StringBuilder("[");
-//		StringBuilder yy_coordinates = new StringBuilder("[");
-		
 		double area = MathHelper.polygonArea(points_);
 		double centroid_x = MathHelper.centroidX(points_, area);
 		double centroid_y = MathHelper.centroidY(points_, area);
 		
-//		for (Point point : points_) {
-//			xx_coordinates.append(point.x_).append(", ");
-//			yy_coordinates.append(point.y_).append(", ");
-//		}
-//
-//		xx_coordinates.deleteCharAt(xx_coordinates.length() - 1);
-//		xx_coordinates.setCharAt(xx_coordinates.length() - 1, ']');
-//		yy_coordinates.deleteCharAt(yy_coordinates.length() - 1);
-//		yy_coordinates.setCharAt(yy_coordinates.length() - 1, ']');
-//		
-//		return "[" + xx_coordinates.toString() + ", " + yy_coordinates.toString() + "]";
+		StringBuilder script = new StringBuilder(centroid_x + " " + centroid_y + ";");
 		
-		return "\n[ centroid x: " + centroid_x + " centroid y: " + centroid_y + " area: " + area + "]\n";
+		boolean first = true;
+		for (Point point : points_) {
+			if (first) {
+				first = false;
+			} else {
+				script.append(" ");
+			}
+			script.append(point.x - SVGMapParser.X_OFFSET).append(" ").append((point.y - SVGMapParser.Y_OFFSET) * -1);
+		}
+		
+		return script.toString();
 	}
 }

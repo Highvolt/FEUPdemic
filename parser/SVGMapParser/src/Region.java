@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 
 public class Region {
-	private String id_;
+	private int id_;
 	private ArrayList<Polygon> polygons_;
 	
-	public Region(String id) {
+	public Region(int id) {
 		this(id, new ArrayList<Polygon>());
 	}
 	
-	public Region(String id, ArrayList<Polygon> polygons) {
+	public Region(int id, ArrayList<Polygon> polygons) {
 		id_ = id;
 		polygons_ = polygons;
 	}
@@ -17,7 +17,7 @@ public class Region {
 		polygons_.add(polygon);
 	}
 	
-	public String getId() {
+	public int getId() {
 		return id_;
 	}
 	
@@ -27,13 +27,20 @@ public class Region {
 	}
 	
 	public String toScript() {
-		String script = "createArea(\"" + id_ + "\", ";
+		StringBuilder script = new StringBuilder("createArea(" + id_ + ", \"");
 		
+		boolean first = true;
 		for (Polygon polygon : polygons_) {
-			script += polygon.toScript();
+			if (first) {
+				first = false;
+			} else {
+				script.append(",");
+			}
+			script.append(polygon.toScript());
 		}
 		
-		script += ");";
-		return script;
+		script.append("\");");
+		
+		return script.toString();
 	}
 }
