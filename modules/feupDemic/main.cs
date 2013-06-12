@@ -3,7 +3,7 @@
 function populateFonts()
 {      
       %font = "Minecraftia";      
-      %sizes = "12 18 24 32 36 64";      
+      %sizes = "12 16 18 24 32 36 64";      
       for (%i = 0; %i < getWordCount(%sizes); %i++)            
             populateFontCacheRange(%font, getWord(%sizes, %i), 32, 126);      
       writeFontCache();
@@ -13,7 +13,7 @@ function populateFonts()
 function feupDemic::create( %this )
 {
 	//activateDirectInput();
-		enableWinConsole(true);
+	enableWinConsole(false);
 	exec("./scripts/scenewindow.cs");
 	exec("./scripts/scene.cs");
 	exec("./gui/guiProfiles.cs");
@@ -21,7 +21,12 @@ function feupDemic::create( %this )
 	exec(".scripts/menu.cs");
 	exec(".scripts/pieChartGen.cs");
 	exec(".scripts/area.cs");
-  exec(".scripts/level.cs");
+    exec(".scripts/level.cs");
+    exec(".scripts/global.cs");
+    exec(".scripts/disease.cs");
+    exec(".scripts/cure.cs");
+    exec(".scripts/region.cs");
+    exec(".scripts/logic_main.cs");
 
 	//populateFonts();
 	
@@ -35,7 +40,7 @@ function feupDemic::create( %this )
 	configureSceneWindow();
 	createScene();
 	
-	//myScene.setDebugOn("fps collision");
+	myScene.setDebugOn("fps collision");
 	
 	mySceneWindow.setScene(myScene);
 	mySceneWindow.setUseObjectInputEvents(true);
@@ -74,7 +79,7 @@ function feupDemic::create( %this )
 
 
 function populatePie(){
-	%pieData=createPieChart("50 25 25",0.5);
+	%pieData=createPieChart("45 30 25",0.5);
 if(%pieData!$=""){
 	%len=getUnitCount(%pieData,",");
 	for(%i=0;%i<%len;%i++){
@@ -149,20 +154,20 @@ function mySceneWindow::onTouchUp(%this, %touchID, %worldPosition)
 function SceneWindow::onMouseWheelUp(%this, %modifier, %mousePoint, %mouseClickCount)
 {  
 	echo(%this.getMousePosition());
-	mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()+0.5);
-	mySceneWindow.setCameraPosition(%mousePoint);
+	mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()+0.1);
+	//mySceneWindow.setCameraPosition(%mousePoint);
 } 
 
 
 function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClickCount)
 {  
 	//echo("down");
-	if(mySceneWindow.getCameraZoom()-0.5<=0){
-		mySceneWindow.setCameraZoom(0.5);
+	if(mySceneWindow.getCameraZoom()-0.1<=0){
+		mySceneWindow.setCameraZoom(0.1);
 		mySceneWindow.setCameraPosition(0,0);
 	}else{
-		mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()-0.5);
-		mySceneWindow.setCameraPosition(%mousePoint);
+		mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()-0.1);
+		//mySceneWindow.setCameraPosition(%mousePoint);
 	}
 
 } 

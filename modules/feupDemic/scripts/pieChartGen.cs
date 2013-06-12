@@ -12,7 +12,7 @@ function createPieChart(%vals, %radius){
 	//echo(%count);
 	if(%count==100){
 		%count=0;
-		%stepVal=360/20;
+		%stepVal=360/16;
 		%start=0;
 		for(%i=0;%i<%len;%i++){
 			
