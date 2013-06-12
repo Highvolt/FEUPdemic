@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.dom4j.Document;
@@ -36,9 +37,14 @@ public class Parser {
 			throw new NullPointerException();
 		}
 		
+		Locale default_locale = Locale.getDefault();
+		Locale.setDefault(Locale.US);
+		
 		for (Region region : regions_) {
 			System.out.println(region.toScript());
 		}
+		
+		Locale.setDefault(default_locale);
 	}
 	
 	private ArrayList<Region> importRegions() throws DocumentException {

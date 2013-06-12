@@ -3,7 +3,7 @@ import org.dom4j.DocumentException;
 
 public class SVGMapParser {
 	public static final String INPUT_FILE = "C:\\Users\\Renato\\Dropbox\\Workspace\\DJCO\\FEUPdemic\\assets\\map\\map-picking.svg";
-	public static final String OUTPUT_FILE = "";
+	public static final String OUTPUT_FILE = "C:\\Users\\Renato\\Dropbox\\Workspace\\DJCO\\FEUPdemic\\modules\\feupDemic\\scripts\\level.cs";
 	
 	public static final int MAP_WIDTH = 1000;
 	public static final int MAP_HEIGHT = 640;
