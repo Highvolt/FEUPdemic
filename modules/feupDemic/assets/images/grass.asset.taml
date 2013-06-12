@@ -1,0 +1,9 @@
+<ImageAsset
+    AssetName="grass"
+    ImageFile="grass.jpg"
+    FilterMode="Nearest"
+    CellCountX="1"
+    CellCountY="1"
+    CellWidth="500"
+    CellHeight="500"
+    />

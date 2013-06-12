@@ -32,11 +32,12 @@ function feupDemic::create( %this )
 	createSidebar();
 	configureSceneWindow();
 	createScene();
+	
 	//myScene.setDebugOn("fps collision");
 	
 	mySceneWindow.setScene(myScene);
 	mySceneWindow.setUseObjectInputEvents(true);
-	
+	createGrass();
 	
 	SceneWindow.UseObjectInputEvents = true;  
 	//mySceneWindow.setUseInputEvents();
@@ -110,6 +111,22 @@ function feupDemic::destroy( %this )
 	destroySceneWindow();
 }
 
+
+function createGrass(){
+
+   new Sprite(grass);
+ 	 grass.setBodyType( static );
+    grass.Size = "1000" SPC "640";
+    
+    // Set the position.
+    grass.setPosition("0 0");
+	grass.SceneLayer = "31";
+   
+    grass.Image = "feupDemic:grass";
+            
+    
+    myScene.add( grass );   
+}
 
 function Sprite::onTouchDown(%this, %touchid, %worldposition)  
 {  
