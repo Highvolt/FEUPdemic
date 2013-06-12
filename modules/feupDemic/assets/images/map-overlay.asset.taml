@@ -1,0 +1,9 @@
+<ImageAsset
+    AssetName="map"
+    ImageFile="map-overlay.png"
+    FilterMode="Nearest"
+    CellCountX="1"
+    CellCountY="1"
+    CellWidth="667"
+    CellHeight="640"
+    />
