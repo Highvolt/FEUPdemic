@@ -147,25 +147,27 @@ function SceneWindow::onTouchDown(%this, %touchid, %worldposition)
 {  
 	echo("click");
 	 %this.OldTouchPosition = %worldposition;
+	 %this.OldCameraPosition= mySceneWindow.getCameraPosition();
 	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
 }  
 
 
 function SceneWindow::onTouchDragged(%this, %touchid, %worldposition)  
 {  
-	echo("drag" SPC %worldposition SPC "#" SPC %touchid SPC getRealTime());
+	//echo("drag" SPC %worldposition SPC "#" SPC %touchid SPC getRealTime());
 	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
 
 	%panOffset = Vector2Sub( %worldposition, %this.OldTouchPosition);
 
-    
+    %camOffset= Vector2Sub( mySceneWindow.getCameraPosition(), %this.OldCameraPosition);
     //%panOffset = Vector2Inverse( %panOffset );
 
     
     //%panOffset = Vector2Mult( %panOffset, mySceneWindow.getCameraWorldScale() );
     
-    
-    mySceneWindow.setCameraPosition( Vector2Sub( mySceneWindow.getCameraPosition(), %panOffset ) );
+    //echo(%panOffset);
+    %this.OldCameraPosition= mySceneWindow.getCameraPosition();
+    mySceneWindow.setCameraPosition( Vector2Add(Vector2Sub( mySceneWindow.getCameraPosition(), %panOffset ),%camOffset));
      %this.OldTouchPosition = %worldposition;
 
 }  
