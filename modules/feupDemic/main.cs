@@ -13,7 +13,7 @@ function populateFonts()
 function feupDemic::create( %this )
 {
 	//activateDirectInput();
-		enableWinConsole(true);
+	enableWinConsole(false);
 	exec("./scripts/scenewindow.cs");
 	exec("./scripts/scene.cs");
 	exec("./gui/guiProfiles.cs");
@@ -21,7 +21,12 @@ function feupDemic::create( %this )
 	exec(".scripts/menu.cs");
 	exec(".scripts/pieChartGen.cs");
 	exec(".scripts/area.cs");
-  exec(".scripts/level.cs");
+    exec(".scripts/level.cs");
+    exec(".scripts/global.cs");
+    exec(".scripts/disease.cs");
+    exec(".scripts/cure.cs");
+    exec(".scripts/region.cs");
+    exec(".scripts/logic_main.cs");
 
 	//populateFonts();
 	

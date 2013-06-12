@@ -1,5 +1,5 @@
-function create_region(%id, %temperature, %density, %tech_level, %population ){
-	%this=new ScriptObject(){ class="region" };
+function create_region(%id, %temperature, %density, %tech_level, %population, %neighbours){
+	%this=new ScriptObject(){ class="region"; };
 	%this.id = %id;
 	%this.temperature = %temperature;
 	%this.density = %density;
@@ -7,6 +7,8 @@ function create_region(%id, %temperature, %density, %tech_level, %population ){
 	%this.population = %population;
 	%this.infected = 0;
 	%this.deving_cure = 0;
+	%this.neighbours = %neighbours;
+	%this.nr_of_neighbours = getUnitCount(%neighbours,",");
 	return %this;
 }
 
@@ -14,9 +16,17 @@ function region::tick(){
 	//TODO
 }
 
+function region::propagate(){
+	for(%i = 0; %i < %this.nr_of_neighbours; %i++){
+		if(!getUnit(%this.neighbours,%i,",").is_infected()){
+			getUnit(%this.neighbours,%i,",").red_prob(%this);
+		}
+	}
+}
+
 function region::yellow_prob(){
 	if(gen() < $YELLOW_PROBABILITY){
-		create_yellow_popup(%this);
+		//create_yellow_popup(%this);
 	}
 }
 
@@ -27,7 +37,7 @@ function region::red_prob(%infecter){
 	%p+=%infected_on_infecter+%upgrades_percentages;
 
 	if( gen() < %p ){
-		create_red_popup(%this);
+		//create_red_popup(%this);
 		infect(1);
 	}
 }
