@@ -121,18 +121,21 @@ function mySceneWindow::onTouchUp(%this, %touchID, %worldPosition)
 
 function SceneWindow::onMouseWheelUp(%this, %modifier, %mousePoint, %mouseClickCount)
 {  
-	echo("up");
+	echo(%this.getMousePosition());
 	mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()+0.5);
+	mySceneWindow.setCameraPosition(%mousePoint);
 } 
 
 
 function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClickCount)
 {  
-	echo("down");
+	//echo("down");
 	if(mySceneWindow.getCameraZoom()-0.5<=0){
 		mySceneWindow.setCameraZoom(0.5);
+		mySceneWindow.setCameraPosition(0,0);
 	}else{
 		mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()-0.5);
+		mySceneWindow.setCameraPosition(%mousePoint);
 	}
 
 } 
@@ -142,6 +145,13 @@ function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClic
 function SceneWindow::onTouchDown(%this, %touchid, %worldposition)  
 {  
 	echo("click");
+}  
+
+
+function SceneWindow::onTouchDragged(%this, %touchid, %worldposition)  
+{  
+	echo("drag" SPC %worldposition);
+
 }  
 
 
