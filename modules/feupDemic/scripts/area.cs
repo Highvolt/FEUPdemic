@@ -2,7 +2,7 @@
 function createArea(%id,%data){
 	%polsLen=getUnitCount(%data,",");
 	for(%i=0;%i<%polsLen;%i++){
-		%pol=getUnit(%data,%i,",");
+		%pol=getUnit(getUnit(%data,%i,","),1,"/");
 		if(getUnitCount(%pol,";")==2){
 			%pos=getUnit(%pol,0,";");
 			%polPos=getUnit(%pol,1,";");
@@ -14,7 +14,8 @@ function createArea(%id,%data){
 				Position=%pos;
 				PolyList=%polPos;
 				FillMode=true;
-				id_Area=%id;
+				id_Area=getUnit(getUnit(%data,%i,","),0,"/");
+				idA=%id;
 				class="Area";
 			};
 			%shape.setUseInputEvents(true);
