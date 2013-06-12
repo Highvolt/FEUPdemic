@@ -4,6 +4,7 @@ density: density
 temperature: temperature
 technologic_level: technologic_level
 deving_cure:0
+id
 
 def tick
 	#check region types and disease strength
@@ -66,7 +67,7 @@ def prob_from_disease_infection_upgrades
 		end
 		case high:
 			p+= dens_high_lv1*DENS_HIGH_LV1_PROBABILITY+
-				dens_high_lv1*DENS_HIGH_LV2_PROBABILITY
+				dens_high_lv2*DENS_HIGH_LV2_PROBABILITY
 		end
 	end
 
@@ -86,7 +87,8 @@ def prob_from_disease_infection_upgrades
 	end
 
 	p+= tech_temp_lv3*TECH_TEMP_LV3_PROBABILITY+
-		temp_dens_lv3*TEMP_DENS_LV3_PROBABILITY
+		temp_dens_lv3*TEMP_DENS_LV3_PROBABILITY+
+		disease.infection_percentage*0.1
 
 
 	return p
