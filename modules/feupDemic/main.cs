@@ -115,6 +115,7 @@ function feupDemic::destroy( %this )
 function mySceneWindow::onTouchUp(%this, %touchID, %worldPosition)  
 {  
 	echo("click");
+	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
 }  
 
 
@@ -145,12 +146,27 @@ function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClic
 function SceneWindow::onTouchDown(%this, %touchid, %worldposition)  
 {  
 	echo("click");
+	 %this.OldTouchPosition = %worldposition;
+	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
 }  
 
 
 function SceneWindow::onTouchDragged(%this, %touchid, %worldposition)  
 {  
-	echo("drag" SPC %worldposition);
+	echo("drag" SPC %worldposition SPC "#" SPC %touchid SPC getRealTime());
+	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
+
+	%panOffset = Vector2Sub( %worldposition, %this.OldTouchPosition);
+
+    
+    //%panOffset = Vector2Inverse( %panOffset );
+
+    
+    //%panOffset = Vector2Mult( %panOffset, mySceneWindow.getCameraWorldScale() );
+    
+    
+    mySceneWindow.setCameraPosition( Vector2Sub( mySceneWindow.getCameraPosition(), %panOffset ) );
+     %this.OldTouchPosition = %worldposition;
 
 }  
 
