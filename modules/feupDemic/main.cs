@@ -130,7 +130,7 @@ function createGrass(){
     grass.setPosition("0 0");
 	grass.SceneLayer = "31";
    
-    grass.Image = "feupDemic:grass";
+    grass.Image = "feupDemic:map";
             
     
     myScene.add( grass );   
