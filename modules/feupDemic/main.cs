@@ -12,40 +12,66 @@ function populateFonts()
 
 function feupDemic::create( %this )
 {
+	//activateDirectInput();
+		enableWinConsole(true);
+	exec("./scripts/scenewindow.cs");
+	exec("./scripts/scene.cs");
+	exec("./gui/guiProfiles.cs");
 	
+	exec(".scripts/menu.cs");
+	exec(".scripts/pieChartGen.cs");
+	exec(".scripts/area.cs");
+	//populateFonts();
 	
-exec("./scripts/scenewindow.cs");
-exec("./scripts/scene.cs");
-exec("./gui/guiProfiles.cs");
-//myScene.setDebugOn("fps collision");
-exec(".scripts/menu.cs");
-exec(".scripts/pieChartGen.cs");
-//populateFonts();
+	feupDemic.zonesCount=0;
+
+	%obj = new ScriptObject(Listener)  
+	{  
+	   //class="Listener";  
+	};  
+	createSidebar();
+	configureSceneWindow();
+	createScene();
+	
+	//myScene.setDebugOn("fps collision");
+	
+	mySceneWindow.setScene(myScene);
+	mySceneWindow.setUseObjectInputEvents(true);
+	createGrass();
+	
+	SceneWindow.UseObjectInputEvents = true;  
+	//mySceneWindow.setUseInputEvents();
+	mySceneWindow.addInputListener(%obj);
+	createArea(2, "0 0;10 10 -10 10 -10 -10 10 -10,100 100;10 10 -10 10 -10 -10 10 -10");
+	createArea(3, "200 200;10 10 -10 10 -10 -10 10 -10,200 -200;10 10 -10 10 -10 -10 10 -10");
+	drawAreas();
+
+	populatePie();
+	echoInputState();
+
+	/*%shape=new ShapeVector(){
+		Angle=90;
+		CircleRadius=100;
+		isCircle=true;
+		Position="0 0";
+	};
+	myScene.add(%shape);*/
 
 
-createSceneWindow();
-createScene();
-createSidebar();
-mySceneWindow.setScene(myScene);
 
-populatePie();
-/*%shape=new ShapeVector(){
-	Angle=90;
-	CircleRadius=100;
-	isCircle=true;
-	Position="0 0";
-};
-myScene.add(%shape);*/
-
-
-
-//Canvas.BackgroundColor = "Black";
+	//Canvas.BackgroundColor = "Black";
+	//echo(Canvas.getMouseControl());
+	//mySceneWindow.setLockMouse(true);	
+	
+	echo(mySceneWindow.getLockMouse());
 
 }
 
 
+
+
 function populatePie(){
-	%pieData=createPieChart("70 20 10",0.5);
+	%pieData=createPieChart("50 25 25",0.5);
 if(%pieData!$=""){
 	%len=getUnitCount(%pieData,",");
 	for(%i=0;%i<%len;%i++){
@@ -84,4 +110,100 @@ function feupDemic::destroy( %this )
 {
 	destroySceneWindow();
 }
+
+
+function createGrass(){
+
+   new Sprite(grass);
+ 	 grass.setBodyType( static );
+    grass.Size = "1000" SPC "640";
+    
+    // Set the position.
+    grass.setPosition("0 0");
+	grass.SceneLayer = "31";
+   
+    grass.Image = "feupDemic:grass";
+            
+    
+    myScene.add( grass );   
+}
+
+function Sprite::onTouchDown(%this, %touchid, %worldposition)  
+{  
+	echo("click Sprite");
+	 
+	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
+}
+
+function mySceneWindow::onTouchUp(%this, %touchID, %worldPosition)  
+{  
+	//echo("click");
+	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
+}  
+
+
+
+function SceneWindow::onMouseWheelUp(%this, %modifier, %mousePoint, %mouseClickCount)
+{  
+	echo(%this.getMousePosition());
+	mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()+0.5);
+	mySceneWindow.setCameraPosition(%mousePoint);
+} 
+
+
+function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClickCount)
+{  
+	//echo("down");
+	if(mySceneWindow.getCameraZoom()-0.5<=0){
+		mySceneWindow.setCameraZoom(0.5);
+		mySceneWindow.setCameraPosition(0,0);
+	}else{
+		mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()-0.5);
+		mySceneWindow.setCameraPosition(%mousePoint);
+	}
+
+} 
+
+
+
+function SceneWindow::onTouchDown(%this, %touchid, %worldposition)  
+{  
+	//echo("click");
+	 %this.OldTouchPosition = %worldposition;
+	 %this.OldCameraPosition= mySceneWindow.getCameraPosition();
+	/* %ret=myScene.pickPoint(%worldposition,"","","any");
+	 echo(%ret);
+	 if(%ret!$=""){
+	 	%len=getWordCount(%ret);
+	 	for(%i=0;%i<%len;%i++){
+	 		%obj=getWord(%ret,%i);
+	 		if(%obj.id_Area){
+	 			echo(%obj.id_Area);
+	 		}
+	 	}
+	 }*/
+	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
+}  
+
+
+function SceneWindow::onTouchDragged(%this, %touchid, %worldposition)  
+{  
+	//echo("drag" SPC %worldposition SPC "#" SPC %touchid SPC getRealTime());
+	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
+
+	%panOffset = Vector2Sub( %worldposition, %this.OldTouchPosition);
+
+    %camOffset= Vector2Sub( mySceneWindow.getCameraPosition(), %this.OldCameraPosition);
+    //%panOffset = Vector2Inverse( %panOffset );
+
+    
+    //%panOffset = Vector2Mult( %panOffset, mySceneWindow.getCameraWorldScale() );
+    
+    //echo(%panOffset);
+    %this.OldCameraPosition= mySceneWindow.getCameraPosition();
+    mySceneWindow.setCameraPosition( Vector2Add(Vector2Sub( mySceneWindow.getCameraPosition(), %panOffset ),%camOffset));
+     %this.OldTouchPosition = %worldposition;
+
+}  
+
 

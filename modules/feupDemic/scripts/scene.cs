@@ -10,7 +10,7 @@ function createScene()
   // $superScene=myScene;
     //myScene.Gravity="0, -9.8";
 echo(myScene.getGravity());
-myScene.setDebugOn("collision");
+//myScene.setDebugOn("collision");
 
   //  myScene.setDefaultFriction("0.0");
    

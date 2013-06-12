@@ -113,3 +113,36 @@ new GuiControlProfile (GuiButtonProfile){
     
 };  
 
+
+new GuiControlProfile (GuiLogProfile){
+     // font
+    fontType = $platformFontType;
+    fontSize =24;
+    
+    fillColor="12 12 12";
+    fillColorHL="0 0 0";
+    fillColorNA="0 0 0";
+
+opaque = 1;
+ 
+border = 0;
+
+     //bitmap = "^feupDemic/gui/images/gray_button.png";
+    // hasBitmapArray = true;
+    fontColor = "255 255 255";
+    fontColorHL = "32 100 100";
+    fontColorNA = "0 0 0";
+    fontColorSEL= "10 10 10";
+    //opaque=1;
+     // used by guiTextControl
+    modal = true;
+    justify = "center";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+    
+    
+};  
+
