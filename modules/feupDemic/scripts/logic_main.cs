@@ -26,7 +26,7 @@ $regions[18]=create_region(18, "18", "hot", "low", "primitive", 503, "19,20,21,2
 $regions[19]=create_region(19, "19", "hot", "low", "primitive", 503, "17,20,21,18,9");
 $regions[20]=create_region(20, "20", "hot", "low", "primitive", 503, "19,18,21");
 $regions[21]=create_region(21, "21", "hot", "low", "primitive", 503, "43,20,25");
-$regions[22]=create_region(22, "5", "hot", "low", "primitive", 503, "1");//cant find it
+$regions[22]=create_region(22, "5", "hot", "low", "primitive", 503, "43,21");
 $regions[23]=create_region(23, "5", "hot", "low", "primitive", 503, "24,41,32");
 $regions[24]=create_region(24, "5", "hot", "low", "primitive", 503, "25,41,23,44,31");
 $regions[25]=create_region(25, "5", "hot", "low", "primitive", 503, "24,21,27,26,18");
@@ -56,10 +56,10 @@ $regions[48]=create_region(48, "5", "hot", "low", "primitive", 503, "46,47,42,17
 $regions[49]=create_region(49, "5", "hot", "low", "primitive", 503, "14,28,50");
 $regions[50]=create_region(50, "5", "hot", "low", "primitive", 503, "49");
 $regions[51]=create_region(51, "5", "hot", "low", "primitive", 503, "14,52,55");
-$regions[52]=create_region(52, "5", "hot", "low", "primitive", 503, "51,55");
-$regions[53]=create_region(53, "5", "hot", "low", "primitive", 503, "1");//cant find it
-$regions[54]=create_region(54, "5", "hot", "low", "primitive", 503, "56");
-$regions[55]=create_region(55, "5", "hot", "low", "primitive", 503, "56,51,52");
+$regions[52]=create_region(52, "5", "hot", "low", "primitive", 503, "51,55,53");
+$regions[53]=create_region(53, "5", "hot", "low", "primitive", 503, "52,51,55");
+$regions[54]=create_region(54, "5", "hot", "low", "primitive", 503, "56,55");
+$regions[55]=create_region(55, "5", "hot", "low", "primitive", 503, "56,51,52,53,54");
 $regions[56]=create_region(56, "5", "hot", "low", "primitive", 503, "55,54");
 
 $regions[0].infect(2);
