@@ -346,6 +346,21 @@ function createSidebar() {
 				   Visible = "1";
 				   hovertime = "1000";
 				   isContainer=true;
+
+					 new GuiBitmapCtrl() {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiDefaultProfile";   
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "4 4";
+						   Extent = "992 632";
+						   MinExtent = "333 640";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						   bitmap = "^feupDemic/gui/images/hexagonal_grid.png";
+						   //isContainer=true;
+					};
 				   new GuiButtonCtrl(){
 						 canSaveDynamicFields = "0";
 					   Profile = "GuiLeftButtonProfile";   
