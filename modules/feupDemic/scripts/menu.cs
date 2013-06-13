@@ -177,7 +177,7 @@ function createSidebar() {
 						   HorizSizing = "right";
 						   VertSizing = "bottom";
 						   position = "5 5";
-						   Extent = "230 15";
+						   Extent = "234 12";
 						   MinExtent = "2 2";
 						   canSave = "1";
 						   Visible = "1";
@@ -221,7 +221,7 @@ function createSidebar() {
 						   HorizSizing = "right";
 						   VertSizing = "bottom";
 						   position = "5 5";
-						   Extent = "230 15";
+						   Extent = "234 12";
 						   MinExtent = "2 2";
 						   canSave = "1";
 						   Visible = "1";
@@ -264,7 +264,7 @@ function createSidebar() {
 						   HorizSizing = "right";
 						   VertSizing = "bottom";
 						   position = "5 5";
-						   Extent = "230 15";
+						   Extent = "234 12";
 						   MinExtent = "2 2";
 						   canSave = "1";
 						   Visible = "1";
@@ -275,19 +275,7 @@ function createSidebar() {
 					/*
 					 * DNA
 					 */
-					new GuiTextCtrl() {
-						   canSaveDynamicFields = "0";
-						   Profile = "GuiDnaBarLabelProfile";
-						   HorizSizing = "right";
-						   VertSizing = "bottom";
-						   position = "80 528";
-						   Extent = "100 50";
-						   MinExtent = "2 4";
-						   canSave = "1";
-						   Visible = "1";
-						   hovertime = "1000";
-						   text="DNA";
-					};
+					
 
 					new GuiSpriteCtrl(dna_bar) {
 						canSaveDynamicFields = "0";
@@ -307,11 +295,24 @@ function createSidebar() {
 						   HorizSizing = "right";
 						   VertSizing = "bottom";
 						   position = "5 5";
-						   Extent = "230 28";
+						   Extent = "234 28";
 						   MinExtent = "2 2";
 						   canSave = "1";
 						   Visible = "1";
 						   hovertime = "1000";
+						};
+						new GuiTextCtrl() {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiDnaBarLabelProfile";
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "32 0";
+						   Extent = "100 38";
+						   MinExtent = "2 4";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						   text="DNA";
 						};
 					};
 

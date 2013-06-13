@@ -28,6 +28,7 @@ function feupDemic::create( %this )
   exec(".scripts/region.cs");
   exec(".scripts/logic_main.cs");
   exec(".scripts/popUP.cs");
+  exec(".scripts/statistics.cs");
 
 	//populateFonts();
 	feupDemic.pops="";
@@ -46,7 +47,7 @@ function feupDemic::create( %this )
 	mySceneWindow.setScene(myScene);
 	mySceneWindow.setUseObjectInputEvents(true);
 	createGrass();
-	
+	initializeBars();
 	SceneWindow.UseObjectInputEvents = true;  
 	//mySceneWindow.setUseInputEvents();
 	mySceneWindow.addInputListener(%obj);
