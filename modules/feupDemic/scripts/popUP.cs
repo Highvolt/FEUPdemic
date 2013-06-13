@@ -8,11 +8,11 @@ function createPopup(%region,%kind){
 	%obj.kind=%kind;
 	//echo(%v.id_Area);
 	%obj.setUseInputEvents(true);
-	%obj.Position=feupDemic.zones[%region.id].Position;
+	%obj.Position=vector2Sub(feupDemic.zones[%region.id].Position,"0 -15");
 	echo(feupDemic.zones[%region.id].Position);
-	%obj.createPolygonBoxCollisionShape("20", "20");
+	%obj.createPolygonBoxCollisionShape("20", "35");
 	
-	%obj.OriginalSize="20 20";
+	%obj.OriginalSize="20 35";
 	%obj.Size=Vector2Mult( %obj.OriginalSize, mySceneWindow.getCameraWorldScale() );
 	%obj.Image="feupDemic:yellow";
 	if(%kind$="red"){

@@ -18,6 +18,8 @@ function createArea(%id,%data){
 				FillMode=true;
 				id_Area=getUnit(getUnit(%pol,0,";"),0,"/");
 				id_A=%id;
+				SceneGroup=1;
+				SceneLayer=2;
 				class="Area";
 			};
 			%shape.setUseInputEvents(true);
@@ -32,6 +34,7 @@ function createArea(%id,%data){
 
 function drawAreas(){
 	for(%i=0;%i<feupDemic.zonesCount;%i++){
+		echo("zone" SPC feupDemic.zones[%i]);
 		myScene.add(feupDemic.zones[%i]);
 	}
 }

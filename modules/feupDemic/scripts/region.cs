@@ -118,7 +118,7 @@ function region::infect(%this, %n){
 }
 
 function region::kill(%this, %n){
-   if(%this.%infected>=%n){
+   if(%this.infected>=%n){
       %this.infected -= %n;
       %this.death += %n;
    }
