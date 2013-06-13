@@ -42,10 +42,51 @@ function setOpacity(%region,%percentage){
 
 }
 
+
+function graphTimer::updateGraph(%this){
+	%pop=%this.selected.population;
+	%inf=%this.selected.infected;
+	%death=%this.selected.death;
+	%healty=%pop-%inf;
+	%healty-=%death;
+	%inf=%inf/%pop;
+	%inf=%inf*100;
+	%death=%death/%pop;
+	%death=%death*100;
+	%healty=%healty/%pop;
+	%healty=%healty*100;
+	populatePie(%healty SPC %inf SPC %death);
+}
+
 function Area::onTouchDown(%this, %touchID, %worldPosition)  
 {  
+	
+
 	echo("clicked area with id" SPC %this.id_Area);
 	LogClick.setText("clicked area with id" SPC %this.id_Area);
+	%pop=$regions[%this.id_Area].population;
+	%inf=$regions[%this.id_Area].infected;
+	%death=$regions[%this.id_Area].death;
+	%healty=%pop-%inf;
+	%healty-=%death;
+	%inf=%inf/%pop;
+	%inf=%inf*100;
+	%death=%death/%pop;
+	%death=%death*100;
+	%healty=%healty/%pop;
+	%healty=%healty*100;
+	populatePie(%healty SPC %inf SPC %death);
+	//$selected=
+	if ( isObject($timerGraph) ){
+		$timerGraph.stopTimer();
+		$timerGraph.delete();
+	}
+	$timerGraph=new SimObject(){
+		class="graphTimer";
+		selected=$regions[%this.id_Area];
+	};
+	$timerGraph.startTimer(updateGraph,500);
 	//LogClick.setText($regions[%this.id_Area].name SPC $regions[%this.id_Area].infected);
 }  
+
 

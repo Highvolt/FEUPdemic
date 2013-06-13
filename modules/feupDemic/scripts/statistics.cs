@@ -13,6 +13,7 @@ function initializeBars(){
 				
 	};
 	infectivityValue.setPolyCustom(4,"-1 1 1 1 1 -1 -1 -1");
+	setInfectivity(0);
 	infectivityBar.setSceneObject(infectivityValue);
 	new ShapeVector(severityValue){
 				//Angle=90;
@@ -27,6 +28,7 @@ function initializeBars(){
 				
 	};
 	severityValue.setPolyCustom(4,"-1 1 1 1 1 -1 -1 -1");
+	setSeverity(0);
 	severityBar.setSceneObject(severityValue);
 	new ShapeVector(lethalityValue){
 				//Angle=90;
@@ -41,6 +43,7 @@ function initializeBars(){
 				
 	};
 	lethalityValue.setPolyCustom(4,"-1 1 1 1 1 -1 -1 -1");
+	setLethality(0);
 	lethalityBar.setSceneObject(lethalityValue);
 	new ShapeVector(dnaValue){
 				//Angle=90;
@@ -55,6 +58,44 @@ function initializeBars(){
 				
 	};
 	dnaValue.setPolyCustom(4,"-1 1 1 1 1 -1 -1 -1");
+	setDna(0);
 	dnaBar.setSceneObject(dnaValue);
 
 }
+
+function setInfectivity(%i){
+	%per=%i*2;//-1;
+	%per=%per-1;
+	%value=setWord("-1 1 1 1 1 -1 -1 -1",2,%per);
+	%value=setWord(%value,4,%per);
+	infectivityValue.setPolyCustom(4,%value);
+
+}
+
+function setSeverity(%i){
+	%per=%i*2;//-1;
+	%per=%per-1;
+	%value=setWord("-1 1 1 1 1 -1 -1 -1",2,%per);
+	%value=setWord(%value,4,%per);
+	severityValue.setPolyCustom(4,%value);
+
+}
+
+function setLethality(%i){
+	%per=%i*2;//-1;
+	%per=%per-1;
+	%value=setWord("-1 1 1 1 1 -1 -1 -1",2,%per);
+	%value=setWord(%value,4,%per);
+	lethalityValue.setPolyCustom(4,%value);
+
+}
+function setDna(%i){
+	%per=(%i/100);//*2-1;
+	%per=%per*2;
+	%per=%per-1;
+	%value=setWord("-1 1 1 1 1 -1 -1 -1",2,%per);
+	%value=setWord(%value,4,%per);
+	dnaValue.setPolyCustom(4,%value);
+
+}
+
