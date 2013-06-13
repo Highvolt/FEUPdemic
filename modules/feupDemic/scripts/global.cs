@@ -1,4 +1,4 @@
-$YELLOW_PROBABILITY = 0.001;
+$YELLOW_PROBABILITY = 0.0001;
 
 //INFECTIONS
 //probabilities
@@ -83,9 +83,13 @@ $DENS_MEDIUM_LV2_INFECTION_P=0.01;
 $DENS_HIGH_LV1_INFECTION_P=0.01;
 $DENS_HIGH_LV2_INFECTION_P=0.01;
 
+$INFECTED_ON_INFECTER_RATIO=0.01; //has to be lower -- 0.01
+
 //enum temperature = {cold, temperate, hot}
 //enum density = {low, medium, high}
 //enum technologic_level = { primitive, medium ,hitech}
+
+
 
 function gen(){
 	return getRandomF(0,1);

@@ -1,5 +1,5 @@
 
-
+//should poll active region for status
 function createPieChart(%vals, %radius){
 	%len=getWordCount(%vals);
 	%ret="";

@@ -7,6 +7,7 @@ function create_region(%id, %name, %temperature, %density, %tech_level, %populat
 	%this.tech_level = %tech_level;
 	%this.population = %population;
 	%this.infected = 0;
+	%this.death = 0;
 	%this.deving_cure = false;
 	%this.neighbours = %neighbours;
 	%this.nr_of_neighbours = getUnitCount(%neighbours,",");
@@ -15,22 +16,27 @@ function create_region(%id, %name, %temperature, %density, %tech_level, %populat
 }
 
 function region::tick(%this){
-	//TODO
+   if(gen() < 0.1)
+	   %this.infect(1);
+   if(gen() < 0.01)
+      %this.kill(1);
 }
 
 function region::propagate(%this){
-	for(%i = 0; %i < %this.nr_of_neighbours; %i++){
-	   %reg = $regions[getUnit(%this.neighbours,%i,",")];
-		if(!%reg.is_infected()){
-         %reg.red_prob(%this);
-		}
-	}
+   if(%this.is_infected()){
+      for(%i = 0; %i < %this.nr_of_neighbours; %i++){
+         %reg = $regions[getUnit(%this.neighbours,%i,",")];
+         if(!%reg.is_infected()){
+            %reg.red_prob(%this);
+         }
+      }
+   }
 }
 
 function region::yellow_prob(%this){
   
    %g = gen();
-   echo("g:" SPC %g SPC "yellow:" SPC $YELLOW_PROBABILITY SPC %this.has_popup);
+   //echo("g:" SPC %g SPC "yellow:" SPC $YELLOW_PROBABILITY SPC %this.has_popup);
 	if(%g < $YELLOW_PROBABILITY){
 	   if(!%this.has_popup){
 		   createPopup(%this,"yellow");
@@ -41,7 +47,7 @@ function region::yellow_prob(%this){
 
 function region::red_prob(%this, %infecter){
 	%p = 0;
-	%infected_on_infecter = %infecter.infected/%infecter.population;
+	%infected_on_infecter = %infecter.infected/%infecter.population*$INFECTED_ON_INFECTER_RATIO;
 	%upgrades_percentages = %this.prob_from_infection_upgrades();
 	%p+=%infected_on_infecter+%upgrades_percentages;
 	%g = gen();
@@ -106,7 +112,7 @@ function region::prob_from_infection_upgrades(%this){
 
 function region::infect(%this, %n){
 	%this.infected += %n;
-	setOpacity(%this,%this.infected/%this.population);
+	setOpacity(%this,((%this.infected+%this.death)/%this.population));
 }
 
 function region::kill(%this, %n){
