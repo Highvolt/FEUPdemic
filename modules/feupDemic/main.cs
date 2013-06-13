@@ -55,7 +55,7 @@ function feupDemic::create( %this )
 	createAreas();
   drawAreas();
 
-	populatePie();
+	populatePie("45 30 25");
 	//echoInputState();
 	%region =new ScriptObject(){ class="region"; };
 	%region.id=0;
@@ -81,41 +81,7 @@ function feupDemic::create( %this )
 
 
 
-function populatePie(){
-	%pieData=createPieChart("45 30 25",0.5);
-if(%pieData!$=""){
-	%len=getUnitCount(%pieData,",");
-	for(%i=0;%i<%len;%i++){
-		//echo(getUnit(%pieData,%i,","));
-		%vals=getUnit(%pieData,%i,",");
-		%shape=new ShapeVector(){
-			//Angle=90;
-			Size="1 1";
-			CircleRadius=20;
-			isCircle=false;
-			Position="0 0";
-			PolyList=%vals;
-			FillMode=true;
-		};
 
-		%shape.setPolyCustom(getWordCount(%vals)/2,%vals);
-		//echo(getWordCount(%vals)/2);
-		//echo(%shape.getPoly());
-		//myScene.add(%shape);
-		if(%i==0){
-			%shape.setFillColor("0.0 0.0 1.0");
-			wellChart.setSceneObject(%shape);
-			//wellChart.setCaption("1");
-		}else if(%i==1){
-			%shape.setFillColor("1.0 0.0 0.0");
-			infectedChart.setSceneObject(%shape);
-		}else{
-			%shape.setFillColor("0.0 0.0 0.0");
-			deadChart.setSceneObject(%shape);
-		}
-	}
-}
-}
 
 function feupDemic::destroy( %this )
 {
