@@ -99,7 +99,7 @@ function createSidebar() {
 					   hovertime = "1000";
 					};
 
-					 new GuiControl() {
+					/* new GuiControl() {
 					   canSaveDynamicFields = "0";
 					   Profile = "GuiLogProfile";   
 					   HorizSizing = "right";
@@ -126,7 +126,7 @@ function createSidebar() {
 						   text="Log";
 						};
 						
-					};
+					};*/
 
 					new GuiTextCtrl(LogClick) {   ////TODO REMOVE
 						   canSaveDynamicFields = "0";
@@ -170,6 +170,20 @@ function createSidebar() {
 						canSave = "1";
 						Visible = "1";
 						Image="feupDemic:bar";
+						isContainer=true;
+						new GuiSceneObjectCtrl(infectivityBar) {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiMenuProfile";   
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "5 5";
+						   Extent = "230 15";
+						   MinExtent = "2 2";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						};
+
 					};
 
 					/*
@@ -200,6 +214,19 @@ function createSidebar() {
 						canSave = "1";
 						Visible = "1";
 						Image="feupDemic:bar";
+						isContainer=true;
+						new GuiSceneObjectCtrl(severityBar) {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiMenuProfile";   
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "5 5";
+						   Extent = "230 15";
+						   MinExtent = "2 2";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						};
 					};
 
 					/*
@@ -230,6 +257,19 @@ function createSidebar() {
 						canSave = "1";
 						Visible = "1";
 						Image="feupDemic:bar";
+						isContainer=true;
+						new GuiSceneObjectCtrl(lethalityBar) {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiMenuProfile";   
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "5 5";
+						   Extent = "230 15";
+						   MinExtent = "2 2";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						};
 					};
 
 					/*
@@ -260,6 +300,19 @@ function createSidebar() {
 						canSave = "1";
 						Visible = "1";
 						Image="feupDemic:dna_bar";
+						isContainer=true;
+						new GuiSceneObjectCtrl(dnaBar) {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiMenuProfile";   
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "5 5";
+						   Extent = "230 28";
+						   MinExtent = "2 2";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						};
 					};
 
 					new GuiButtonCtrl(){
