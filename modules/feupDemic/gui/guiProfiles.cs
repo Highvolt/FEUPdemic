@@ -78,6 +78,38 @@ new GuiControlProfile (GuiMenuProfile) {
     
 };  
 
+new GuiControlProfile (GuiHexProfile) {
+     // font
+    fontType = $platformFontType;
+    fontSize =24;
+    
+    /*fillColor="64 64 64";
+    fillColorHL="0 0 0";
+    fillColorNA="0 0 0";*/
+
+    opaque = false;
+     
+    border = -2;
+
+     bitmap = "^feupDemic/gui/images/hexagonal_grid.png";
+    // hasBitmapArray = true;
+    fontColor = "255 255 255";
+    fontColorHL = "32 100 100";
+    fontColorNA = "0 0 0";
+    fontColorSEL= "10 10 10";
+    //opaque=1;
+     // used by guiTextControl
+    modal = true;
+    justify = "center";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+    
+    
+};  
+
 new GuiControlProfile(GuiBarProfile) {  
     opaque = 1;
      border=0;
