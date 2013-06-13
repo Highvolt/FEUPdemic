@@ -5,6 +5,7 @@ function create_disease(){
 	%this.severity_percentage=0.2;
 	%this.fatality_percentage=0.2;
 	
+	%this.world_total=10833;
 	%this.world_uninfected=10833;
 	%this.world_infected=0;
 	%this.world_death=0;
