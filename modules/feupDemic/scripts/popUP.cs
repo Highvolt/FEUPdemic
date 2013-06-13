@@ -9,7 +9,7 @@ function createPopup(%region,%kind){
 	//echo(%v.id_Area);
 	%obj.setUseInputEvents(true);
 	%obj.OriginalPos=feupDemic.zones[%region.id].Position;
-	%obj.Position=vector2Sub(feupDemic.zones[%region.id].Position,"0 -19");
+	//%obj.Position=vector2Sub(feupDemic.zones[%region.id].Position,"0 -19");
 	echo(feupDemic.zones[%region.id].Position);
 	%obj.createPolygonBoxCollisionShape("31", "48");
 	
