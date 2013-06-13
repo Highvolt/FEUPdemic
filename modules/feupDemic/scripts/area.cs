@@ -59,6 +59,7 @@ function graphTimer::updateGraph(%this){
 	%healty=%healty/%pop;
 	%healty=%healty*100;
 	populatePie(%healty SPC %inf SPC %death);
+	LogClick.setText("id:" SPC %this.selected.id SPC "inf:" SPC $disease.world_infected SPC "dea:" SPC $disease.world_death);
 }
 
 function Area::onTouchDown(%this, %touchID, %worldPosition)  
@@ -66,10 +67,10 @@ function Area::onTouchDown(%this, %touchID, %worldPosition)
 	
 
 	echo("clicked area with id" SPC %this.id_Area);
-	LogClick.setText("clicked area with id" SPC %this.id_Area);
 	%pop=$regions[%this.id_Area].population;
 	%inf=$regions[%this.id_Area].infected;
 	%death=$regions[%this.id_Area].death;
+	//LogClick.setText("id:" SPC %this.id_Area SPC "inf:" SPC %inf SPC "dea:" SPC %death);
 	%healty=%pop-%inf;
 	%healty-=%death;
 	%inf=%inf/%pop;
