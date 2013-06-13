@@ -87,3 +87,10 @@ function disease::kill(%this, %n){
    %this.world_infected-=%n;
    %this.world_death+=%n;
 }
+
+function disease::updateMenu(%this){
+	//echo("########################" TAB %this.infection_percentage);
+	setInfectivity(%this.infection_percentage);
+	setSeverity(%this.severity_percentage);
+	setLethality(%this.fatality_percentage);
+}
