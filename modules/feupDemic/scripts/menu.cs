@@ -294,26 +294,25 @@ function createSidebar() {
 				   isContainer=true;
 				   new GuiButtonCtrl(){
 						 canSaveDynamicFields = "0";
-					   Profile = "GuiButtonProfile";   
+					   Profile = "GuiLeftButtonProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
-					   position = "275 100";
-					   Extent = "150 40";
+					   position = "260 100";
+					   Extent = "170 40";
 					   MinExtent = "2 2";
 					   canSave = "1";
 					   Visible = "1";
 					   hovertime = "1000";
-					  // isContainer=true;
 					   text="TRANSMISSION";
 					   Command="changeToTab(1);";
 					};
 					new GuiButtonCtrl(){
 						 canSaveDynamicFields = "0";
-					   Profile = "GuiButtonProfile";   
+					   Profile = "GuiMiddleButtonProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
 					   position = "400 100";
-					   Extent = "200 40";
+					   Extent = "226 40";
 					   MinExtent = "2 2";
 					   canSave = "1";
 					   Visible = "1";
@@ -324,11 +323,11 @@ function createSidebar() {
 					};
 					new GuiButtonCtrl(){
 						 canSaveDynamicFields = "0";
-					   Profile = "GuiButtonProfile";   
+					   Profile = "GuiRightButtonProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
 					   position = "575 100";
-					   Extent = "150 40";
+					   Extent = "188 40";
 					   MinExtent = "2 2";
 					   canSave = "1";
 					   Visible = "1";
@@ -361,23 +360,20 @@ function createSidebar() {
 							   canSave = "1";
 							   Visible = "1";
 							   hovertime = "1000";
-							   isContainer=true;
-							   new GuiTextCtrl() {  
-								   canSaveDynamicFields = "0";
-								   Profile = "GuiLogProfile";   
-								   HorizSizing = "right";
-								   VertSizing = "bottom";
-								   position = "0 0";
-								   Extent = "323 50";
-								   MinExtent = "2 4";
-								   canSave = "1";
-								   Visible = "1";
-								   hovertime = "1000";
-								  // isContainer=true;
-								   text="1";
-								
-									 
-									
+							   isContainer = true;
+
+							  new GuiTextCtrl() {  
+								  canSaveDynamicFields = "0";
+								  Profile = "GuiLogProfile";   
+								  HorizSizing = "right";
+								  VertSizing = "bottom";
+								  position = "0 0";
+								  Extent = "323 50";
+								  MinExtent = "2 4";
+								  canSave = "1";
+								  Visible = "1";
+								  hovertime = "1000";
+								  text="1";
 								};
 						   
 							};

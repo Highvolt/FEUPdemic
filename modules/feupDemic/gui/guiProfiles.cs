@@ -114,6 +114,68 @@ new GuiControlProfile (GuiButtonProfile){
     cursorColor = "0 0 0 255";
 };  
 
+new GuiControlProfile (GuiLeftButtonProfile){
+    fontType = $platformFontType;
+    fontSize = 16;
+
+    bitmap = "^feupDemic/gui/images/red_button_left.png";
+
+    fontColor = "255 255 255";
+    fontColorHL = "255 255 255";
+    fontColorNA = "0 0 0";
+    fontColorSEL= "10 10 10";
+    opaque = 1;
+     
+    modal = true;
+    justify = "center";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+};  
+
+new GuiControlProfile (GuiRightButtonProfile){
+    fontType = $platformFontType;
+    fontSize = 16;
+
+    bitmap = "^feupDemic/gui/images/red_button_right.png";
+
+    fontColor = "255 255 255";
+    fontColorHL = "255 255 255";
+    fontColorNA = "0 0 0";
+    fontColorSEL= "10 10 10";
+    opaque = 1;
+     
+    modal = true;
+    justify = "center";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+};
+
+new GuiControlProfile (GuiMiddleButtonProfile){
+    fontType = $platformFontType;
+    fontSize = 16;
+
+    bitmap = "^feupDemic/gui/images/red_button_middle.png";
+
+    fontColor = "255 255 255";
+    fontColorHL = "255 255 255";
+    fontColorNA = "0 0 0";
+    fontColorSEL= "10 10 10";
+    opaque = 1;
+     
+    modal = true;
+    justify = "center";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+};  
 
 new GuiControlProfile (GuiLogProfile){
      // font
