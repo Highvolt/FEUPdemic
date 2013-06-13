@@ -13,6 +13,7 @@ function createArea(%id,%data){
 				isCircle=false;
 				Position=%pos;
 				PolyList=%polPos;
+				FillColor="1 0 0 0.4";
 				FillMode=true;
 				id_Area=getUnit(getUnit(%pol,0,";"),0,"/");
 				id_A=%id;
