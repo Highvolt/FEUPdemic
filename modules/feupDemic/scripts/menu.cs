@@ -99,20 +99,104 @@ function createSidebar() {
 					   hovertime = "1000";
 					};
 
-					/* new GuiControl() {
+					 new GuiControl() {
 					   canSaveDynamicFields = "0";
-					   Profile = "GuiLogProfile";   
+					   Profile = "GuiDefaultProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
-					   position = "2 250";
-					   Extent = "329 50";
+					   position = "2 200";
+					   Extent = "329 200";
 					   MinExtent = "2 50";
 					   canSave = "1";
 					   Visible = "1";
 					   hovertime = "1000";
 					   isContainer=true;
-					
-						new GuiTextCtrl() {
+							new GuiControl() {
+							   canSaveDynamicFields = "0";
+							   Profile = "GuiDefaultProfile";   
+							   HorizSizing = "right";
+							   VertSizing = "bottom";
+							   position = "60 0";
+							   Extent = "250 30";
+							   MinExtent = "2 2";
+							   canSave = "1";
+							   Visible = "1";
+							   hovertime = "1000";
+							   isContainer=true;
+
+							   new GuiTextCtrl(wellText) {
+								   canSaveDynamicFields = "0";
+								   Profile = "GuiLogProfile";   
+								   HorizSizing = "right";
+								   VertSizing = "bottom";
+								   position = "0 0";
+								   Extent = "250 30";
+								   MinExtent = "2 4";
+								   canSave = "1";
+								   Visible = "1";
+								   hovertime = "1000";
+								   text="Log";
+								};
+
+							};
+							new GuiControl() {
+							   canSaveDynamicFields = "0";
+							   Profile = "GuiDefaultProfile";   
+							   HorizSizing = "right";
+							   VertSizing = "bottom";
+							   position = "60 30";
+							   Extent = "250 30";
+							   MinExtent = "2 2";
+							   canSave = "1";
+							   Visible = "1";
+							   hovertime = "1000";
+							   isContainer=true;
+
+							   new GuiTextCtrl(infectedText) {
+								   canSaveDynamicFields = "0";
+								   Profile = "GuiLogProfile";   
+								   HorizSizing = "right";
+								   VertSizing = "bottom";
+								   position = "0 0";
+								   Extent = "250 30";
+								   MinExtent = "2 4";
+								   canSave = "1";
+								   Visible = "1";
+								   hovertime = "1000";
+								   text="Log";
+								};
+
+							};
+							new GuiControl() {
+							   canSaveDynamicFields = "0";
+							   Profile = "GuiDefaultProfile";   
+							   HorizSizing = "right";
+							   VertSizing = "bottom";
+							   position = "60 60";
+							   Extent = "250 30";
+							   MinExtent = "2 2";
+							   canSave = "1";
+							   Visible = "1";
+							   hovertime = "1000";
+							   isContainer=true;
+
+							   new GuiTextCtrl(deathText) {
+								   canSaveDynamicFields = "0";
+								   Profile = "GuiLogProfile";   
+								   HorizSizing = "right";
+								   VertSizing = "bottom";
+								   position = "0 0";
+								   Extent = "250 30";
+								   MinExtent = "2 4";
+								   canSave = "1";
+								   Visible = "1";
+								   hovertime = "1000";
+								   text="Log";
+								};
+
+							};
+
+						/*new GuiTextCtrl() {
 						   canSaveDynamicFields = "0";
 						   Profile = "GuiLogProfile";   
 						   HorizSizing = "right";
@@ -124,9 +208,9 @@ function createSidebar() {
 						   Visible = "1";
 						   hovertime = "1000";
 						   text="Log";
-						};
+						};*/
 						
-					};*/
+					};
 
 					new GuiTextCtrl(LogClick) {   ////TODO REMOVE
 						   canSaveDynamicFields = "0";
