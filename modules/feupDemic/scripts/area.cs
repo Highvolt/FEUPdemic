@@ -26,21 +26,34 @@ function createArea(%id,%data){
 			%shape.setPolyCustom(getWordCount(%polPos)/2,%polPos);
 			//echo("Vals:"@%polPos);
 			%shape.createPolygonCollisionShape(%polPos);
-			feupDemic.zones[%shape.id_Area]=%shape;
+			if(feupDemic.zones==""){
+				feupDemic.zones=%shape;
+			}else{
+				feupDemic.zones=feupDemic.zones SPC %shape;
+			}
 			feupDemic.zonesCount++;
 		}
 	}
 }
 
 function drawAreas(){
-	for(%i=0;%i<feupDemic.zonesCount;%i++){
+	%len=getWordCount(feupDemic.zones);
+	for(%i=0;%i<%len;%i++){
 		//echo("zone" SPC feupDemic.zones[%i]);
-		myScene.add(feupDemic.zones[%i]);
+		myScene.add(getWord(feupDemic.zones,%i));
+	}
+}
+
+function unselectArea(){
+	%len=getWordCount(feupDemic.zones);
+	for(%i=0;%i<%len;%i++){
+		//echo("zone" SPC feupDemic.zones[%i]);
+		getWord(feupDemic.zones,%i).LineColor="0 0 0 0";
 	}
 }
 
 function setOpacity(%region,%percentage){
-	%v=feupDemic.zones[%region.id];
+	%v=getWord(feupDemic.zones,%region.id);
 	if(isObject(%v)){
 		%v.setFillColor(setWord(%v.getFillColor(), 3, %percentage));
 	}
@@ -84,6 +97,8 @@ function Area::onTouchDown(%this, %touchID, %worldPosition)
 	
 
 	echo("clicked area with id" SPC %this.id_Area);
+	unselectArea();
+	%this.LineColor="1 1 1 1";
 	%pop=$regions[%this.id_Area].population;
 	%inf=$regions[%this.id_Area].infected;
 	%death=$regions[%this.id_Area].death;

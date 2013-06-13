@@ -3,19 +3,19 @@ function createPopup(%region,%kind){
 		class="popUP";
 	};
 	%obj.setBodyType( static );
-	%v=feupDemic.zones[%region.id];
+	%v=getWord(feupDemic.zones,%region.id);
 	%obj.id_A=%region.id;
 	%obj.kind=%kind;
 	//echo(%v.id_Area);
 	%obj.setUseInputEvents(true);
-	%obj.OriginalPos=feupDemic.zones[%region.id].Position;
+	%obj.OriginalPos=%v.Position;
 	//%obj.Position=vector2Sub(feupDemic.zones[%region.id].Position,"0 -19");
-	echo(feupDemic.zones[%region.id].Position);
+	echo(%v.Position);
 	%obj.createPolygonBoxCollisionShape("31", "48");
 	
 	%obj.OriginalSize="31 48";
 	%obj.Size=Vector2Mult( %obj.OriginalSize, mySceneWindow.getCameraWorldScale() );
-	%obj.Position=vector2Sub(feupDemic.zones[%region.id].Position,"0" SPC (-getWord(%obj.Size,1))/2);
+	%obj.Position=vector2Sub(%v.Position,"0" SPC (-getWord(%obj.Size,1))/2);
 	%obj.Image="feupDemic:yellow";
 	if(%kind$="red"){
 		%obj.Image="feupDemic:red";

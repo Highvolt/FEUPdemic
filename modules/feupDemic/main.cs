@@ -46,15 +46,19 @@ function feupDemic::create( %this )
 	mySceneWindow.setScene(myScene);
 	mySceneWindow.setUseObjectInputEvents(true);
 	createGrass();
+	echo("grass done");
 	initializeBars();
-	SceneWindow.UseObjectInputEvents = true;  
+	echo("bars done");
 
-	//mySceneWindow.addInputListener(%obj);
 
 	createAreas();
+	echo("area done");
 	drawAreas();
+	echo("areas draw done");
 	chartWorld();
+	echo("char world done");
 	$disease.updateMenu();
+	echo("update disease done");
 
 	
 
@@ -127,6 +131,7 @@ function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClic
 } 
 
 function chartWorld(){
+	unselectArea();
 	wellText.setText($disease.world_uninfected);
 		infectedText.setText($disease.world_infected);
 		deathText.setText($disease.world_death);
