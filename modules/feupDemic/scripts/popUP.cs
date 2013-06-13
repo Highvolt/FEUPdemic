@@ -4,12 +4,17 @@ function createPopup(%region,%kind){
 	};
 	%obj.setBodyType( static );
 	%v=feupDemic.zones[%region.id];
-	echo(%v.id_Area);
+	//echo(%v.id_Area);
+	%obj.setUseInputEvents(true);
 	%obj.Position=feupDemic.zones[%region.id].Position;
 	echo(feupDemic.zones[%region.id].Position);
 	%obj.createPolygonBoxCollisionShape("20", "20");
 	%obj.Size="20 20";
 	%obj.OriginalSize=%obj.Size;
+	%obj.Image="feupDemic:yellow";
+	if(%kind$="red"){
+		%obj.Image="feupDemic:red";
+	}
 	if(feupDemic.pops$=""){
 		feupDemic.pops=%obj;
 	}else{
@@ -33,3 +38,10 @@ function updatePops(){
 
 	}
 }
+
+function popUP::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClickCount)
+{  
+	//echo("down");
+	echo("popup Click");
+
+} 
