@@ -27,14 +27,14 @@ function createPieChart(%vals, %radius){
 			%f="";
 			%f="0 0";
 			for(;%start<=%count;%start+=%stepVal){
-				%start1=mDegToRad(%start);
+				%start1=mDegToRad(%start+90);
 				/*if(%f$=""){
 				%f=mCos(%start1)*%radius SPC mSin(%start1)*%radius;
 				}else{*/
 					%f=%f SPC mCos(%start1)*%radius SPC mSin(%start1)*%radius;
 				//}
 			}
-			%start1=mDegToRad(%count);
+			%start1=mDegToRad(%count+90);
 			if(%f$=""){
 				%f=mCos(%start1)*%radius SPC mSin(%start1)*%radius;
 				}else{
@@ -56,7 +56,7 @@ function createPieChart(%vals, %radius){
 
 function populatePie(%v){
 	echo(%v);
-	%pieData=createPieChart(%v,1);
+	%pieData=createPieChart(%v,0.5);
 if(%pieData!$=""){
 	%len=getUnitCount(%pieData,",");
 	for(%i=0;%i<%len;%i++){
@@ -70,7 +70,7 @@ if(%pieData!$=""){
 			Position="0 0";
 			PolyList=%vals;
 			FillMode=true;
-			angle=90;
+
 		};
 
 		%shape.setPolyCustom(getWordCount(%vals)/2,%vals);
