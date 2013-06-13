@@ -51,6 +51,7 @@ function createSidebar(){
 				   hovertime = "1000";
 				   isContainer=true;
 				
+				/*
 					 new GuiTextCtrl() {
 					   canSaveDynamicFields = "0";
 					   Profile = "GuiMenuProfile";   
@@ -62,12 +63,9 @@ function createSidebar(){
 					   canSave = "1";
 					   Visible = "1";
 					   hovertime = "1000";
-					  // isContainer=true;
 					   text="FEUPDEMIC";
-					
-						 
-						
 					};
+					*/
 
 					 new GuiSceneObjectCtrl(wellChart) {
 					   canSaveDynamicFields = "0";
@@ -130,7 +128,7 @@ function createSidebar(){
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
 					   position = "5 250";
-					   Extent = "323 50";
+					   Extent = "320 50";
 					   MinExtent = "2 50";
 					   canSave = "1";
 					   Visible = "1";
@@ -144,7 +142,7 @@ function createSidebar(){
 						   HorizSizing = "right";
 						   VertSizing = "bottom";
 						   position = "0 0";
-						   Extent = "323 50";
+						   Extent = "320 50";
 						   MinExtent = "2 4";
 						   canSave = "1";
 						   Visible = "1";
@@ -170,10 +168,7 @@ function createSidebar(){
 						   Visible = "1";
 						   hovertime = "1000";
 						  // isContainer=true;
-						   text="";
-						
-							 
-							
+						   text="";	
 					};
 
 					new GuiButtonCtrl(){
@@ -181,8 +176,8 @@ function createSidebar(){
 					   Profile = "GuiButtonProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
-					   position = "115 610";
-					   Extent = "100 40";
+					   position = "115 600";
+					   Extent = "100 50";
 					   MinExtent = "2 2";
 					   canSave = "1";
 					   Visible = "1";
@@ -364,14 +359,14 @@ function createSidebar(){
 					   Profile = "GuiButtonProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
-					   position = "740 550";
-					   Extent = "150 40";
+					   position = "740 600";
+					   Extent = "150 50";
 					   MinExtent = "2 2";
 					   canSave = "1";
 					   Visible = "1";
 					   hovertime = "1000";
 					  // isContainer=true;
-					   text="back";
+					   text="BACK";
 					   Command="menuVisible(0);";
 					};
 				};
