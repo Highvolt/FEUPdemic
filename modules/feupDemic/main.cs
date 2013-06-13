@@ -54,8 +54,8 @@ function feupDemic::create( %this )
 
 	createAreas();
   drawAreas();
-
-	populatePie("45 30 25");
+chartWorld();
+	//populatePie("45 30 25");
 	//echoInputState();
 	//%region =new ScriptObject(){ class="region"; };
 	//%region.id=0;
@@ -144,7 +144,23 @@ function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClic
 
 } 
 
-
+function chartWorld(){
+	wellText.setText($disease.world_uninfected);
+		infectedText.setText($disease.world_infected);
+		deathText.setText($disease.world_death);
+		ZoneName.setText("FEUP");
+		populatePie((100*$disease.world_uninfected/$disease.world_total) SPC (100*$disease.world_infected/$disease.world_total) SPC (100*$disease.world_death/$disease.world_total));
+		if ( isObject($timerGraph) ){
+			$timerGraph.stopTimer();
+			$timerGraph.delete();
+		}
+		$timerGraph=new SimObject(){
+			class="graphTimer";
+			//selected=$disease;
+			disease=1;
+		};
+		$timerGraph.startTimer(updateGraph,500);
+}
 
 function SceneWindow::onTouchDown(%this, %touchid, %worldposition)  
 {  
@@ -152,7 +168,11 @@ function SceneWindow::onTouchDown(%this, %touchid, %worldposition)
 	%ret=myScene.pickPoint(%worldPosition);
 	 echo(%worldPosition SPC "window:" SPC %ret);
 	 if(getWordCount(%ret)<=1){
-	 	LogClick.setText("clicked world");
+	 	//LogClick.setText("clicked world");
+	 	
+	 	chartWorld();
+	 	
+	 	
 	 }
 
 	//echo("click");

@@ -56,7 +56,7 @@ function createPieChart(%vals, %radius){
 
 function populatePie(%v){
 	echo(%v);
-	%pieData=createPieChart(%v,0.5);
+	%pieData=createPieChart(%v,1);
 if(%pieData!$=""){
 	%len=getUnitCount(%pieData,",");
 	for(%i=0;%i<%len;%i++){
@@ -70,6 +70,7 @@ if(%pieData!$=""){
 			Position="0 0";
 			PolyList=%vals;
 			FillMode=true;
+			angle=90;
 		};
 
 		%shape.setPolyCustom(getWordCount(%vals)/2,%vals);

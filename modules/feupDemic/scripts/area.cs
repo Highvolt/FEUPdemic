@@ -47,23 +47,34 @@ function setOpacity(%region,%percentage){
 
 
 function graphTimer::updateGraph(%this){
-	%pop=%this.selected.population;
-	%inf=%this.selected.infected;
-	%death=%this.selected.death;
-	%healty=%pop-%inf;
-	%healty-=%death;
-	%inf=%inf/%pop;
-	%inf=%inf*100;
-	%death=%death/%pop;
-	%death=%death*100;
-	%h=%healty;
-	%healty=%healty/%pop;
-	%healty=%healty*100;
-	populatePie(%healty SPC %inf SPC %death);
-	//LogClick.setText("id:" SPC %this.selected.id SPC "inf:" SPC $disease.world_infected SPC "dea:" SPC $disease.world_death);
-	wellText.setText(%h);
-	infectedText.setText(%this.selected.infected);
-	deathText.setText(%this.selected.death);
+	if(%this.disease==1){
+		wellText.setText($disease.world_uninfected);
+		infectedText.setText($disease.world_infected);
+		deathText.setText($disease.world_death);
+		ZoneName.setText("FEUP");
+		//echo("val" SPC ($disease.world_uninfected/$disease.world_total) SPC ($disease.world_infected/$disease.world_total) SPC ($disease.world_death/$disease.world_total));
+		populatePie((100*$disease.world_uninfected/$disease.world_total) SPC (100*$disease.world_infected/$disease.world_total) SPC (100*$disease.world_death/$disease.world_total));
+		return "";
+	}else{
+		%pop=%this.selected.population;
+		%inf=%this.selected.infected;
+		%death=%this.selected.death;
+		%healty=%pop-%inf;
+		%healty-=%death;
+		%inf=%inf/%pop;
+		%inf=%inf*100;
+		%death=%death/%pop;
+		%death=%death*100;
+		%h=%healty;
+		%healty=%healty/%pop;
+		%healty=%healty*100;
+		populatePie(%healty SPC %inf SPC %death);
+		//LogClick.setText("id:" SPC %this.selected.id SPC "inf:" SPC $disease.world_infected SPC "dea:" SPC $disease.world_death);
+		wellText.setText(%h);
+		infectedText.setText(%this.selected.infected);
+		deathText.setText(%this.selected.death);
+		return "";
+	}
 }
 
 function Area::onTouchDown(%this, %touchID, %worldPosition)  
