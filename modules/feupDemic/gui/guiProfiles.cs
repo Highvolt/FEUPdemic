@@ -212,15 +212,15 @@ new GuiControlProfile (GuiMiddleButtonProfile){
 new GuiControlProfile (GuiLogProfile){
      // font
     fontType = $platformFontType;
-    fontSize =24;
+    fontSize =16;
     
-    fillColor="27 33 27";
+    /*fillColor="27 33 27";
     fillColorHL="0 0 0";
-    fillColorNA="0 0 0";
+    fillColorNA="0 0 0";*/
 
-opaque = 1;
- 
-border = 0;
+    opaque = false;
+     
+    border = 0;
 
      //bitmap = "^feupDemic/gui/images/gray_button.png";
     // hasBitmapArray = true;
@@ -231,7 +231,7 @@ border = 0;
     //opaque=1;
      // used by guiTextControl
     modal = true;
-    justify = "center";
+    justify = "left";
     autoSizeWidth = false;
     autoSizeHeight = false;
     returnTab = false;
