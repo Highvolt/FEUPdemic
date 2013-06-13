@@ -27,9 +27,10 @@ function feupDemic::create( %this )
     exec(".scripts/cure.cs");
     exec(".scripts/region.cs");
     exec(".scripts/logic_main.cs");
+    exec(".scripts/popUP.cs");
 
 	//populateFonts();
-	
+	feupDemic.pops="";
 	feupDemic.zonesCount=0;
 
 	%obj = new ScriptObject(Listener)  
@@ -55,8 +56,10 @@ function feupDemic::create( %this )
   drawAreas();
 
 	populatePie();
-	echoInputState();
-
+	//echoInputState();
+	%region =new ScriptObject(){ class="region"; };
+	%region.id=0;
+	createPopup(%region,0);
 	/*%shape=new ShapeVector(){
 		Angle=90;
 		CircleRadius=100;
@@ -156,6 +159,7 @@ function SceneWindow::onMouseWheelUp(%this, %modifier, %mousePoint, %mouseClickC
 	echo(%this.getMousePosition());
 	mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()+0.1);
 	//mySceneWindow.setCameraPosition(%mousePoint);
+	updatePops();
 } 
 
 
@@ -169,6 +173,7 @@ function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClic
 		mySceneWindow.setCameraZoom(mySceneWindow.getCameraZoom()-0.1);
 		//mySceneWindow.setCameraPosition(%mousePoint);
 	}
+	updatePops();
 
 } 
 

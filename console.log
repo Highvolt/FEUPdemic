@@ -1,4 +1,4 @@
-//-------------------------- 6/13/2013 -- 00:58:49 -----
+//-------------------------- 6/13/2013 -- 02:17:24 -----
 Console trace is off.
 using display 0x42732c0
 Activating the OpenGL display device...
@@ -35,7 +35,25 @@ OpenAL Driver Init
 OpenAL Driver Init Success
 modules/feupDemic/main.cs (16): Unable to find function enableWinConsole
 0 0
-modules/feupDemic/main.cs (58): Unable to find function echoInputState
 0
-Shutting down the OpenGL display device...
-Killing the texture manager...
+-178 18
+0
+clicked area with id 17
+clicked area with id 15
+clicked area with id 16
+clicked area with id 19
+clicked area with id 26
+clicked area with id 27
+clicked area with id 30
+clicked area with id 26
+clicked area with id 28
+-174.5 -76
+1
+1216 20 20
+-158.636 -69.0909
+1
+1216 18.182 18.182
+-145.417 -63.3333
+1
+1216 16.667 16.667
+clicked area with id 0
