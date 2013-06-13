@@ -124,18 +124,33 @@ function createSidebar() {
 							   hovertime = "1000";
 							   isContainer=true;
 
+							   new GuiBitmapCtrl() {
+								   canSaveDynamicFields = "0";
+								   Profile = "GuiDefaultProfile";   
+								   HorizSizing = "right";
+								   VertSizing = "bottom";
+								   position = "0 5";
+								   Extent = "20 20";
+								   MinExtent = "0 0";
+								   canSave = "1";
+								   Visible = "1";
+								   hovertime = "1000";
+								   bitmap = "^feupDemic/gui/images/heart.png";
+								   //isContainer=true;
+							};
+
 							   new GuiTextCtrl(wellText) {
 								   canSaveDynamicFields = "0";
 								   Profile = "GuiLogProfile";   
 								   HorizSizing = "right";
 								   VertSizing = "bottom";
-								   position = "0 0";
+								   position = "50 0";
 								   Extent = "250 30";
 								   MinExtent = "2 4";
 								   canSave = "1";
 								   Visible = "1";
 								   hovertime = "1000";
-								   text="Log";
+								   text="0";
 								};
 
 							};
@@ -152,18 +167,33 @@ function createSidebar() {
 							   hovertime = "1000";
 							   isContainer=true;
 
+							   new GuiBitmapCtrl() {
+								   canSaveDynamicFields = "0";
+								   Profile = "GuiDefaultProfile";   
+								   HorizSizing = "right";
+								   VertSizing = "bottom";
+								   position = "0 5";
+								   Extent = "20 20";
+								   MinExtent = "0 0";
+								   canSave = "1";
+								   Visible = "1";
+								   hovertime = "1000";
+								   bitmap = "^feupDemic/gui/images/biohazard.png";
+								   //isContainer=true;
+							};
+
 							   new GuiTextCtrl(infectedText) {
 								   canSaveDynamicFields = "0";
 								   Profile = "GuiLogProfile";   
 								   HorizSizing = "right";
 								   VertSizing = "bottom";
-								   position = "0 0";
+								   position = "50 0";
 								   Extent = "250 30";
 								   MinExtent = "2 4";
 								   canSave = "1";
 								   Visible = "1";
 								   hovertime = "1000";
-								   text="Log";
+								   text="0";
 								};
 
 							};
@@ -180,18 +210,32 @@ function createSidebar() {
 							   hovertime = "1000";
 							   isContainer=true;
 
+							   new GuiBitmapCtrl() {
+									   canSaveDynamicFields = "0";
+									   Profile = "GuiDefaultProfile";   
+									   HorizSizing = "right";
+									   VertSizing = "bottom";
+									   position = "0 5";
+									   Extent = "20 20";
+									   MinExtent = "0 0";
+									   canSave = "1";
+									   Visible = "1";
+									   hovertime = "1000";
+									   bitmap = "^feupDemic/gui/images/skull.png";
+									   //isContainer=true;
+								};
 							   new GuiTextCtrl(deathText) {
 								   canSaveDynamicFields = "0";
 								   Profile = "GuiLogProfile";   
 								   HorizSizing = "right";
 								   VertSizing = "bottom";
-								   position = "0 0";
+								   position = "50 0";
 								   Extent = "250 30";
 								   MinExtent = "2 4";
 								   canSave = "1";
 								   Visible = "1";
 								   hovertime = "1000";
-								   text="Log";
+								   text="0";
 								};
 
 							};

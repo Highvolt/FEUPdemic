@@ -56,10 +56,14 @@ function graphTimer::updateGraph(%this){
 	%inf=%inf*100;
 	%death=%death/%pop;
 	%death=%death*100;
+	%h=%healty;
 	%healty=%healty/%pop;
 	%healty=%healty*100;
 	populatePie(%healty SPC %inf SPC %death);
-	LogClick.setText("id:" SPC %this.selected.id SPC "inf:" SPC $disease.world_infected SPC "dea:" SPC $disease.world_death);
+	//LogClick.setText("id:" SPC %this.selected.id SPC "inf:" SPC $disease.world_infected SPC "dea:" SPC $disease.world_death);
+	wellText.setText(%h);
+	infectedText.setText(%this.selected.infected);
+	deathText.setText(%this.selected.death);
 }
 
 function Area::onTouchDown(%this, %touchID, %worldPosition)  
@@ -77,9 +81,13 @@ function Area::onTouchDown(%this, %touchID, %worldPosition)
 	%inf=%inf*100;
 	%death=%death/%pop;
 	%death=%death*100;
+	%h=%healty;
 	%healty=%healty/%pop;
 	%healty=%healty*100;
 	populatePie(%healty SPC %inf SPC %death);
+	wellText.setText(%h);
+	infectedText.setText($regions[%this.id_Area].infected);
+	deathText.setText($regions[%this.id_Area].death);
 	//$selected=
 	if ( isObject($timerGraph) ){
 		$timerGraph.stopTimer();
@@ -90,7 +98,7 @@ function Area::onTouchDown(%this, %touchID, %worldPosition)
 		selected=$regions[%this.id_Area];
 	};
 	$timerGraph.startTimer(updateGraph,500);
-	//LogClick.setText($regions[%this.id_Area].name SPC $regions[%this.id_Area].infected);
+	LogClick.setText($regions[%this.id_Area].name SPC $regions[%this.id_Area].infected);
 }  
 
 
