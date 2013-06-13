@@ -63,39 +63,56 @@ function initializeBars(){
 
 }
 
-function setInfectivity(%i){
-	%per=%i*2;//-1;
+function setInfectivity(%per){
+	/*%per=%i*2;//-1;
 	%per=%per-1;
 	%value=setWord("-1 1 1 1 1 -1 -1 -1",2,%per);
 	%value=setWord(%value,4,%per);
-	infectivityValue.setPolyCustom(4,%value);
+	echo("############" TAB %value);
+	infectivityValue.setPolyCustom(4,%value);*/
+	if(%per>1){
+		%per=1;
+	}
+	infectivityBar.Extent=Vector2Mult(infectivityBar.originalExtent,%per SPC "1");
 
 }
 
-function setSeverity(%i){
-	%per=%i*2;//-1;
+function setSeverity(%per){
+	/*%per=%i*2;//-1;
 	%per=%per-1;
 	%value=setWord("-1 1 1 1 1 -1 -1 -1",2,%per);
 	%value=setWord(%value,4,%per);
-	severityValue.setPolyCustom(4,%value);
+	severityValue.setPolyCustom(4,%value);*/
+	if(%per>1){
+		%per=1;
+	}
+	severityBar.Extent=Vector2Mult(infectivityBar.originalExtent,%per SPC "1");
 
 }
 
-function setLethality(%i){
-	%per=%i*2;//-1;
+function setLethality(%per){
+	/*%per=%i*2;//-1;
 	%per=%per-1;
 	%value=setWord("-1 1 1 1 1 -1 -1 -1",2,%per);
 	%value=setWord(%value,4,%per);
-	lethalityValue.setPolyCustom(4,%value);
+	lethalityValue.setPolyCustom(4,%value);*/
+	if(%per>1){
+		%per=1;
+	}
+	lethalityBar.Extent=Vector2Mult(infectivityBar.originalExtent,%per SPC "1");
 
 }
 function setDna(%i){
 	%per=(%i/100);//*2-1;
-	%per=%per*2;
+	/*%per=%per*2;
 	%per=%per-1;
 	%value=setWord("-1 1 1 1 1 -1 -1 -1",2,%per);
 	%value=setWord(%value,4,%per);
-	dnaValue.setPolyCustom(4,%value);
+	dnaValue.setPolyCustom(4,%value);*/
+	if(%per>1){
+		%per=1;
+	}
+	dnaBar.Extent=Vector2Mult(infectivityBar.originalExtent,%per SPC "1");
 
 }
 

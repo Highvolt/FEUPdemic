@@ -34,14 +34,16 @@ function createArea(%id,%data){
 
 function drawAreas(){
 	for(%i=0;%i<feupDemic.zonesCount;%i++){
-		echo("zone" SPC feupDemic.zones[%i]);
+		//echo("zone" SPC feupDemic.zones[%i]);
 		myScene.add(feupDemic.zones[%i]);
 	}
 }
 
 function setOpacity(%region,%percentage){
 	%v=feupDemic.zones[%region.id];
-	%v.setFillColor(setWord(%v.getFillColor(), 3, %percentage));
+	if(isObject(%v)){
+		%v.setFillColor(setWord(%v.getFillColor(), 3, %percentage));
+	}
 
 }
 

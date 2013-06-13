@@ -42,39 +42,21 @@ function feupDemic::create( %this )
 	configureSceneWindow();
 	createScene();
 	
-	//myScene.setDebugOn("collision");
 	
 	mySceneWindow.setScene(myScene);
 	mySceneWindow.setUseObjectInputEvents(true);
 	createGrass();
 	initializeBars();
 	SceneWindow.UseObjectInputEvents = true;  
-	//mySceneWindow.setUseInputEvents();
-	mySceneWindow.addInputListener(%obj);
+
+	//mySceneWindow.addInputListener(%obj);
 
 	createAreas();
-  drawAreas();
-chartWorld();
-	//populatePie("45 30 25");
-	//echoInputState();
-	//%region =new ScriptObject(){ class="region"; };
-	//%region.id=0;
-	//createPopup(%region,0);
-	/*%shape=new ShapeVector(){
-		Angle=90;
-		CircleRadius=100;
-		isCircle=true;
-		Position="0 0";
-	};
-	myScene.add(%shape);*/
+	drawAreas();
+	chartWorld();
+	$disease.updateMenu();
 
-
-
-	//Canvas.BackgroundColor = "Black";
-	//echo(Canvas.getMouseControl());
-	//mySceneWindow.setLockMouse(true);	
 	
-	echo(mySceneWindow.getLockMouse());
 
 }
 

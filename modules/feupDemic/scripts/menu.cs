@@ -306,6 +306,7 @@ function createSidebar() {
 						   VertSizing = "bottom";
 						   position = "5 5";
 						   Extent = "234 12";
+						   originalExtent= "234 12";
 						   MinExtent = "2 2";
 						   canSave = "1";
 						   Visible = "1";
@@ -350,6 +351,7 @@ function createSidebar() {
 						   VertSizing = "bottom";
 						   position = "5 5";
 						   Extent = "234 12";
+						   originalExtent= "234 12";
 						   MinExtent = "2 2";
 						   canSave = "1";
 						   Visible = "1";
@@ -393,6 +395,7 @@ function createSidebar() {
 						   VertSizing = "bottom";
 						   position = "5 5";
 						   Extent = "234 12";
+						   originalExtent= "234 12";
 						   MinExtent = "2 2";
 						   canSave = "1";
 						   Visible = "1";
@@ -424,6 +427,7 @@ function createSidebar() {
 						   VertSizing = "bottom";
 						   position = "5 5";
 						   Extent = "234 28";
+						   originalExtent= "234 28";
 						   MinExtent = "2 2";
 						   canSave = "1";
 						   Visible = "1";
