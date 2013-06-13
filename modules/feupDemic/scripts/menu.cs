@@ -297,8 +297,8 @@ function createSidebar() {
 					   Profile = "GuiLeftButtonProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
-					   position = "260 100";
-					   Extent = "170 40";
+					   position = "230 100";
+					   Extent = "180 40";
 					   MinExtent = "2 2";
 					   canSave = "1";
 					   Visible = "1";
@@ -311,8 +311,8 @@ function createSidebar() {
 					   Profile = "GuiMiddleButtonProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
-					   position = "400 100";
-					   Extent = "226 40";
+					   position = "410 100";
+					   Extent = "180 40";
 					   MinExtent = "2 2";
 					   canSave = "1";
 					   Visible = "1";
@@ -326,8 +326,8 @@ function createSidebar() {
 					   Profile = "GuiRightButtonProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
-					   position = "575 100";
-					   Extent = "188 40";
+					   position = "590 100";
+					   Extent = "180 40";
 					   MinExtent = "2 2";
 					   canSave = "1";
 					   Visible = "1";
@@ -354,7 +354,7 @@ function createSidebar() {
 							   Profile = "GuiDefaultProfile";   
 							   HorizSizing = "right";
 							   VertSizing = "bottom";
-							   position = " 0";
+							   position = "0 0";
 							   Extent = "600 400";
 							   MinExtent = "2 2";
 							   canSave = "1";
