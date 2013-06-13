@@ -45,7 +45,7 @@ function setOpacity(%region,%percentage){
 function Area::onTouchDown(%this, %touchID, %worldPosition)  
 {  
 	echo("clicked area with id" SPC %this.id_Area);
-	//LogClick.setText("clicked area with id" SPC %this.id_Area);
-	LogClick.setText($regions[%this.id_Area].name SPC $regions[%this.id_Area].infected);
+	LogClick.setText("clicked area with id" SPC %this.id_Area);
+	//LogClick.setText($regions[%this.id_Area].name SPC $regions[%this.id_Area].infected);
 }  
 
