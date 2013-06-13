@@ -1,5 +1,6 @@
-function create_region(%id, %temperature, %density, %tech_level, %population, %neighbours){
+function create_region(%id, %name, %temperature, %density, %tech_level, %population, %neighbours){
 	%this=new ScriptObject(){ class="region"; };
+	%this.name = %name;
 	%this.id = %id;
 	%this.temperature = %temperature;
 	%this.density = %density;
@@ -26,7 +27,7 @@ function region::propagate(){
 
 function region::yellow_prob(){
 	if(gen() < $YELLOW_PROBABILITY){
-		//create_yellow_popup(%this);
+		create_popup(%this,"yellow");
 	}
 }
 
@@ -37,7 +38,7 @@ function region::red_prob(%infecter){
 	%p+=%infected_on_infecter+%upgrades_percentages;
 
 	if( gen() < %p ){
-		//create_red_popup(%this);
+		create_popup(%this,"red");
 		infect(1);
 	}
 }
