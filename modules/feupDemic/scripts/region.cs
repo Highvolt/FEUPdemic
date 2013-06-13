@@ -7,43 +7,52 @@ function create_region(%id, %name, %temperature, %density, %tech_level, %populat
 	%this.tech_level = %tech_level;
 	%this.population = %population;
 	%this.infected = 0;
-	%this.deving_cure = 0;
+	%this.deving_cure = false;
 	%this.neighbours = %neighbours;
 	%this.nr_of_neighbours = getUnitCount(%neighbours,",");
+	%this.has_popup = false;
 	return %this;
 }
 
-function region::tick(){
+function region::tick(%this){
 	//TODO
 }
 
-function region::propagate(){
+function region::propagate(%this){
 	for(%i = 0; %i < %this.nr_of_neighbours; %i++){
-		if(!getUnit(%this.neighbours,%i,",").is_infected()){
-			getUnit(%this.neighbours,%i,",").red_prob(%this);
+	   %reg = $regions[getUnit(%this.neighbours,%i,",")];
+		if(!%reg.is_infected()){
+         %reg.red_prob(%this);
 		}
 	}
 }
 
-function region::yellow_prob(){
+function region::yellow_prob(%this){
 	if(gen() < $YELLOW_PROBABILITY){
-		create_popup(%this,"yellow");
+	   if(!%this.has_popup){
+		   createPopup(%this,"yellow");
+		   %this.has_popup=true;
+      }
 	}
 }
 
-function region::red_prob(%infecter){
+function region::red_prob(%this, %infecter){
 	%p = 0;
 	%infected_on_infecter = %infecter.infected/%infecter.population;
-	%upgrades_percentages = prob_from_infection_upgrades();
+	%upgrades_percentages = %this.prob_from_infection_upgrades();
 	%p+=%infected_on_infecter+%upgrades_percentages;
-
-	if( gen() < %p ){
-		create_popup(%this,"red");
-		infect(1);
+	%g = gen();
+   echo("gen:" SPC %g SPC"infected_on_infecter:" SPC %infected_on_infecter SPC "upgrades_percentages:" SPC %upgrades_percentages);
+	if( %g < %p ){
+	   if(!%this.has_popup){
+		   createPopup(%this,"red");
+		   %this.has_popup=true;
+	   }
+		%this.infect(1);
 	}
 }
 
-function region::prob_from_infection_upgrades(){
+function region::prob_from_infection_upgrades(%this){
 	%p = 0;
 
 	switch$ (temperature) 
@@ -92,15 +101,26 @@ function region::prob_from_infection_upgrades(){
 	return %p;
 }
 
-function region::infect(%n){
+function region::infect(%this, %n){
 	%this.infected += %n;
 }
 
-function region::kill(%n){
+function region::kill(%this, %n){
 	%this.infected -= %n;
 	%this.death += %n;
 }
 
-function region::is_infected(){
+function region::is_infected(%this){
 	return %this.infected>0;
+}
+
+function region::handlePopUp(%this, %kind){
+   switch$ (%kind){
+      case "close":
+         %this.has_popup=false;
+      case "red":
+         %this.infected=60;
+      case "yellow": 
+         %this.infected=80; 
+   }
 }
