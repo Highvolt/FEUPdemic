@@ -35,6 +35,12 @@ function drawAreas(){
 	}
 }
 
+function setOpacity(%region,%percentage){
+	%v=feupDemic.zones[%region.id];
+	%v.setFillColor(setWord(%v.getFillColor, 3, %percentage));
+
+}
+
 function Area::onTouchDown(%this, %touchID, %worldPosition)  
 {  
 	echo("clicked area with id" SPC %this.id_Area);
