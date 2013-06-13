@@ -21,13 +21,13 @@ function feupDemic::create( %this )
 	exec(".scripts/menu.cs");
 	exec(".scripts/pieChartGen.cs");
 	exec(".scripts/area.cs");
-    exec(".scripts/level.cs");
-    exec(".scripts/global.cs");
-    exec(".scripts/disease.cs");
-    exec(".scripts/cure.cs");
-    exec(".scripts/region.cs");
-    exec(".scripts/logic_main.cs");
-    exec(".scripts/popUP.cs");
+  exec(".scripts/level.cs");
+  exec(".scripts/global.cs");
+  exec(".scripts/disease.cs");
+  exec(".scripts/cure.cs");
+  exec(".scripts/region.cs");
+  exec(".scripts/logic_main.cs");
+  exec(".scripts/popUP.cs");
 
 	//populateFonts();
 	feupDemic.pops="";
@@ -51,7 +51,6 @@ function feupDemic::create( %this )
 	//mySceneWindow.setUseInputEvents();
 	mySceneWindow.addInputListener(%obj);
 
-	//createArea(1,"0/0 -0;-334 320 334 320 334 -320 -334 -320");
 	createAreas();
   drawAreas();
 

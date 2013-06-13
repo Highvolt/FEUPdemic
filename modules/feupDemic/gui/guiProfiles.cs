@@ -1,7 +1,7 @@
 $platformFontType = ($platform $= "windows") ? "Minecraftia" : "Minecraftia";
 $platformFontSize = ($platform $= "ios") ? 18 : 12;
 
-if(!isObject(GuiDefaultProfile)) new GuiControlProfile (GuiDefaultProfile){
+if(!isObject(GuiDefaultProfile)) new GuiControlProfile (GuiDefaultProfile) {
 	 // font
     tab = false;
     canKeyFocus = false;
@@ -46,20 +46,20 @@ if(!isObject(GuiDefaultProfile)) new GuiControlProfile (GuiDefaultProfile){
     
 };  
 
-new GuiControlProfile (GuiMenuProfile){
+new GuiControlProfile (GuiMenuProfile) {
      // font
     fontType = $platformFontType;
-    fontSize =64;
+    fontSize =24;
     
     /*fillColor="64 64 64";
     fillColorHL="0 0 0";
     fillColorNA="0 0 0";*/
 
-opaque = false;
- 
-border = -2;
+    opaque = false;
+     
+    border = -2;
 
-     bitmap = "^feupDemic/gui/images/gray_button.png";
+     bitmap = "^feupDemic/gui/images/gray_frame.png";
     // hasBitmapArray = true;
     fontColor = "255 255 255";
     fontColorHL = "32 100 100";
@@ -78,21 +78,24 @@ border = -2;
     
 };  
 
+new GuiControlProfile(GuiBarProfile) {  
+    opaque = 1;
+     border=0;
+
+     //bitmap = "^feupDemic/gui/images/bar.png";
+     
+
+    modal = true;
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+};
 
 new GuiControlProfile (GuiButtonProfile){
-     // font
     fontType = $platformFontType;
-    fontSize =16;
-    
-    /*fillColor="64 0 0";
-    fillColorHL="128 0 0";
-    fillColorNA="0 0 0";
-
-    border=-1;
-    borderColor="0 0 0";
-    borderColorHL="0 0 0";
-    borderColorNA="0 0 0";
-    borderThickness=4;*/
+    fontSize = 16;
 
     bitmap = "^feupDemic/gui/images/redButton.png";
 
@@ -100,8 +103,8 @@ new GuiControlProfile (GuiButtonProfile){
     fontColorHL = "255 255 255";
     fontColorNA = "0 0 0";
     fontColorSEL= "10 10 10";
-    opaque=1;
-     // used by guiTextControl
+    opaque = 1;
+     
     modal = true;
     justify = "center";
     autoSizeWidth = false;
@@ -109,8 +112,6 @@ new GuiControlProfile (GuiButtonProfile){
     returnTab = false;
     numbersOnly = false;
     cursorColor = "0 0 0 255";
-    
-    
 };  
 
 
@@ -119,7 +120,7 @@ new GuiControlProfile (GuiLogProfile){
     fontType = $platformFontType;
     fontSize =24;
     
-    fillColor="12 12 12";
+    fillColor="27 33 27";
     fillColorHL="0 0 0";
     fillColorNA="0 0 0";
 
@@ -137,6 +138,54 @@ border = 0;
      // used by guiTextControl
     modal = true;
     justify = "center";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+    
+    
+};  
+
+new GuiControlProfile (GuiBarLabelProfile) {
+    fontType = $platformFontType;
+    fontSize = 16;
+    
+    fillColor="27 33 27";
+    fillColorHL="0 0 0";
+    fillColorNA="0 0 0";
+
+    opaque = 1;
+ 
+    border = 0;
+
+    fontColor = "27 33 27";
+    modal = true;
+    justify = "left";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+    
+    
+};  
+
+new GuiControlProfile (GuiDnaBarLabelProfile) {
+    fontType = $platformFontType;
+    fontSize = 24;
+    
+    fillColor="255 255 255";
+    fillColorHL="0 0 0";
+    fillColorNA="0 0 0";
+
+    opaque = 1;
+ 
+    border = 0;
+
+    fontColor = "255 255 255";
+    modal = true;
+    justify = "left";
     autoSizeWidth = false;
     autoSizeHeight = false;
     returnTab = false;
