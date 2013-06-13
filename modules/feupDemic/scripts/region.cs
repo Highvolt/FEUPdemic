@@ -112,12 +112,16 @@ function region::prob_from_infection_upgrades(%this){
 
 function region::infect(%this, %n){
 	%this.infected += %n;
+	if(%this.infected+%n+%this.death>=%this.population)
+	   %this.infected=%this.population-%this.death;
 	setOpacity(%this,((%this.infected+%this.death)/%this.population));
 }
 
 function region::kill(%this, %n){
-	%this.infected -= %n;
-	%this.death += %n;
+   if(%this.%infected>=%n){
+      %this.infected -= %n;
+      %this.death += %n;
+   }
 }
 
 function region::is_infected(%this){
