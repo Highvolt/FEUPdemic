@@ -97,8 +97,8 @@ function Area::onTouchDown(%this, %touchID, %worldPosition)
 	
 
 	echo("clicked area with id" SPC %this.id_Area);
-	/*unselectArea();
-	%this.LineColor="1 1 1 1";*/
+	unselectArea();
+	%this.LineColor="1 1 1 1";
 	%pop=$regions[%this.id_Area].population;
 	%inf=$regions[%this.id_Area].infected;
 	%death=$regions[%this.id_Area].death;

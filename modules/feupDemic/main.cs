@@ -131,6 +131,7 @@ function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClic
 } 
 
 function chartWorld(){
+	unselectArea();
 	wellText.setText($disease.world_uninfected);
 		infectedText.setText($disease.world_infected);
 		deathText.setText($disease.world_death);
