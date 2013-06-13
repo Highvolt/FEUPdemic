@@ -29,6 +29,7 @@ function createPopup(%region,%kind){
 		obj=%obj;
 	};
 	%timer.startTimer("disapear",5000);
+	%obj.timer=%timer;
 }
 
 
@@ -77,6 +78,8 @@ function popUP::onTouchDown(%this, %touchid, %worldposition)
 		if(%obj==%this){
 			feupDemic.pops=removeWord(feupDemic.pops,%i);
 			myScene.remove(%this);
+			%this.timer.stopTimer();
+
 			return;
 		}
 
