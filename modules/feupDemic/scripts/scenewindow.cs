@@ -3,7 +3,7 @@ function configureSceneWindow()
     
 
     mySceneWindow.setCameraPosition( 0, 0 );
-    mySceneWindow.setCameraSize( 1000, 640 );
+    mySceneWindow.setCameraSize( 667, 640 );
     mySceneWindow.setCameraZoom( 1 );
     mySceneWindow.setCameraAngle( 0 );
     mySceneWindow.Pos=0;
