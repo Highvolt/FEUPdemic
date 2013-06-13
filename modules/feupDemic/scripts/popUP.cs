@@ -2,6 +2,7 @@ function createPopup(%region,%kind){
 	%obj=new Sprite(){
 		class="popUP";
 	};
+	%obj.setBodyType( static );
 	%v=feupDemic.zones[%region.id];
 	echo(%v.id_Area);
 	%obj.Position=feupDemic.zones[%region.id].Position;
