@@ -133,7 +133,7 @@ function region::kill(%this, %n){
 }
 
 function region::is_infected(%this){
-	return %this.infected>0;
+	return %this.infected+%this.death>0;
 }
 
 function region::handlePopUp(%this, %kind){
