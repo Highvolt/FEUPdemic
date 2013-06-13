@@ -16,10 +16,11 @@ function create_region(%id, %name, %temperature, %density, %tech_level, %populat
 }
 
 function region::tick(%this){
-   if(gen() < 0.1)
-	   %this.infect(1);
-   if(gen() < 0.01)
-      %this.kill(1);
+   %cutoff = 0.15;
+   if(gen() < $disease.infection_percentage*%cutoff)
+	   %this.infect(1+mFloor($disease.infection_percentage*%cutoff*%this.population/10));
+   if(gen() < $disease.fatality_percentage*%cutoff+$disease.severity_percentage*%cutoff/10)
+      %this.kill(1+mFloor($disease.fatality_percentage*%cutoff*%this.population/10));
 }
 
 function region::propagate(%this){
@@ -118,7 +119,7 @@ function region::infect(%this, %n){
 }
 
 function region::kill(%this, %n){
-   if(%this.%infected>=%n){
+   if(%this.infected>=%n){
       %this.infected -= %n;
       %this.death += %n;
    }

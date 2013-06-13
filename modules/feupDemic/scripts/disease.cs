@@ -1,9 +1,9 @@
 function create_disease(){
 	%this=new ScriptObject(){ class="disease"; };
 
-	%this.infection_percentage=0;
-	%this.severity_percentage=0;
-	%this.fatality_percentage=0;
+	%this.infection_percentage=0.2;
+	%this.severity_percentage=0.2;
+	%this.fatality_percentage=0.2;
 
 	//infections
 	%this.tech_primitive_lv1=0;
