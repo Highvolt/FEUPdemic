@@ -55,7 +55,7 @@ function feupDemic::create( %this )
 	createAreas();
   drawAreas();
 
-	populatePie();
+	populatePie("45 30 25");
 	//echoInputState();
 	%region =new ScriptObject(){ class="region"; };
 	%region.id=0;
@@ -81,41 +81,7 @@ function feupDemic::create( %this )
 
 
 
-function populatePie(){
-	%pieData=createPieChart("45 30 25",0.5);
-if(%pieData!$=""){
-	%len=getUnitCount(%pieData,",");
-	for(%i=0;%i<%len;%i++){
-		//echo(getUnit(%pieData,%i,","));
-		%vals=getUnit(%pieData,%i,",");
-		%shape=new ShapeVector(){
-			//Angle=90;
-			Size="1 1";
-			CircleRadius=20;
-			isCircle=false;
-			Position="0 0";
-			PolyList=%vals;
-			FillMode=true;
-		};
 
-		%shape.setPolyCustom(getWordCount(%vals)/2,%vals);
-		//echo(getWordCount(%vals)/2);
-		//echo(%shape.getPoly());
-		//myScene.add(%shape);
-		if(%i==0){
-			%shape.setFillColor("0.0 0.0 1.0");
-			wellChart.setSceneObject(%shape);
-			//wellChart.setCaption("1");
-		}else if(%i==1){
-			%shape.setFillColor("1.0 0.0 0.0");
-			infectedChart.setSceneObject(%shape);
-		}else{
-			%shape.setFillColor("0.0 0.0 0.0");
-			deadChart.setSceneObject(%shape);
-		}
-	}
-}
-}
 
 function feupDemic::destroy( %this )
 {
@@ -125,7 +91,7 @@ function feupDemic::destroy( %this )
 
 function createGrass(){
 
-   new Sprite(grass);
+   $grass=new Sprite(grass);
  	 grass.setBodyType( static );
     grass.Size = "667" SPC "640";
     
@@ -135,8 +101,8 @@ function createGrass(){
    
     grass.Image = "feupDemic:map";
             
-    
-    myScene.add( grass );   
+    echo($grass);
+    myScene.add( $grass );   
 }
 
 function Sprite::onTouchDown(%this, %touchid, %worldposition)  
@@ -146,12 +112,13 @@ function Sprite::onTouchDown(%this, %touchid, %worldposition)
 	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
 }
 
-function mySceneWindow::onTouchUp(%this, %touchID, %worldPosition)  
+/*function mySceneWindow::onTouchDown(%this, %touchID, %worldPosition)  
 {  
 	//echo("click");
 	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
+	
 }  
-
+*/
 
 
 function SceneWindow::onMouseWheelUp(%this, %modifier, %mousePoint, %mouseClickCount)
@@ -181,6 +148,13 @@ function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClic
 
 function SceneWindow::onTouchDown(%this, %touchid, %worldposition)  
 {  
+
+	%ret=myScene.pickPoint(%worldPosition);
+	 echo(%worldPosition SPC "window:" SPC %ret);
+	 if(getWordCount(%ret)<=1){
+	 	LogClick.setText("clicked world");
+	 }
+
 	//echo("click");
 	 %this.OldTouchPosition = %worldposition;
 	 %this.OldCameraPosition= mySceneWindow.getCameraPosition();
