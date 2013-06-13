@@ -28,7 +28,7 @@ function createPopup(%region,%kind){
 		class="popUpTimer";
 		obj=%obj;
 	};
-	%timer.startTimer(disapear,5000);
+	%timer.startTimer("disapear",5000);
 }
 
 
