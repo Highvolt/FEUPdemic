@@ -20,9 +20,9 @@ function createArea(%id,%data){
 			};
 			%shape.setUseInputEvents(true);
 			%shape.setPolyCustom(getWordCount(%polPos)/2,%polPos);
-			echo("Vals:"@%polPos);
+			//echo("Vals:"@%polPos);
 			%shape.createPolygonCollisionShape(%polPos);
-			feupDemic.zones[feupDemic.zonesCount]=%shape;
+			feupDemic.zones[%shape.id_Area]=%shape;
 			feupDemic.zonesCount++;
 		}
 	}
@@ -37,6 +37,7 @@ function drawAreas(){
 function Area::onTouchDown(%this, %touchID, %worldPosition)  
 {  
 	echo("clicked area with id" SPC %this.id_Area);
-	LogClick.setText("clicked area with id" SPC %this.id_Area);
+	//LogClick.setText("clicked area with id" SPC %this.id_Area);
+	LogClick.setText($regions[%this.id_Area].name);
 }  
 
