@@ -57,9 +57,9 @@ function feupDemic::create( %this )
 
 	populatePie("45 30 25");
 	//echoInputState();
-	%region =new ScriptObject(){ class="region"; };
-	%region.id=0;
-	createPopup(%region,0);
+	//%region =new ScriptObject(){ class="region"; };
+	//%region.id=0;
+	//createPopup(%region,0);
 	/*%shape=new ShapeVector(){
 		Angle=90;
 		CircleRadius=100;

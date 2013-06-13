@@ -1,9 +1,13 @@
 function create_disease(){
 	%this=new ScriptObject(){ class="disease"; };
 
-	%this.infection_percentage=0;
-	%this.severity_percentage=0;
-	%this.fatality_percentage=0;
+	%this.infection_percentage=0.2;
+	%this.severity_percentage=0.2;
+	%this.fatality_percentage=0.2;
+	
+	%this.world_uninfected=10833;
+	%this.world_infected=0;
+	%this.world_death=0;
 
 	//infections
 	%this.tech_primitive_lv1=0;
@@ -54,4 +58,14 @@ function create_disease(){
 	%this.dis20=0;
 
 	return %this;
+}
+
+function disease::infect(%this, %n){
+   %this.world_uninfected-=%n;
+   %this.world_infected+=%n;
+}
+
+function disease::kill(%this, %n){
+   %this.world_infected-=%n;
+   %this.world_death+=%n;
 }

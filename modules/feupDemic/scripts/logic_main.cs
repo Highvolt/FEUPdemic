@@ -66,7 +66,7 @@ $regions[0].infect(2);
 
 function logic_timer::logic_tick(){
   
-	for(%i=0; %i<$REGIONS_SIZE; %i++){
+	for(%i=0; %i<=$REGIONS_SIZE; %i++){
 		%reg = $regions[%i];
 		if(%reg.is_infected()){
 			%reg.tick();
@@ -78,4 +78,4 @@ function logic_timer::logic_tick(){
 
 
 new SimObject(logic_timer);
-logic_timer.startTimer(logic_tick, 5);
+logic_timer.startTimer(logic_tick, 50);
