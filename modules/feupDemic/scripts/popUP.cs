@@ -4,6 +4,8 @@ function createPopup(%region,%kind){
 	};
 	%obj.setBodyType( static );
 	%v=feupDemic.zones[%region.id];
+	%obj.id_A=%region.id;
+	%obj.kind=%kind;
 	//echo(%v.id_Area);
 	%obj.setUseInputEvents(true);
 	%obj.Position=feupDemic.zones[%region.id].Position;
@@ -39,9 +41,21 @@ function updatePops(){
 	}
 }
 
-function popUP::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClickCount)
+function popUP::onTouchDown(%this, %touchid, %worldposition)
 {  
 	//echo("down");
 	echo("popup Click");
+	$regions[%this.id_A].handlePopUp(%this.kind);
+	%len=getWordCount(feupDemic.pops);
+	echo(%len);
+	for(%i=0;%i<%len;%i++){
+		%obj=getWord(feupDemic.pops,%i);
+		if(%obj==%this){
+			feupDemic.pops=removeWord(feupDemic.pops,%i);
+			myScene.remove(%this);
+			return;
+		}
+
+	}
 
 } 
