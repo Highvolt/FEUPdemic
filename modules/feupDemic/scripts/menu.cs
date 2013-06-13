@@ -47,7 +47,7 @@ function createSidebar() {
 				   hovertime = "1000";
 				   isContainer=true;
 
-					new GuiTextCtrl() {
+					new GuiTextCtrl(ZoneName) {
 						canSaveDynamicFields = "0";
 						Profile = "GuiMenuProfile";
 						HorizSizing = "right";
@@ -57,7 +57,7 @@ function createSidebar() {
 						canSave = "1";
 						Visible = "1";
 						hovertime = "1000";
-						text="Bloco B";
+						text="FEUP";
 					};
 
 					 new GuiSceneObjectCtrl(wellChart) {
@@ -129,7 +129,7 @@ function createSidebar() {
 								   Profile = "GuiDefaultProfile";   
 								   HorizSizing = "right";
 								   VertSizing = "bottom";
-								   position = "0 5";
+								   position = "25 5";
 								   Extent = "20 20";
 								   MinExtent = "0 0";
 								   canSave = "1";
@@ -172,7 +172,7 @@ function createSidebar() {
 								   Profile = "GuiDefaultProfile";   
 								   HorizSizing = "right";
 								   VertSizing = "bottom";
-								   position = "0 5";
+								   position = "25 5";
 								   Extent = "20 20";
 								   MinExtent = "0 0";
 								   canSave = "1";
@@ -215,7 +215,7 @@ function createSidebar() {
 									   Profile = "GuiDefaultProfile";   
 									   HorizSizing = "right";
 									   VertSizing = "bottom";
-									   position = "0 5";
+									   position = "25 5";
 									   Extent = "20 20";
 									   MinExtent = "0 0";
 									   canSave = "1";

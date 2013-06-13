@@ -99,6 +99,7 @@ function Area::onTouchDown(%this, %touchID, %worldPosition)
 	};
 	$timerGraph.startTimer(updateGraph,500);
 	LogClick.setText($regions[%this.id_Area].name SPC $regions[%this.id_Area].infected);
+	ZoneName.setText($regions[%this.id_Area].name);
 }  
 
 
