@@ -91,7 +91,7 @@ function feupDemic::destroy( %this )
 
 function createGrass(){
 
-   new Sprite(grass);
+   $grass=new Sprite(grass);
  	 grass.setBodyType( static );
     grass.Size = "667" SPC "640";
     
@@ -101,8 +101,8 @@ function createGrass(){
    
     grass.Image = "feupDemic:map";
             
-    
-    myScene.add( grass );   
+    echo($grass);
+    myScene.add( $grass );   
 }
 
 function Sprite::onTouchDown(%this, %touchid, %worldposition)  
@@ -112,12 +112,13 @@ function Sprite::onTouchDown(%this, %touchid, %worldposition)
 	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
 }
 
-function mySceneWindow::onTouchUp(%this, %touchID, %worldPosition)  
+/*function mySceneWindow::onTouchDown(%this, %touchID, %worldPosition)  
 {  
 	//echo("click");
 	//mySceneWindow.setCameraPosition(-getWord(%worldposition,0),-getWord(%worldposition,1));
+	
 }  
-
+*/
 
 
 function SceneWindow::onMouseWheelUp(%this, %modifier, %mousePoint, %mouseClickCount)
@@ -147,6 +148,13 @@ function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClic
 
 function SceneWindow::onTouchDown(%this, %touchid, %worldposition)  
 {  
+
+	%ret=myScene.pickPoint(%worldPosition);
+	 echo(%worldPosition SPC "window:" SPC %ret);
+	 if(getWordCount(%ret)<=1){
+	 	LogClick.setText("clicked world");
+	 }
+
 	//echo("click");
 	 %this.OldTouchPosition = %worldposition;
 	 %this.OldCameraPosition= mySceneWindow.getCameraPosition();
