@@ -14,6 +14,7 @@ function createArea(%id,%data){
 				Position=%pos;
 				PolyList=%polPos;
 				FillColor="1 0 0 0";
+				LineColor="0 0 0 0";
 				FillMode=true;
 				id_Area=getUnit(getUnit(%pol,0,";"),0,"/");
 				id_A=%id;
@@ -37,7 +38,7 @@ function drawAreas(){
 
 function setOpacity(%region,%percentage){
 	%v=feupDemic.zones[%region.id];
-	%v.setFillColor(setWord(%v.getFillColor, 3, %percentage));
+	%v.setFillColor(setWord(%v.getFillColor(), 3, %percentage));
 
 }
 

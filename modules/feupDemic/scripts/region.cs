@@ -28,7 +28,10 @@ function region::propagate(%this){
 }
 
 function region::yellow_prob(%this){
-	if(gen() < $YELLOW_PROBABILITY){
+  
+   %g = gen();
+   echo("g:" SPC %g SPC "yellow:" SPC $YELLOW_PROBABILITY SPC %this.has_popup);
+	if(%g < $YELLOW_PROBABILITY){
 	   if(!%this.has_popup){
 		   createPopup(%this,"yellow");
 		   %this.has_popup=true;
@@ -103,6 +106,7 @@ function region::prob_from_infection_upgrades(%this){
 
 function region::infect(%this, %n){
 	%this.infected += %n;
+	setOpacity(%this,%this.infected/%this.population);
 }
 
 function region::kill(%this, %n){
@@ -117,10 +121,11 @@ function region::is_infected(%this){
 function region::handlePopUp(%this, %kind){
    switch$ (%kind){
       case "close":
-         %this.has_popup=false;
+         
       case "red":
-         %this.infected=60;
+         %this.infect(60);
       case "yellow": 
-         %this.infected=80; 
+         %this.infect(80); 
    }
+   %this.has_popup=false;
 }

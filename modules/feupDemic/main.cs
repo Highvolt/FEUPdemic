@@ -41,7 +41,7 @@ function feupDemic::create( %this )
 	configureSceneWindow();
 	createScene();
 	
-	myScene.setDebugOn("collision");
+	//myScene.setDebugOn("collision");
 	
 	mySceneWindow.setScene(myScene);
 	mySceneWindow.setUseObjectInputEvents(true);
