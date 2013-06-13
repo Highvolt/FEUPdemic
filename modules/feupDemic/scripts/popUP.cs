@@ -33,6 +33,7 @@ function createPopup(%region,%kind){
 
 
 function popUpTimer::disapear(%this){
+	$regions[%this.obj.id_A].handlePopUp("close");
 	%len=getWordCount(feupDemic.pops);
 	//echo(%len);
 	for(%i=0;%i<%len;%i++){
