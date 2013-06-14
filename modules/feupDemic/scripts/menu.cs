@@ -603,13 +603,29 @@ function createSidebar() {
 						   //isContainer=true;
 					};
 
-					new GuiMLTextCtrl(detailText) {  
+					new GuiMLTextCtrl(detailTitle) {  
 					  canSaveDynamicFields = "0";
 					  Profile = "GuiLogProfile";   
 					  HorizSizing = "right";
 					  VertSizing = "bottom";
 					  position = "725 190";
-					  Extent = "225 150";
+					  Extent = "225 50";
+					  MinExtent = "2 4";
+					  canSave = "1";
+					  Visible = "1";
+					  hovertime = "1000";
+					  truncate=true;
+					  text="Title";
+					};
+
+
+					new GuiMLTextCtrl(detailText) {  
+					  canSaveDynamicFields = "0";
+					  Profile = "GuiLogProfile";   
+					  HorizSizing = "right";
+					  VertSizing = "bottom";
+					  position = "725 220";
+					  Extent = "225 120";
 					  MinExtent = "2 4";
 					  canSave = "1";
 					  Visible = "1";
@@ -687,7 +703,7 @@ function createSidebar() {
 							   hovertime = "1000";
 							   isContainer = true;
 
-							  new GuiTextCtrl() {  
+							 /* new GuiTextCtrl() {  
 								  canSaveDynamicFields = "0";
 								  Profile = "GuiLogProfile";   
 								  HorizSizing = "right";
@@ -699,7 +715,7 @@ function createSidebar() {
 								  Visible = "1";
 								  hovertime = "1000";
 								  text="1";
-								};
+								};*/
 						   
 							};
 							 new SceneWindow(symptomsTab) {
@@ -714,7 +730,7 @@ function createSidebar() {
 							   Visible = "0";
 							   hovertime = "1000";
 							   isContainer=true;
-							   new GuiTextCtrl() {  
+							  /* new GuiTextCtrl() {  
 								   canSaveDynamicFields = "0";
 								   Profile = "GuiLogProfile";   
 								   HorizSizing = "right";
@@ -730,7 +746,7 @@ function createSidebar() {
 								
 									 
 									
-								};
+								};*/
 						   
 							};
 							new SceneWindow(resistenceTab) {
@@ -745,7 +761,7 @@ function createSidebar() {
 							   Visible = "0";
 							   hovertime = "1000";
 							   isContainer=true;
-							   new GuiTextCtrl() {  
+							  /* new GuiTextCtrl() {  
 								   canSaveDynamicFields = "0";
 								   Profile = "GuiLogProfile";   
 								   HorizSizing = "right";
@@ -761,7 +777,7 @@ function createSidebar() {
 								
 									 
 									
-								};
+								};*/
 						   
 							};
 					};
@@ -822,30 +838,54 @@ function transmissionTabInit(){
 	transmissionTab.setScene($transmissionScene);
 }
 
+
+function item::onTouchDown(%this, %touchid, %worldposition){
+	echo("item" SPC %this.id);
+	if(%this.kind$="s"){
+		detailText.setText(getVariable("$DIS_"@%this.id@"_DESC"));
+		detailTitle.setText(getVariable("$DIS_"@%this.id@"_NAME"));
+	}
+}
+
 function symptomsTabInit(){
 	$symptomsScene=new Scene();
 	symptomsTab.setScene($symptomsScene);
+	symptomsTab.setUseObjectInputEvents(true);
 	$symptomsIcons="";
-	%s=new Sprite();
+	$symptomsScene.setDebugOn("collision");
+	%s=new Sprite(){
+   			class="item";
+   			id=1;
+   			kind="s";
+   	};
 	%s.Size="62 66";
    	%s.Image="feupDemic:s1";
    	$s.Position="0 0";
+   	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");	
+   	%s.setUseInputEvents(true);
    	%s.setImageFrame(1);
    	$symptomsScene.add(%s);
    	$symptomsIcons=%s;
+
    	for(%i=2;%i<=31;%i++){
-   		%s=new Sprite();
+   		%s=new Sprite(){
+   			class="item";
+   			id=%i;
+   			kind="s";
+   		};
+   		%s.setUseInputEvents(true);
 		%s.Size="62 66";
 	   	%s.Image="feupDemic:s"@%i;
 	   	$s.Position="0 0";
 	   	%s.setImageFrame(1);
+	   	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");
 	   	$symptomsScene.add(%s);
 	   	$symptomsIcons=$symptomsIcons SPC %s;
    	}
-   	%len=getWordCount($symptomsIcons);
+   	/*%len=getWordCount($symptomsIcons);
    	%h=0;
    	%v=0;
-   	/*for(%i=0;%i<%len;%i++){
+   	for(%i=0;%i<%len;%i++){
    		%s=getWord($symptomsIcons,%i);
 
    		//%s.Position=((%i%10)*62-280) SPC (-(mCeil(%i/10)+1)*66+191);
@@ -878,6 +918,27 @@ function symptomsTabInit(){
    	getWord($symptomsIcons,7).Position=Vector2Hex(2,2);
    	getWord($symptomsIcons,8).Position=Vector2Hex(4,1);
    	getWord($symptomsIcons,9).Position=Vector2Hex(5,1);
+	getWord($symptomsIcons,10).Position=Vector2Hex(3,3);
+	getWord($symptomsIcons,11).Position=Vector2Hex(0,6);
+	getWord($symptomsIcons,12).Position=Vector2Hex(1,5);
+	getWord($symptomsIcons,13).Position=Vector2Hex(0,4);
+	getWord($symptomsIcons,14).Position=Vector2Hex(1,4);
+	getWord($symptomsIcons,15).Position=Vector2Hex(2,4);
+   	getWord($symptomsIcons,16).Position=Vector2Hex(0,3);
+   	getWord($symptomsIcons,17).Position=Vector2Hex(6,0);
+   	getWord($symptomsIcons,18).Position=Vector2Hex(6,1);
+   	getWord($symptomsIcons,19).Position=Vector2Hex(7,6);
+   	getWord($symptomsIcons,20).Position=Vector2Hex(6,4);
+	getWord($symptomsIcons,21).Position=Vector2Hex(6,3);
+	getWord($symptomsIcons,22).Position=Vector2Hex(6,6);
+	getWord($symptomsIcons,23).Position=Vector2Hex(6,5);
+   	getWord($symptomsIcons,24).Position=Vector2Hex(3,6);
+   	getWord($symptomsIcons,25).Position=Vector2Hex(3,5);
+   	getWord($symptomsIcons,26).Position=Vector2Hex(5,5);
+   	getWord($symptomsIcons,27).Position=Vector2Hex(5,2);
+	getWord($symptomsIcons,28).Position=Vector2Hex(4,2);
+   	getWord($symptomsIcons,29).Position=Vector2Hex(4,3);
+   	getWord($symptomsIcons,30).Position=Vector2Hex(4,6);
 }
 
 function Vector2Hex(%x,%y){
