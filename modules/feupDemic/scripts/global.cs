@@ -85,6 +85,13 @@ $DENS_HIGH_LV2_INFECTION_P=0.01;
 
 $INFECTED_ON_INFECTER_RATIO=0.01; //has to be lower -- 0.01
 
+$TECH_PRIMITIVE_LV1_INFECTION_DESC="";
+$TECH_PRIMITIVE_LV2_INFECTION_DESC="";
+$TECH_MEDIUM_LV1_INFECTION_DESC="";
+$TECH_MEDIUM_LV2_INFECTION_DESC="";
+$TECH_HITECH_LV1_INFECTION_DESC="";
+$TECH_HITECH_LV2_INFECTION_DESC="";
+$TECH_TEMP_LV3_INFECTION_DESC="";
 //enum temperature = {cold, temperate, hot}
 //enum density = {low, medium, high}
 //enum technologic_level = { primitive, medium ,hitech}
