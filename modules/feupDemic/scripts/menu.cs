@@ -540,6 +540,19 @@ function createSidebar() {
 						   hovertime = "1000";
 						   text="DNA";
 						};
+						new GuiTextCtrl(dnaVal) {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiDnaBarLabelProfile";
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "200 0";
+						   Extent = "100 38";
+						   MinExtent = "2 4";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						   text="0";
+						};
 					};
 
 					new GuiButtonCtrl(){
@@ -830,12 +843,51 @@ function symptomsTabInit(){
 	   	$symptomsIcons=$symptomsIcons SPC %s;
    	}
    	%len=getWordCount($symptomsIcons);
-   	for(%i=0;%i<%len;%i++){
+   	%h=0;
+   	%v=0;
+   	/*for(%i=0;%i<%len;%i++){
    		%s=getWord($symptomsIcons,%i);
-   		%s.Position=((%i%10)*62-280) SPC (-(mCeil(%i/10)+1)*66+191);
 
-   	}
+   		//%s.Position=((%i%10)*62-280) SPC (-(mCeil(%i/10)+1)*66+191);
+   		%s.Position=Vector2Hex(%h,%v);
+   		if(%v%2==0){
+   			if(%h>7){
+   				%v++;
+   				%h=0;
+   			}else{
+   				%h++;
+   			}
+   		}else{
+   			if(%h>8){
+   				%v++;
+   				%h=0;
+   			}else{
+   				%h++;
+   			}
+   		}
+
+   	}*/
+   	//getWord($symptomsIcons,0).Position="-289 158";
+   	getWord($symptomsIcons,0).Position=Vector2Hex(0,0);	
+   	getWord($symptomsIcons,1).Position=Vector2Hex(1,0);
+   	getWord($symptomsIcons,2).Position=Vector2Hex(1,1);
+   	getWord($symptomsIcons,3).Position=Vector2Hex(0,2);
+   	getWord($symptomsIcons,4).Position=Vector2Hex(2,1);
+   	getWord($symptomsIcons,5).Position=Vector2Hex(3,0);
+   	getWord($symptomsIcons,6).Position=Vector2Hex(3,1);
+   	getWord($symptomsIcons,7).Position=Vector2Hex(2,2);
+   	getWord($symptomsIcons,8).Position=Vector2Hex(4,1);
+   	getWord($symptomsIcons,9).Position=Vector2Hex(5,1);
 }
+
+function Vector2Hex(%x,%y){
+	if(%y%2==0){
+		return -289+%x*64+62/2+2 SPC 191-%y*53-33;
+	}else{
+		return -289+%x*64+1 SPC 191-%y*53-33;
+	}
+}
+
 function resistenceTabInit(){
 	$resistenceScene=new Scene();
    
