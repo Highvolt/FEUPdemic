@@ -1,0 +1,6 @@
+<AudioAsset
+    AssetName="popSound"
+    AssetAutoUnload="0"
+    AudioFile="pop.wav"
+    Looping="0"
+    />

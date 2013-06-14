@@ -1,4 +1,5 @@
 function createPopup(%region,%kind){
+	alxPlay("feupDemic:appearSound");
 	%obj=new Sprite(){
 		class="popUP";
 	};
@@ -90,6 +91,7 @@ function popUP::onTouchDown(%this, %touchid, %worldposition)
 	if(%this.a==1){
 		return;
 	}
+	alxPlay("feupDemic:popSound");
 	%this.a=1;
 	%obj=%this;
 	%this.clearCollisionShapes();

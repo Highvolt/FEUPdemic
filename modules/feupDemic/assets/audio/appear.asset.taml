@@ -1,0 +1,6 @@
+<AudioAsset
+    AssetName="appearSound"
+    AssetAutoUnload="0"
+    AudioFile="appear.wav"
+    Looping="0"
+    />

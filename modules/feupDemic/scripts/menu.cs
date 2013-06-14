@@ -1241,7 +1241,7 @@ function resistenceTabInit(){
 }
 
 function menuVisible(%state){
-
+	alxPlay("feupDemic:menuSound");
 	if(menuOverlay.Visible$="1" && %state==0){
 		timerXPTO.startTimer(hideOverlay, 2.5);
 	}else{
