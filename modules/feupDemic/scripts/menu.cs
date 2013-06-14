@@ -769,6 +769,7 @@ function menuVisible(%state){
 		timerXPTO.startTimer(hideOverlay, 2.5);
 	}else{
 		timerXPTO.startTimer(showOverlay, 2.5);
+		$menu_open=true;
 	}
 }
 
@@ -781,6 +782,7 @@ function timerXPTO::hideOverlay(){
 			timerXPTO.it=0;
 			timerXPTO.stopTimer();
 			wrapper.Position="-1000 0";
+			$menu_open=false;
 		}else{
 			%v=-10*mSin(timerXPTO.it/250 * (3.1415/2));
 			wrapper.Position=Vector2Add(wrapper.Position,%v SPC "0");
