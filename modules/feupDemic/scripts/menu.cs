@@ -867,6 +867,7 @@ function createSidebar() {
 
 		$SYMPTOMS_UPGRADED=0;
 		$TRANS_UPGRADED=0;
+		$RES_UPGRADED=0;
 	
 	transmissionTab.setCameraPosition( 0, 0 );
     transmissionTab.setCameraSize( 642, 383 );
@@ -1014,6 +1015,23 @@ function buy(){
 				getWord($transmissionIcons,getWord(%v,%i)).setImageFrame(1);
 			}
 		}
+	}else if(detailPrice.selected.kind$="r"  && detailPrice.selected.getImageFrame()==1 && has_dna(detailPrice.selected.calc)){
+		remove_dna(detailPrice.selected.calc);
+		echo("$"@detailPrice.selected.info@"_CONN");
+		%v=getVariable("$"@detailPrice.selected.info@"_CONN");
+		//%t=getVariable("$disease.dis"@detailPrice.selected.id);
+		//%t=1;
+		$RES_UPGRADED++;
+		
+		
+		
+		detailPrice.selected.setImageFrame(2);
+		%len=getWordCount(%v);
+		for(%i=0;%i<%len;%i++){
+			if(getWord($resistenceIcons,getWord(%v,%i)).getImageFrame()==0){
+				getWord($resistenceIcons,getWord(%v,%i)).setImageFrame(1);
+			}
+		}
 	}
 	$disease.updateMenu();
 
@@ -1037,6 +1055,17 @@ function item::onTouchDown(%this, %touchid, %worldposition){
 		detailTitle.setText(getVariable(%this.info@"_NAME")SPC "-" SPC %this.id);
 		detailPrice.setText(mCeil(getVariable(%this.info@"_COST")*$TRANS_UPGRADED*$COST_SCALING+1));
 		%this.calc=mCeil(getVariable(%this.info@"_COST")*$TRANS_UPGRADED*$COST_SCALING+1);
+		detailPrice.selected=%this;
+		if(has_dna(detailPrice.getText())  && %this.getImageFrame()==1){
+			buyBTN.Active=1;
+		}else{
+			buyBTN.Active=0;
+		}
+	}else if(%this.kind$="r" && %this.getImageFrame()>0){
+		detailText.setText(getVariable("$"@%this.info@"_DESC"));
+		detailTitle.setText(getVariable(%this.info@"_NAME")SPC "-" SPC %this.id);
+		detailPrice.setText(mCeil(getVariable(%this.info@"_COST")*$RES_UPGRADED*$COST_SCALING+1));
+		%this.calc=mCeil(getVariable(%this.info@"_COST")*$RES_UPGRADED*$COST_SCALING+1);
 		detailPrice.selected=%this;
 		if(has_dna(detailPrice.getText())  && %this.getImageFrame()==1){
 			buyBTN.Active=1;
@@ -1164,6 +1193,47 @@ function resistenceTabInit(){
 	$resistenceScene=new Scene();
    
 	resistenceTab.setScene($resistenceScene);
+
+	%resistenceToLoad="R1 R2 R3 R4";
+	
+	resistenceTab.setUseObjectInputEvents(true);
+	//$transmissionScene.setDebugOn("collision");
+	%len=getWordCount(%resistenceToLoad);
+	for(%i=0;%i<%len;%i++){
+		echo(%i);
+   		%s=new Sprite(){
+   			class="item";
+   			id=%i;
+   			info=getWord(%resistenceToLoad,%i);
+   			kind="r";
+   		};
+   		%s.setUseInputEvents(true);
+   		%s.setBodyType( static );
+		%s.Size="62 66";
+	   	%s.Image="feupDemic:"@getWord(%resistenceToLoad,%i);
+	   	$s.Position="0 0";
+	   	//%s.setImageFrame(1);
+	   	//echo(getVariable("$"@getWord(%resistenceToLoad,%i)@"_COST"));
+	   	switch(getVariable("$"@getWord(%resistenceToLoad,%i)@"_COST")){
+	   		case 1:
+	   			%s.setImageFrame(1);
+	   		default: 
+	   			%s.setImageFrame(0);
+   		}
+	   	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");
+	   	$resistenceScene.add(%s);
+	   	if(%i==0){
+
+	   		$resistenceIcons=%s;
+	   	}else{
+			$resistenceIcons=$resistenceIcons SPC %s;
+	   	}
+   	}
+   	getWord($resistenceIcons,0).Position=Vector2Hex(4,4);
+   	getWord($resistenceIcons,1).Position=Vector2Hex(5,4);
+   	getWord($resistenceIcons,2).Position=Vector2Hex(6,4);
+   	getWord($resistenceIcons,3).Position=Vector2Hex(7,4);
+
 }
 
 function menuVisible(%state){

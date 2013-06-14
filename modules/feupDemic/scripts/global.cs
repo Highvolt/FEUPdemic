@@ -362,17 +362,17 @@ $R1_COST=1;
 $R2_PROB=0.01;
 $R2_NAME="Drug resistance II";
 $R2_DESC="Improves the disease resistance to the cure";
-$R1_COST=2;
+$R2_COST=2;
 
 $R3_PROB=0.01;
 $R3_NAME="Drug resistance III";
 $R3_DESC="Improves the disease resistance to the cure";
-$R1_COST=3;
+$R3_COST=3;
 
 $R4_PROB=0.01;
 $R4_NAME="Drug resistance IV";
 $R4_DESC="Improves the disease resistance to the cure";
-$R1_COST=4;
+$R4_COST=4;
 
 
 
@@ -446,7 +446,11 @@ $T_17_N="20 23";
 $T_20_N="25 19";
 $T_23_N="22 26";
 
+//Resistance CONN
 
+$R1_CONN="1";
+$R2_CONN="2";
+$R3_CONN="3";
 
 function gen(){
 	return getRandomF(0,1);
