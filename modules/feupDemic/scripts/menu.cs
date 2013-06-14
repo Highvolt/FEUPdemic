@@ -573,6 +573,8 @@ function createSidebar() {
 				   hovertime = "1000";
 				   isContainer=true;
 
+
+
 					 new GuiBitmapCtrl() {
 						   canSaveDynamicFields = "0";
 						   Profile = "GuiDefaultProfile";   
@@ -586,6 +588,21 @@ function createSidebar() {
 						   hovertime = "1000";
 						   bitmap = "^feupDemic/gui/images/hexagonal_grid.png";
 						   //isContainer=true;
+					};
+
+					new GuiMLTextCtrl(detailText) {  
+					  canSaveDynamicFields = "0";
+					  Profile = "GuiLogProfile";   
+					  HorizSizing = "right";
+					  VertSizing = "bottom";
+					  position = "725 190";
+					  Extent = "225 150";
+					  MinExtent = "2 4";
+					  canSave = "1";
+					  Visible = "1";
+					  hovertime = "1000";
+					  truncate=true;
+					  text="ajsdnajsdjfnasdjkfnakjsdnfjksdanfjkask vjasdnv jasd vjksafnjnsajkdvnaskjfv sajvnsajfnvjksnfjvnsdjnvjksdv sdvjnskdvsdkvnksadnvksadnvksdnvskd ksd vksd vksdmkvn";
 					};
 				   new GuiButtonCtrl(){
 						 canSaveDynamicFields = "0";
@@ -637,20 +654,20 @@ function createSidebar() {
 					   Profile = "GuiDefaultProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
-					   position = "200 150";
-					   Extent = "600 400";
+					   position = "50 185";
+					   Extent = "642 383";
 					   MinExtent = "2 2";
 					   canSave = "1";
 					   Visible = "1";
 					   hovertime = "1000";
 					   isContainer=true;
-						   new GuiControl(transmissionTab) {
+						   new SceneWindow(transmissionTab) {
 							   canSaveDynamicFields = "0";
 							   Profile = "GuiDefaultProfile";   
 							   HorizSizing = "right";
 							   VertSizing = "bottom";
 							   position = "0 0";
-							   Extent = "600 400";
+							   Extent = "642 383";
 							   MinExtent = "2 2";
 							   canSave = "1";
 							   Visible = "1";
@@ -672,13 +689,13 @@ function createSidebar() {
 								};
 						   
 							};
-							 new GuiControl(symptomsTab) {
+							 new SceneWindow(symptomsTab) {
 							   canSaveDynamicFields = "0";
 							   Profile = "GuiDefaultProfile";   
 							   HorizSizing = "right";
 							   VertSizing = "bottom";
 							   position = "0 0";
-							   Extent = "600 400";
+							   Extent = "642 383";
 							   MinExtent = "2 2";
 							   canSave = "1";
 							   Visible = "0";
@@ -703,13 +720,13 @@ function createSidebar() {
 								};
 						   
 							};
-							new GuiControl(resistenceTab) {
+							new SceneWindow(resistenceTab) {
 							   canSaveDynamicFields = "0";
 							   Profile = "GuiDefaultProfile";   
 							   HorizSizing = "right";
 							   VertSizing = "bottom";
 							   position = "0 0";
-							   Extent = "600 400";
+							   Extent = "642 383";
 							   MinExtent = "2 2";
 							   canSave = "1";
 							   Visible = "0";
@@ -756,6 +773,27 @@ function createSidebar() {
 			
 		};
 	
+	transmissionTab.setCameraPosition( 0, 0 );
+    transmissionTab.setCameraSize( 642, 383 );
+    transmissionTab.setCameraZoom( 1 );
+    transmissionTab.setCameraAngle( 0 );
+    transmissionTab.Pos=0;
+    transmissionTabInit();
+
+   	symptomsTab.setCameraPosition( 0, 0 );
+    symptomsTab.setCameraSize( 642, 383 );
+    symptomsTab.setCameraZoom( 1 );
+    symptomsTab.setCameraAngle( 0 );
+    symptomsTab.Pos=0;
+    symptomsTabInit();
+
+    resistenceTab.setCameraPosition( 0, 0 );
+    resistenceTab.setCameraSize( 642, 383 );
+    resistenceTab.setCameraZoom( 1 );
+    resistenceTab.setCameraAngle( 0 );
+    resistenceTab.Pos=0;
+    resistenceTabInit();
+
 	Canvas.pushDialog(sidebar);
 
 	new SimObject(timerXPTO);
@@ -763,6 +801,29 @@ function createSidebar() {
 
 }
 
+
+
+function transmissionTabInit(){
+	$transmissionScene=new Scene();
+   
+	transmissionTab.setScene($transmissionScene);
+}
+
+function symptomsTabInit(){
+	$symptomsScene=new Scene();
+	symptomsTab.setScene($symptomsScene);
+	%s=new Sprite();
+	%s.Size="62 66";
+   	%s.Image="feupDemic:s1";
+   	$s.Position="0 0";
+   	%s.setImageFrame(1);
+   	$symptomsScene.add(%s);
+}
+function resistenceTabInit(){
+	$resistenceScene=new Scene();
+   
+	resistenceTab.setScene($resistenceScene);
+}
 
 function menuVisible(%state){
 	if(menuOverlay.Visible$="1" && %state==0){
