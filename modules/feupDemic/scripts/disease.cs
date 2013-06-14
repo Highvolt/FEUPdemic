@@ -6,7 +6,7 @@ function create_disease(){
 	%this.fatality_percentage=0.2;
 	
 	%this.world_total=10833;
-	%this.world_uninfected=10833;
+	%this.world_uninfected=%this.world_total;
 	%this.world_infected=0;
 	%this.world_death=0;
 
@@ -68,12 +68,18 @@ function create_disease(){
 	%this.dis29=0;
 	%this.dis30=0;
 	%this.dis31=0;
-	%this.dis32=0;
-	%this.dis33=0;
-	%this.dis34=0;
-	%this.dis35=0;
-	%this.dis36=0;
-	%this.dis37=0;
+
+   //resistances
+   %this.res1=0;
+   %this.res2=0;
+   %this.res3=0;
+   %this.res4=0;
+   %this.res5=0;
+   %this.res6=0;
+   %this.res7=0;
+   %this.res8=0;
+   %this.res9=0;   
+   %this.res10=0;
 
 	return %this;
 }
