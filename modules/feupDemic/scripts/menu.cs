@@ -904,7 +904,7 @@ function transmissionTabInit(){
    
 	transmissionTab.setScene($transmissionScene);
 	transmissionTab.setUseObjectInputEvents(true);
-	$transmissionScene.setDebugOn("collision");
+	//$transmissionScene.setDebugOn("collision");
 	%len=getWordCount(%transmissionToLoad);
 	for(%i=0;%i<%len;%i++){
 		echo(%i);
@@ -970,7 +970,7 @@ function transmissionTabInit(){
 
 
 function buy(){
-	if(detailPrice.selected.kind$="s"  && detailPrice.selected.getImageFrame()>0 && has_dna(detailPrice.selected.calc)){
+	if(detailPrice.selected.kind$="s"  && detailPrice.selected.getImageFrame()==1 && has_dna(detailPrice.selected.calc)){
 		remove_dna(detailPrice.selected.calc);
 		%v=getVariable("$DIS_"@detailPrice.selected.id@"_CONN");
 		%t=getVariable("$disease.dis"@detailPrice.selected.id);
@@ -988,6 +988,32 @@ function buy(){
 				getWord($symptomsIcons,getWord(%v,%i)-1).setImageFrame(1);
 			}
 		}
+	}else if(detailPrice.selected.kind$="t" && detailPrice.selected.getImageFrame()==1 && has_dna(detailPrice.selected.calc)){
+		%v=getVariable("$T_"@detailPrice.selected.id);
+		detailPrice.selected.setImageFrame(2);
+		$TRANS_UPGRADED++;
+		$disease.infection_percentage+=getVariable(detailPrice.selected.info@"_INFECT");
+		remove_dna(detailPrice.selected.calc);
+		%len=getWordCount(%v);
+		for(%i=0;%i<%len;%i++){
+			echo(getVariable("$T_"@getWord(%v,%i)@"_N"));
+			if(getVariable("$T_"@getWord(%v,%i)@"_N")!$=""){
+				%f=getVariable("$T_"@getWord(%v,%i)@"_N");
+				%lenF=getWordCount(%f);
+				%ok=true;
+				for(%j=0;%j<%lenF;%j++){
+					if(getWord($transmissionIcons,getWord(%f,%j)).getImageFrame()<2){
+						%ok=false;
+					}
+				}
+				if(%ok){
+					getWord($transmissionIcons,getWord(%v,%i)).setImageFrame(1);
+				}
+			}else{
+				echo(getWord(%v,%i));
+				getWord($transmissionIcons,getWord(%v,%i)).setImageFrame(1);
+			}
+		}
 	}
 	$disease.updateMenu();
 
@@ -1001,15 +1027,22 @@ function item::onTouchDown(%this, %touchid, %worldposition){
 		detailPrice.setText(mCeil(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1));//cost*(//already_upgraded)*COST_SCALING+1
 		%this.calc=mCeil(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1);
 		detailPrice.selected=%this;
-		if(has_dna(detailPrice.getText())){
+		if(has_dna(detailPrice.getText()) && %this.getImageFrame()==1){
 			buyBTN.Active=1;
 		}else{
 			buyBTN.Active=0;
 		}
-	}else if(%this.kind$="t" ){// && %this.getImageFrame()>0){
+	}else if(%this.kind$="t" && %this.getImageFrame()>0){
 		detailText.setText("");
 		detailTitle.setText(getVariable(%this.info@"_NAME")SPC "-" SPC %this.id);
 		detailPrice.setText(mCeil(getVariable(%this.info@"_COST")*$TRANS_UPGRADED*$COST_SCALING+1));
+		%this.calc=mCeil(getVariable(%this.info@"_COST")*$TRANS_UPGRADED*$COST_SCALING+1);
+		detailPrice.selected=%this;
+		if(has_dna(detailPrice.getText())  && %this.getImageFrame()==1){
+			buyBTN.Active=1;
+		}else{
+			buyBTN.Active=0;
+		}
 	}
 }
 
@@ -1018,7 +1051,7 @@ function symptomsTabInit(){
 	symptomsTab.setScene($symptomsScene);
 	symptomsTab.setUseObjectInputEvents(true);
 	$symptomsIcons="";
-	$symptomsScene.setDebugOn("collision");
+	//$symptomsScene.setDebugOn("collision");
 	%s=new Sprite(){
    			class="item";
    			id=1;

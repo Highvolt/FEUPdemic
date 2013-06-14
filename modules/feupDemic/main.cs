@@ -47,7 +47,7 @@ function feupDemic::create( %this )
 	
 	mySceneWindow.setScene(myScene);
 	mySceneWindow.setUseObjectInputEvents(true);
-	myScene.setDebugOn("collision");
+	//myScene.setDebugOn("collision");
 	createGrass();
 	echo("grass done");
 	initializeBars();
