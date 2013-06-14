@@ -102,13 +102,18 @@ function logic_timer::logic_tick(){
             echo("you win");
             messageBox("WIN","WIN!!!!!");
             logic_timer.stopTimer();
+            quit(); 
+
          } else if(!%active){
             echo("you lose");
             messageBox("Lose","Game Over!!!!!");
             logic_timer.stopTimer();
+            quit(); 
          } else if($cure.progression==100){
             echo("cure developed");
+            messageBox("Lose","Cure fully developed! Game Over!!!!!");
             logic_timer.stopTimer();
+            quit(); 
          }
          
      }

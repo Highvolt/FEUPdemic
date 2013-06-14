@@ -66,7 +66,7 @@ function feupDemic::create( %this )
 	new SimObject(main_timer);
 		main_timer.startTimer(msg, 100);
 	
-
+	//createPopup($regions[0],"blue");
 	
 
 }
