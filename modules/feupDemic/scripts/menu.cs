@@ -255,7 +255,7 @@ function createSidebar() {
 						};*/
 						
 					};
-					new GuiControl() {
+					new GuiControl(statsReg) {
 					   canSaveDynamicFields = "0";
 					   Profile = "GuiDefaultProfile";   
 					   HorizSizing = "right";
