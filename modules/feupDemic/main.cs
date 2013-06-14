@@ -32,6 +32,7 @@ function feupDemic::create( %this )
   exec(".scripts/statistics.cs");
 
 	//populateFonts();
+  	$menu_open=false;	
 	feupDemic.pops="";
 	feupDemic.zonesCount=0;
 
