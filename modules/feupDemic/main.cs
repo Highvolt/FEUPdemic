@@ -55,6 +55,7 @@ function feupDemic::create( %this )
 	moveMap.bind(keyboard, "enter", startGame);
 	//startGame();
 	moveMap.push();
+	alxPlay("feupDemic:bgSound");
 
 }
 

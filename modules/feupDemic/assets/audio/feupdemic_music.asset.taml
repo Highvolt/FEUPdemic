@@ -1,0 +1,6 @@
+<AudioAsset
+    AssetName="bgSound"
+    AssetAutoUnload="0"
+    AudioFile="feupdemic_music.wav"
+    Looping="1"
+    />
