@@ -881,12 +881,74 @@ function createSidebar() {
 
 }
 
-
+//$transmissionToLoad="TH1 TH2 TH3 TL1 TL2 TL3 TM1 TM2 Temp4 TempH1 TempH2 TempH3 TempL1 TempL2 TempL3 TempM1 TempM2 P4 PH1 PH2 PH3 PL1 PL2 PL3 PM1 PM2";
 
 function transmissionTabInit(){
+	%transmissionToLoad="TH1 TH2 TH3 TL1 TL2 TL3 TM1 TM2 Temp4 TempH1 TempH2 TempH3 TempL1 TempL2 TempL3 TempM1 TempM2 P4 PH1 PH2 PH3 PL1 PL2 PL3 PM1 PM2 PM2 TempM2 TM2";
 	$transmissionScene=new Scene();
    
 	transmissionTab.setScene($transmissionScene);
+	transmissionTab.setUseObjectInputEvents(true);
+	%len=getWordCount(%transmissionToLoad);
+	for(%i=0;%i<%len;%i++){
+		echo(%i);
+   		%s=new Sprite(){
+   			class="item";
+   			id=%i;
+   			info=getWord(%transmissionToLoad,%i);
+   			kind="t";
+   		};
+   		%s.setUseInputEvents(true);
+   		%s.setBodyType( static );
+		%s.Size="62 66";
+	   	%s.Image="feupDemic:"@getWord(%transmissionToLoad,%i);
+	   	$s.Position="0 0";
+	   	//%s.setImageFrame(1);
+	   	/*switch(getVariable(getWord(%transmissionToLoad,%i)@"_COST")){
+	   		case 1:*/
+	   			%s.setImageFrame(1);
+	   		/*default: 
+	   			%s.setImageFrame(0);
+   		}*/
+	   	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");
+	   	$transmissionScene.add(%s);
+	   	if(%i==0){
+
+	   		$transmissionIcons=%s;
+	   	}else{
+			$transmissionIcons=$transmissionIcons SPC %s;
+	   	}
+   	}
+   	getWord($transmissionIcons,28).Position=Vector2Hex(3,2);//TM2
+   	getWord($transmissionIcons,27).Position=Vector2Hex(0,4);//TEMPM2
+   	getWord($transmissionIcons,26).Position=Vector2Hex(8,2);
+   	getWord($transmissionIcons,25).Position=Vector2Hex(8,4);
+   	getWord($transmissionIcons,24).Position=Vector2Hex(9,3);
+   	getWord($transmissionIcons,23).Position=Vector2Hex(7,2);
+   	getWord($transmissionIcons,22).Position=Vector2Hex(8,1);
+   	getWord($transmissionIcons,21).Position=Vector2Hex(8,0);
+   	getWord($transmissionIcons,20).Position=Vector2Hex(7,4);
+   	getWord($transmissionIcons,19).Position=Vector2Hex(8,5);
+   	getWord($transmissionIcons,18).Position=Vector2Hex(7,6);
+   	getWord($transmissionIcons,17).Position=Vector2Hex(7,3);//P4
+   	getWord($transmissionIcons,16).Position=Vector2Hex(0,2);
+   	getWord($transmissionIcons,15).Position=Vector2Hex(0,3);
+   	getWord($transmissionIcons,14).Position=Vector2Hex(1,2);
+   	getWord($transmissionIcons,13).Position=Vector2Hex(1,1);
+   	getWord($transmissionIcons,12).Position=Vector2Hex(0,0);
+   	getWord($transmissionIcons,11).Position=Vector2Hex(1,4);
+   	getWord($transmissionIcons,10).Position=Vector2Hex(1,5);
+   	getWord($transmissionIcons,9).Position=Vector2Hex(0,6);
+   	getWord($transmissionIcons,8).Position=Vector2Hex(2,3);
+   	getWord($transmissionIcons,7).Position=Vector2Hex(4,4);
+   	getWord($transmissionIcons,6).Position=Vector2Hex(4,3);
+   	getWord($transmissionIcons,5).Position=Vector2Hex(3,1);
+   	getWord($transmissionIcons,4).Position=Vector2Hex(4,1);
+   	getWord($transmissionIcons,3).Position=Vector2Hex(4,0);
+   	getWord($transmissionIcons,2).Position=Vector2Hex(5,4);
+   	getWord($transmissionIcons,1).Position=Vector2Hex(5,5);
+   	getWord($transmissionIcons,0).Position=Vector2Hex(4,6);	
+
 }
 
 
@@ -943,6 +1005,7 @@ function symptomsTabInit(){
    			kind="s";
    	};
 	%s.Size="62 66";
+	%s.setBodyType( static );
    	%s.Image="feupDemic:s1";
    	$s.Position="0 0";
    	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");	
