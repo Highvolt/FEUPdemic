@@ -879,6 +879,7 @@ function buy(){
 	if(detailPrice.selected.kind$="s"  && detailPrice.selected.getImageFrame()>0){
 		%v=getVariable("$DIS_"@detailPrice.selected.id@"_CONN");
 		getVariable("$disease.dis"@detailPrice.selected.id)=1;
+		$SYMPTOMS_UPGRADED++;
 		detailPrice.selected.setImageFrame(2);
 		%len=getWordCount(%v);
 		for(%i=0;%i<%len;%i++){
