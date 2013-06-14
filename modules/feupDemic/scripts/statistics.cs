@@ -117,3 +117,10 @@ function setDna(%i){
 
 }
 
+function setCure(%i){
+
+	//dnaBar.Extent=Vector2Mult(dnaBar.originalExtent,%per SPC "1");
+	cureVal.setText(%i);
+
+}
+

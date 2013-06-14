@@ -358,7 +358,7 @@ function createSidebar() {
 						   HorizSizing = "right";
 						   VertSizing = "bottom";
 						   position = "45 390";
-						   Extent = "320 50";
+						   Extent = "320 38";
 						   MinExtent = "2 4";
 						   canSave = "1";
 						   Visible = "1";
