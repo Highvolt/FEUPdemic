@@ -543,6 +543,20 @@ function createSidebar() {
 						   Visible = "1";
 						   hovertime = "1000";
 						};
+
+					new GuiSpriteCtrl(infectivity_bar) {
+						canSaveDynamicFields = "0";
+						HorizSizing = "right";
+						VertSizing = "bottom";
+						position = "10 7";
+						Extent = "15 24";
+						MinExtent = "0 0";
+						canSave = "1";
+						Visible = "1";
+						Image="feupDemic:dna";
+
+					};
+
 						new GuiTextCtrl() {
 						   canSaveDynamicFields = "0";
 						   Profile = "GuiDnaBarLabelProfile";

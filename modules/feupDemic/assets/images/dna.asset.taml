@@ -1,0 +1,5 @@
+<ImageAsset
+    AssetName="dna"
+    ImageFile="dna.png"
+    FilterMode="Nearest"
+    />
