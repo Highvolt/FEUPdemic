@@ -65,15 +65,16 @@ $regions[56]=create_region(56, "AEFEUP III", "MEDIUM", "HIGH", "MEDIUM", 503, "5
 $regions[0].infect(2);
 
 function logic_timer::logic_tick(){
-  
-	for(%i=0; %i<=$REGIONS_SIZE; %i++){
-		%reg = $regions[%i];
-		if(%reg.is_infected()){
-			%reg.tick();
-			%reg.yelLOW_prob();
-			%reg.propagate();
-		}
-	}
+  if(!$menu_open){
+      for(%i=0; %i<=$REGIONS_SIZE; %i++){
+         %reg = $regions[%i];
+         if(%reg.is_infected()){
+            %reg.tick();
+            %reg.yelLOW_prob();
+            %reg.propagate();
+         }
+      }
+   }
 }
 
 
