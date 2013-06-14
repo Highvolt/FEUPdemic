@@ -63,7 +63,7 @@ $regions[54]=create_region(54, "AEFEUP I", "COLD", "HIGH", "MEDIUM", 192, "56,55
 $regions[55]=create_region(55, "AEFEUP II", "HOT", "HIGH", "MEDIUM", 194, "56,51,52,53,54");
 $regions[56]=create_region(56, "AEFEUP III", "MEDIUM", "HIGH", "MEDIUM", 191, "55,54");
 
-$regions[0].infect(2);
+$regions[14].infect(2);
 
 function add_dna(%n){
   $dna_points+=%n;
