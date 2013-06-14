@@ -903,6 +903,7 @@ function transmissionTabInit(){
    
 	transmissionTab.setScene($transmissionScene);
 	transmissionTab.setUseObjectInputEvents(true);
+	//$transmissionScene.setDebugOn("collision");
 	%len=getWordCount(%transmissionToLoad);
 	for(%i=0;%i<%len;%i++){
 		echo(%i);
@@ -918,12 +919,12 @@ function transmissionTabInit(){
 	   	%s.Image="feupDemic:"@getWord(%transmissionToLoad,%i);
 	   	$s.Position="0 0";
 	   	//%s.setImageFrame(1);
-	   	/*switch(getVariable(getWord(%transmissionToLoad,%i)@"_COST")){
-	   		case 1:*/
+	   	switch(getVariable(getWord(%transmissionToLoad,%i)@"_COST")){
+	   		case 1:
 	   			%s.setImageFrame(1);
-	   		/*default: 
+	   		default: 
 	   			%s.setImageFrame(0);
-   		}*/
+   		}
 	   	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");
 	   	$transmissionScene.add(%s);
 	   	if(%i==0){
