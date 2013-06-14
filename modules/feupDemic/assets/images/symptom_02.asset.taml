@@ -1,0 +1,9 @@
+<ImageAsset
+    AssetName="s2"
+    ImageFile="symptom_02.png"
+    FilterMode="Nearest"
+    CellCountX="1"
+    CellCountY="3"
+    CellWidth="62"
+    CellHeight="66"
+ />
