@@ -812,12 +812,29 @@ function transmissionTabInit(){
 function symptomsTabInit(){
 	$symptomsScene=new Scene();
 	symptomsTab.setScene($symptomsScene);
+	$symptomsIcons="";
 	%s=new Sprite();
 	%s.Size="62 66";
    	%s.Image="feupDemic:s1";
    	$s.Position="0 0";
    	%s.setImageFrame(1);
    	$symptomsScene.add(%s);
+   	$symptomsIcons=%s;
+   	for(%i=2;%i<=31;%i++){
+   		%s=new Sprite();
+		%s.Size="62 66";
+	   	%s.Image="feupDemic:s"@%i;
+	   	$s.Position="0 0";
+	   	%s.setImageFrame(1);
+	   	$symptomsScene.add(%s);
+	   	$symptomsIcons=$symptomsIcons SPC %s;
+   	}
+   	%len=getWordCount($symptomsIcons);
+   	for(%i=0;%i<%len;%i++){
+   		%s=getWord($symptomsIcons,%i);
+   		%s.Position=((%i%10)*62-280) SPC (-(mCeil(%i/10)+1)*66+191);
+
+   	}
 }
 function resistenceTabInit(){
 	$resistenceScene=new Scene();
