@@ -55,8 +55,8 @@ function feupDemic::create( %this )
 	moveMap.bind(keyboard, "enter", startGame);
 	//startGame();
 	moveMap.push();
-	alxPlay("feupDemic:bgSound");
 
+	alxPlay("feupDemic:bgSound");
 }
 
 
@@ -88,6 +88,7 @@ function startGame(%val){
 function main_timer::msg(%this){
 	messageBox("Select starting region","Click in the region where you what the virus to start spreading");
 	%this.stopTimer();
+	//alxPlay("feupDemic:bgSound");
 }
 
 
