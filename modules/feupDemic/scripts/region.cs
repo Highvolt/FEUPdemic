@@ -38,9 +38,10 @@ function region::tick(%this){
       }
       
       if(%this.deving_cure){
-         if(gen() < 0.1-($disease.res1*$RES_1_PROB+$disease.res2*$RES_2_PROB+$disease.res3*$RES_3_PROB+$disease.res4*$RES_4_PROB)){
-            $cure.progression++;
+         if(gen() < 0.2-($disease.res1*$RES_1_PROB+$disease.res2*$RES_2_PROB+$disease.res3*$RES_3_PROB+$disease.res4*$RES_4_PROB)){
+            $cure.progression+=1;
             setCure($cure.progression); 
+            echo("cure:" SPC  $cure.progression);
          }
       }
    }
