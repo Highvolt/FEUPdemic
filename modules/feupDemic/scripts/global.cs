@@ -1,4 +1,4 @@
-$YELLOW_PROBABILITY = 0.0059;
+$YELLOW_PROBABILITY = 0.0039;
 $INFECTED_ON_INFECTER_RATIO=0.001;
 $FEUP_POPULATION = 10833;
 
@@ -357,18 +357,22 @@ $DIS_21_DESC="Failure of the heart to pump effectively causes oxygen deprivation
 $R1_PROB=0.01;
 $R1_NAME="Drug resistance I";
 $R1_DESC="Improves the disease resistance to the cure";
+$R1_COST=1;
 
 $R2_PROB=0.01;
 $R2_NAME="Drug resistance II";
 $R2_DESC="Improves the disease resistance to the cure";
+$R1_COST=2;
 
 $R3_PROB=0.01;
 $R3_NAME="Drug resistance III";
 $R3_DESC="Improves the disease resistance to the cure";
+$R1_COST=3;
 
 $R4_PROB=0.01;
 $R4_NAME="Drug resistance IV";
 $R4_DESC="Improves the disease resistance to the cure";
+$R1_COST=4;
 
 
 

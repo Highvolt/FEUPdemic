@@ -1,7 +1,7 @@
 function create_disease(){
 	%this=new ScriptObject(){ class="disease"; };
 
-	%this.infection_percentage=1;
+	%this.infection_percentage=0.5;
 	%this.severity_percentage=0;
 	%this.fatality_percentage=0;
 	

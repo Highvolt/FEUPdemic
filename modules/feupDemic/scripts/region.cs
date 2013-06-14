@@ -77,7 +77,7 @@ function region::red_prob(%this, %infecter){
 	%p+=%infected_on_infecter+%upgrades_percentages;
 	%g = gen();
    //echo("gen:" SPC %g SPC"infected_on_infecter:" SPC %infected_on_infecter SPC "upgrades_percentages:" SPC %upgrades_percentages);
-	if( %g < %p*0.3 ){
+	if( %g < %p*0.2 ){
 	   if(!%this.has_popup && !%this.is_infected()){
 		   createPopup(%this,"red");
 		   %this.has_popup=true;
