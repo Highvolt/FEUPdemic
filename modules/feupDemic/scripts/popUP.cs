@@ -35,11 +35,12 @@ function createPopup(%region,%kind){
 }
 
 function popUpTimer::remove(%this){
+	myScene.remove(%this.obj);
 	for(%i=0;%i<%len;%i++){
 		%obj=getWord(feupDemic.pops,%i);
-		if(%obj==%this.obj){
+		if(%obj$=%this.obj){
 			feupDemic.pops=removeWord(feupDemic.pops,%i);
-			myScene.remove(%this.obj);
+			
 			return;
 		}
 
@@ -51,11 +52,12 @@ function popUpTimer::disapear(%this){
 	$regions[%this.obj.id_A].handlePopUp("close");
 	%len=getWordCount(feupDemic.pops);
 	//echo(%len);
+	myScene.remove(%this.obj);
 	for(%i=0;%i<%len;%i++){
 		%obj=getWord(feupDemic.pops,%i);
-		if(%obj==%this.obj){
+		if(%obj$=%this.obj){
 			feupDemic.pops=removeWord(feupDemic.pops,%i);
-			myScene.remove(%this.obj);
+			
 			return;
 		}
 
@@ -83,8 +85,12 @@ function updatePops(){
 
 function popUP::onTouchDown(%this, %touchid, %worldposition)
 {  
+	if(%this.a==1){
+		return;
+	}
+	%this.a=1;
 	%obj=%this;
-	%obj.clearCollisionShapes();
+	%this.clearCollisionShapes();
 	%obj.OriginalSize="45 71";
 	%obj.Size=Vector2Mult( %obj.OriginalSize, mySceneWindow.getCameraWorldScale() );
 	%obj.Position=vector2Sub(%obj.OriginalPos,"0" SPC (-getWord(%obj.Size,1)/2));
@@ -95,18 +101,19 @@ function popUP::onTouchDown(%this, %touchid, %worldposition)
 	//echo("down");
 	echo("popup Click");
 	$regions[%this.id_A].handlePopUp(%this.kind);
-	%len=getWordCount(feupDemic.pops);
+	%this.timer.stopTimer();
+	%this.timer.startTimer("remove",200);
+	/*%len=getWordCount(feupDemic.pops);
 	//echo(%len);
 	for(%i=0;%i<%len;%i++){
 		%obj=getWord(feupDemic.pops,%i);
 		if(%obj==%this){
 			feupDemic.pops=removeWord(feupDemic.pops,%i);
 			//myScene.remove(%this);
-			%this.timer.stopTimer();
-			%this.timer.startTimer("remove",200);
+			
 			return;
 		}
 
-	}
+	}*/
 
 } 

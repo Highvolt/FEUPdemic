@@ -866,6 +866,7 @@ function createSidebar() {
 		};
 
 		$SYMPTOMS_UPGRADED=0;
+		$TRANS_UPGRADED=0;
 	
 	transmissionTab.setCameraPosition( 0, 0 );
     transmissionTab.setCameraSize( 642, 383 );
@@ -903,7 +904,7 @@ function transmissionTabInit(){
    
 	transmissionTab.setScene($transmissionScene);
 	transmissionTab.setUseObjectInputEvents(true);
-	//$transmissionScene.setDebugOn("collision");
+	$transmissionScene.setDebugOn("collision");
 	%len=getWordCount(%transmissionToLoad);
 	for(%i=0;%i<%len;%i++){
 		echo(%i);
@@ -1005,6 +1006,10 @@ function item::onTouchDown(%this, %touchid, %worldposition){
 		}else{
 			buyBTN.Active=0;
 		}
+	}else if(%this.kind$="t" ){// && %this.getImageFrame()>0){
+		detailText.setText("");
+		detailTitle.setText(getVariable(%this.info@"_NAME")SPC "-" SPC %this.id);
+		detailPrice.setText(mCeil(getVariable(%this.info@"_COST")*$TRANS_UPGRADED*$COST_SCALING+1));
 	}
 }
 
