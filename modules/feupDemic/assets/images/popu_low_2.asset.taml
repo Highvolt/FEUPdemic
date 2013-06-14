@@ -1,0 +1,9 @@
+<ImageAsset
+    AssetName="PL2"
+    ImageFile="popu_low_2.png"
+    FilterMode="Nearest"
+    CellCountX="1"
+    CellCountY="3"
+    CellWidth="62"
+    CellHeight="66"
+ />

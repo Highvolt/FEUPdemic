@@ -1,0 +1,10 @@
+<ImageAsset
+    AssetName="blue.png"
+    ImageFile="blue.png"
+    FilterMode="Nearest"
+    CellCountX="29"
+    CellCountY="1"
+    CellWidth="31"
+    CellHeight="49" 
+    
+/>

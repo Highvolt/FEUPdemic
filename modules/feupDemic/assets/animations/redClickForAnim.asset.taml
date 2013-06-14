@@ -1,0 +1,10 @@
+<ImageAsset
+    AssetName="red_click.png"
+    ImageFile="red_click.png"
+    FilterMode="Nearest"
+    CellCountX="29"
+    CellCountY="1"
+    CellWidth="45"
+    CellHeight="71" 
+    
+/>

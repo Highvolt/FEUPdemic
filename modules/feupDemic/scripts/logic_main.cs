@@ -51,7 +51,7 @@ $regions[43]=create_region(43, "H - Civil Norte I", "TEMPERATE", "HIGH", "PRIMIT
 $regions[44]=create_region(44, "H - Civil Norte III", "TEMPERATE", "HIGH", "PRIMITIVE", 190, "43,45,24,41");
 $regions[45]=create_region(45, "H - Civil Norte IV", "TEMPERATE", "HIGH", "PRIMITIVE", 190, "42,43,44,41");
 $regions[46]=create_region(46, "G - Central de Gases", "COLD", "LOW", "PRIMITIVE", 190, "17,47,48");
-$regions[47]=create_region(47, "R - Laboratório de Ambiente", "COLD", "LOW", "PRIMITIVE", 200, "43,48,46");
+$regions[47]=create_region(47, "R - Laboratorio de Ambiente", "COLD", "LOW", "PRIMITIVE", 200, "43,48,46");
 $regions[48]=create_region(48, "F - Minas e Metalurgia II", "HOT", "LOW", "PRIMITIVE", 190, "46,47,42,17");
 $regions[49]=create_region(49, "C - Biblioteca I", "HOT", "HIGH", "PRIMITIVE", 190, "14,28,50");
 $regions[50]=create_region(50, "C - Biblioteca II", "HOT", "HIGH", "PRIMITIVE", 190, "49");
@@ -84,15 +84,27 @@ function remove_dna(%n){
 function logic_timer::logic_tick(){
    
   if(!$menu_open){
+     %active=false;
       for(%i=0; %i<$REGIONS_SIZE; %i++){
          %reg = $regions[%i];
-         
+         if(%reg.infected>0)
+            %active=true;
          if(%reg.is_infected()){
             %reg.tick();
             %reg.yelLOW_prob();
             %reg.propagate();
          }
       }
+      
+      if($disease.world_death==$disease.world_total){
+         echo("you win");
+         logic_timer.stopTimer();
+      } else if(!%active){
+         echo("you lose");
+         logic_timer.stopTimer();
+      }
+      
+       
    }
 }
 

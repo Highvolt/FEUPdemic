@@ -77,12 +77,6 @@ function create_disease(){
    %this.res2=0;
    %this.res3=0;
    %this.res4=0;
-   %this.res5=0;
-   %this.res6=0;
-   %this.res7=0;
-   %this.res8=0;
-   %this.res9=0;   
-   %this.res10=0;
 
 	return %this;
 }
