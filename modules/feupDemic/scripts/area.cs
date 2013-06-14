@@ -99,6 +99,13 @@ function Area::onTouchDown(%this, %touchID, %worldPosition)
 	echo("clicked area with id" SPC %this.id_Area);
 	unselectArea();
 	%this.LineColor="1 1 1 1";
+	%reg=$regions[%this.id_Area];
+	statsReg.Visible=1;
+	populationalText.setText(%reg.density);
+	temperatureText.setText(%reg.temperature);
+	techText.setText(%reg.tech_level);
+
+
 	%pop=$regions[%this.id_Area].population;
 	%inf=$regions[%this.id_Area].infected;
 	%death=$regions[%this.id_Area].death;
@@ -126,7 +133,7 @@ function Area::onTouchDown(%this, %touchID, %worldPosition)
 		selected=$regions[%this.id_Area];
 	};
 	$timerGraph.startTimer(updateGraph,500);
-	LogClick.setText($regions[%this.id_Area].name SPC $regions[%this.id_Area].infected);
+	//LogClick.setText($regions[%this.id_Area].name SPC $regions[%this.id_Area].infected);
 	ZoneName.setText($regions[%this.id_Area].name);
 }  
 

@@ -3,9 +3,10 @@
 function populateFonts()
 {      
       %font = "Minecraftia";      
-      %sizes = "12 14 16 18 24 32 36 64";      
+      %sizes = "12 14 16 18 24 32 36";      
       for (%i = 0; %i < getWordCount(%sizes); %i++)            
-            populateFontCacheRange(%font, getWord(%sizes, %i), 32, 126);      
+            populateFontCacheRange(%font, getWord(%sizes, %i), 32, 126);   
+            //populateFontCacheString(%font, getWord(%sizes, %i),"0123456789abcdefghijklmnopqrstuvxwxyzABCDEFGHIJKLMNOPQRSTUVWXYZá");
       writeFontCache();
 }
 
@@ -131,6 +132,7 @@ function SceneWindow::onMouseWheelDown(%this, %modifier, %mousePoint, %mouseClic
 } 
 
 function chartWorld(){
+	statsReg.Visible=0;
 	unselectArea();
 	wellText.setText($disease.world_uninfected);
 		infectedText.setText($disease.world_infected);
