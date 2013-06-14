@@ -26,7 +26,7 @@ function createArea(%id,%data){
 			%shape.setPolyCustom(getWordCount(%polPos)/2,%polPos);
 			//echo("Vals:"@%polPos);
 			%shape.createPolygonCollisionShape(%polPos);
-			if(feupDemic.zones==""){
+			if(feupDemic.zones$=""){
 				feupDemic.zones=%shape;
 			}else{
 				feupDemic.zones=feupDemic.zones SPC %shape;
