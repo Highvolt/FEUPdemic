@@ -93,63 +93,61 @@ function region::prob_from_infection_upgrades(%this){
 	switch$ (%this.temperature) 
 	{
 	   case "COLD":
-			%p+= $disease.temp_cold_lv1*$TEMP_COLD_LV1_PROBABILITY+
-				 $disease.temp_cold_lv2*$TEMP_COLD_LV2_PROBABILITY+
-				 $disease.temp_cold_lv3*$TEMP_COLD_LV3_PROBABILITY+
-				 $disease.temp_lv4*$TEMP_LV4_PROBABILITY;
+			%p+= $disease.templ1*$TEMP_COLD_LV1_PROBABILITY+
+				 $disease.templ2*$TEMP_COLD_LV2_PROBABILITY+
+				 $disease.templ3*$TEMP_COLD_LV3_PROBABILITY+
+				 $disease.temp4*$TEMP_LV4_PROBABILITY;
 	   case "TEMPERATE":
-	   		%p+= $disease.temp_temperate_lv1*$TEMP_TEMPERATE_LV1_PROBABILITY+
-				 $disease.temp_temperate_lv2*$TEMP_TEMPERATE_LV2_PROBABILITY+
-				 $disease.temp_cold_lv3*$TEMP_COLD_LV3_PROBABILITY+
-				 $disease.temp_hot_lv3*$TEMP_HOT_LV3_PROBABILITY+
-				 $disease.temp_lv4*$TEMP_LV4_PROBABILITY;
+	   		%p+= $disease.tempm1*$TEMP_TEMPERATE_LV1_PROBABILITY+
+				 $disease.tempm2*$TEMP_TEMPERATE_LV2_PROBABILITY+
+				 $disease.templ3*$TEMP_COLD_LV3_PROBABILITY+
+				 $disease.temph3*$TEMP_HOT_LV3_PROBABILITY+
+				 $disease.temp4*$TEMP_LV4_PROBABILITY;
 	   case "HOT":
-	   		%p+= $disease.temp_hot_lv1*$TEMP_HOT_LV1_PROBABILITY+
-				 $disease.temp_hot_lv2*$TEMP_HOT_LV2_PROBABILITY+
-				 $disease.temp_hot_lv3*$TEMP_HOT_LV3_PROBABILITY+
-				 $disease.temp_lv4*$TEMP_LV4_PROBABILITY;
+	   		%p+= $disease.temph1*$TEMP_HOT_LV1_PROBABILITY+
+				 $disease.temph2*$TEMP_HOT_LV2_PROBABILITY+
+				 $disease.temph3*$TEMP_HOT_LV3_PROBABILITY+
+				 $disease.temp4*$TEMP_LV4_PROBABILITY;
     }
 
     switch$ (%this.density) 
 	{
 	   case "LOW":
-			%p+= $disease.dens_low_lv1*$DENS_LOW_LV1_PROBABILITY+
-				 $disease.dens_low_lv2*$DENS_LOW_LV2_PROBABILITY+
-				 $disease.dens_low_lv3*$DENS_LOW_LV3_PROBABILITY+
-				 $disease.dens_lv4*$DENS_LV4_PROBABILITY;
+			%p+= $disease.pl1*$DENS_LOW_LV1_PROBABILITY+
+				 $disease.pl2*$DENS_LOW_LV2_PROBABILITY+
+				 $disease.pl3*$DENS_LOW_LV3_PROBABILITY+
+				 $disease.p4*$DENS_LV4_PROBABILITY;
 	   case "MEDIUM":
-	   		%p+= $disease.dens_medium_lv1*$DENS_MEDIUM_LV1_PROBABILITY+
-				 $disease.dens_medium_lv2*$DENS_MEDIUM_LV2_PROBABILITY+
-				 $disease.dens_high_lv3*$DENS_HIGH_LV3_PROBABILITY+
-				 $disease.dens_low_lv3*$DENS_LOW_LV3_PROBABILITY+
-				 $disease.dens_lv4*$DENS_LV4_PROBABILITY;
+	   		%p+= $disease.pm1*$DENS_MEDIUM_LV1_PROBABILITY+
+				 $disease.pm2*$DENS_MEDIUM_LV2_PROBABILITY+
+				 $disease.ph3*$DENS_HIGH_LV3_PROBABILITY+
+				 $disease.pl3*$DENS_LOW_LV3_PROBABILITY+
+				 $disease.p4*$DENS_LV4_PROBABILITY;
 	   case "HIGH":
-	   		%p+= $disease.dens_high_lv1*$DENS_HIGH_LV1_PROBABILITY+
-				 $disease.dens_high_lv2*$DENS_HIGH_LV2_PROBABILITY+
-				 $disease.dens_high_lv3*$DENS_HIGH_LV3_PROBABILITY+
-				 $disease.dens_lv4*$DENS_LV4_PROBABILITY;
+	   		%p+= $disease.ph1*$DENS_HIGH_LV1_PROBABILITY+
+				 $disease.ph*$DENS_HIGH_LV2_PROBABILITY+
+				 $disease.ph3*$DENS_HIGH_LV3_PROBABILITY+
+				 $disease.p4*$DENS_LV4_PROBABILITY;
     }
 
     switch$ (%this.tech_level) 
 	{
 	   case "PRIMITIVE":
-			%p+= $disease.tech_primitive_lv1*$TECH_PRIMITIVE_LV1_PROBABILITY+
-				 $disease.tech_primitive_lv2*$TECH_PRIMITIVE_LV2_PROBABILITY+
-				 $disease.tech_primitive_lv3*$TECH_PRIMITIVE_LV3_PROBABILITY;
+			%p+= $disease.tl1*$TECH_PRIMITIVE_LV1_PROBABILITY+
+				 $disease.l2*$TECH_PRIMITIVE_LV2_PROBABILITY+
+				 $disease.tl*$TECH_PRIMITIVE_LV3_PROBABILITY;
 	   case "MEDIUM":
-	   		%p+= $disease.tech_medium_lv1*$TECH_MEDIUM_LV1_PROBABILITY+
-				 $disease.tech_medium_lv2*$TECH_MEDIUM_LV2_PROBABILITY+
-				 $disease.tech_primitive_lv3*$TECH_PRIMITIVE_LV3_PROBABILITY+
-            $disease.tech_hitech_lv3*$TECH_HITECH_LV3_PROBABILITY;
+	   		%p+= $disease.tm1*$TECH_MEDIUM_LV1_PROBABILITY+
+				 $disease.tm2*$TECH_MEDIUM_LV2_PROBABILITY+
+				 $disease.tl3*$TECH_PRIMITIVE_LV3_PROBABILITY+
+            	 $disease.th3*$TECH_HITECH_LV3_PROBABILITY;
 	   case "HITECH":
-	   		%p+= $disease.tech_hitech_lv1*$TECH_HITECH_LV1_PROBABILITY+
-				 $disease.tech_hitech_lv2*$TECH_HITECH_LV2_PROBABILITY+
-				 $disease.tech_hitech_lv3*$TECH_HITECH_LV3_PROBABILITY;
+	   		%p+= $disease.th1*$TECH_HITECH_LV1_PROBABILITY+
+				 $disease.th2*$TECH_HITECH_LV2_PROBABILITY+
+				 $disease.th3*$TECH_HITECH_LV3_PROBABILITY;
     }
 
-    %p+= $disease.tech_temp_lv3*$TECH_TEMP_LV3_PROBABILITY+
-		 $disease.temp_dens_lv3*$TEMP_DENS_LV3_PROBABILITY+
-		 $disease.infection_percentage*0.1;
+    %p+= $disease.infection_percentage*0.1;
 
 	return %p;
 }
