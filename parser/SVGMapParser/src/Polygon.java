@@ -34,7 +34,7 @@ public class Polygon {
 		double centroid_x = MathHelper.centroidX(points_, area) -SVGMapParser.X_OFFSET;
 		double centroid_y = (MathHelper.centroidY(points_, area) -SVGMapParser.Y_OFFSET) * -1;
 		
-		StringBuilder script = new StringBuilder(df.format(id++)+"/"+df.format(centroid_x) + " " + df.format(centroid_y) + ";");
+		StringBuilder script = new StringBuilder(df.format(id++)+ "/" + df.format(centroid_x) + " " + df.format(centroid_y) + ";");
 		
 		boolean first = true;
 		for (Point point : points_) {
