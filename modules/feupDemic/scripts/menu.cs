@@ -104,7 +104,7 @@ function createSidebar() {
 					   Profile = "GuiDefaultProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
-					   position = "2 200";
+					   position = "2 210";
 					   Extent = "329 200";
 					   MinExtent = "2 50";
 					   canSave = "1";
@@ -159,7 +159,7 @@ function createSidebar() {
 							   Profile = "GuiDefaultProfile";   
 							   HorizSizing = "right";
 							   VertSizing = "bottom";
-							   position = "60 30";
+							   position = "60 23";
 							   Extent = "250 30";
 							   MinExtent = "2 2";
 							   canSave = "1";
@@ -202,7 +202,7 @@ function createSidebar() {
 							   Profile = "GuiDefaultProfile";   
 							   HorizSizing = "right";
 							   VertSizing = "bottom";
-							   position = "60 60";
+							   position = "60 47";
 							   Extent = "250 30";
 							   MinExtent = "2 2";
 							   canSave = "1";
@@ -255,8 +255,100 @@ function createSidebar() {
 						};*/
 						
 					};
+					new GuiControl() {
+					   canSaveDynamicFields = "0";
+					   Profile = "GuiDefaultProfile";   
+					   HorizSizing = "right";
+					   VertSizing = "bottom";
+					   position = "85 315";
+					   Extent = "250 160";
+					   MinExtent = "2 2";
+					   canSave = "1";
+					   Visible = "1";
+					   hovertime = "1000";
+					   isContainer=true;
 
-					new GuiTextCtrl(LogClick) {   ////TODO REMOVE
+					   new GuiTextCtrl() {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiTitleProfile";   
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "0 0";
+						   Extent = "200 12";
+						   MinExtent = "2 4";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						   text="POPULATIONAL DENSITY";
+						};
+						new GuiTextCtrl(populationalText) {
+							canSaveDynamicFields = "0";
+							Profile = "Gui18Profile";   
+							HorizSizing = "right";
+							VertSizing = "bottom";
+							position = "0 12";
+							Extent = "200 15";
+							MinExtent = "2 4";
+							canSave = "1";
+							Visible = "1";
+							hovertime = "1000";
+							text="PLACE HOLDER";
+						};
+						 new GuiTextCtrl() {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiTitleProfile";   
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "0 32";
+						   Extent = "200 12";
+						   MinExtent = "2 4";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						   text="TEMPERATURE";
+						};
+						new GuiTextCtrl(temperatureText) {
+							canSaveDynamicFields = "0";
+							Profile = "Gui18Profile";   
+							HorizSizing = "right";
+							VertSizing = "bottom";
+							position = "0 45";
+							Extent = "200 15";
+							MinExtent = "2 4";
+							canSave = "1";
+							Visible = "1";
+							hovertime = "1000";
+							text="PLACE HOLDER";
+						};
+						 new GuiTextCtrl() {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiTitleProfile";   
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "0 64";
+						   Extent = "200 12";
+						   MinExtent = "2 4";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						   text="TECH LEVEL";
+						};
+						new GuiTextCtrl(techText) {
+							canSaveDynamicFields = "0";
+							Profile = "Gui18Profile";   
+							HorizSizing = "right";
+							VertSizing = "bottom";
+							position = "0 76";
+							Extent = "200 15";
+							MinExtent = "2 4";
+							canSave = "1";
+							Visible = "1";
+							hovertime = "1000";
+							text="PLACE HOLDER";
+						};
+
+					};
+					/*new GuiTextCtrl(LogClick) {   ////TODO REMOVE
 						   canSaveDynamicFields = "0";
 						   Profile = "GuiLogProfile";   
 						   HorizSizing = "right";
@@ -268,7 +360,9 @@ function createSidebar() {
 						   Visible = "1";
 						   hovertime = "1000";
 						   text="";	
-					};
+					};*/
+
+
 
 					/*
 					 * Infectivity
@@ -278,13 +372,13 @@ function createSidebar() {
 						   Profile = "GuiBarLabelProfile";   
 						   HorizSizing = "right";
 						   VertSizing = "bottom";
-						   position = "45 365";
+						   position = "45 413";
 						   Extent = "320 50";
 						   MinExtent = "2 4";
 						   canSave = "1";
 						   Visible = "1";
 						   hovertime = "1000";
-						   text="Infectivity";
+						   text="INFECTIVITY";
 					};
 
 					new GuiSpriteCtrl(infectivity_bar) {
@@ -292,7 +386,7 @@ function createSidebar() {
 						Profile = "GuiBarProfile";
 						HorizSizing = "right";
 						VertSizing = "bottom";
-						position = "45 400";
+						position = "45 445";
 						Extent = "243 22";
 						MinExtent = "0 0";
 						canSave = "1";
@@ -323,13 +417,13 @@ function createSidebar() {
 						   Profile = "GuiBarLabelProfile";   
 						   HorizSizing = "right";
 						   VertSizing = "bottom";
-						   position = "45 415";
+						   position = "45 449";
 						   Extent = "320 50";
 						   MinExtent = "2 4";
 						   canSave = "1";
 						   Visible = "1";
 						   hovertime = "1000";
-						   text="Severity";
+						   text="SEVERITY";
 					};
 
 					new GuiSpriteCtrl(severity_bar) {
@@ -337,7 +431,7 @@ function createSidebar() {
 						Profile = "GuiBarProfile";
 						HorizSizing = "right";
 						VertSizing = "bottom";
-						position = "45 450";
+						position = "45 481";
 						Extent = "243 22";
 						MinExtent = "0 0";
 						canSave = "1";
@@ -367,13 +461,13 @@ function createSidebar() {
 						   Profile = "GuiBarLabelProfile";   
 						   HorizSizing = "right";
 						   VertSizing = "bottom";
-						   position = "45 465";
+						   position = "45 485";
 						   Extent = "320 50";
 						   MinExtent = "2 4";
 						   canSave = "1";
 						   Visible = "1";
 						   hovertime = "1000";
-						   text="Lethality";
+						   text="LETHALITY";
 					};
 
 					new GuiSpriteCtrl(lethality_bar) {
@@ -381,7 +475,7 @@ function createSidebar() {
 						Profile = "GuiBarProfile";
 						HorizSizing = "right";
 						VertSizing = "bottom";
-						position = "45 500";
+						position = "45 518";
 						Extent = "243 22";
 						MinExtent = "0 0";
 						canSave = "1";
@@ -413,7 +507,7 @@ function createSidebar() {
 						Profile = "GuiBarProfile";
 						HorizSizing = "right";
 						VertSizing = "bottom";
-						position = "45 535";
+						position = "45 545";
 						Extent = "243 38";
 						MinExtent = "0 0";
 						canSave = "1";

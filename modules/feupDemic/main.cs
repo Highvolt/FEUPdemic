@@ -3,7 +3,7 @@
 function populateFonts()
 {      
       %font = "Minecraftia";      
-      %sizes = "12 16 18 24 32 36 64";      
+      %sizes = "12 14 16 18 24 32 36 64";      
       for (%i = 0; %i < getWordCount(%sizes); %i++)            
             populateFontCacheRange(%font, getWord(%sizes, %i), 32, 126);      
       writeFontCache();

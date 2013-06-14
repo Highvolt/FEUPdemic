@@ -239,6 +239,71 @@ new GuiControlProfile (GuiLogProfile){
     cursorColor = "0 0 0 255";
     
     
+}; 
+
+
+new GuiControlProfile (Gui18Profile){
+     // font
+    fontType = $platformFontType;
+    fontSize =18;
+    
+    /*fillColor="27 33 27";
+    fillColorHL="0 0 0";
+    fillColorNA="0 0 0";*/
+
+    opaque = false;
+     
+    border = 0;
+
+     //bitmap = "^feupDemic/gui/images/gray_button.png";
+    // hasBitmapArray = true;
+    fontColor = "255 255 255";
+    fontColorHL = "32 100 100";
+    fontColorNA = "0 0 0";
+    fontColorSEL= "10 10 10";
+    //opaque=1;
+     // used by guiTextControl
+    modal = true;
+    justify = "left";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+    
+    
+};  
+
+new GuiControlProfile (GuiTitleProfile){
+     // font
+    fontType = $platformFontType;
+    fontSize =14;
+    
+    /*fillColor="27 33 27";
+    fillColorHL="0 0 0";
+    fillColorNA="0 0 0";*/
+
+    opaque = false;
+     
+    border = 0;
+
+     //bitmap = "^feupDemic/gui/images/gray_button.png";
+    // hasBitmapArray = true;
+    fontColor = "0 0 0";
+    fontColorHL = "32 100 100";
+    fontColorNA = "0 0 0";
+    fontColorSEL= "10 10 10";
+    //opaque=1;
+     // used by guiTextControl
+    modal = true;
+    justify = "left";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+    
+    
 };  
 
 new GuiControlProfile (GuiBarLabelProfile) {
