@@ -104,6 +104,9 @@ function logic_timer::logic_tick(){
          } else if(!%active){
             echo("you lose");
             logic_timer.stopTimer();
+         } else if($cure.progression==100){
+            echo("cure developed");
+            logic_timer.stopTimer();
          }
          
      }

@@ -41,7 +41,9 @@ function region::tick(%this){
          if(gen() < 0.2-($disease.res1*$RES_1_PROB+$disease.res2*$RES_2_PROB+$disease.res3*$RES_3_PROB+$disease.res4*$RES_4_PROB)){
             $cure.progression+=1;
             setCure($cure.progression); 
-            echo("cure:" SPC  $cure.progression);
+            if(gen() < 0.001){
+               createPopup(%this,"blue");
+            }
          }
       }
    }
@@ -194,6 +196,9 @@ function region::handlePopUp(%this, %kind){
          add_dna(3);
       case "yellow": 
          add_dna(1);
+      case "blue":
+         if($cure.progression>0)
+            $cure.progression-=1;
    }
    %this.has_popup=false;
 }
