@@ -625,13 +625,46 @@ function createSidebar() {
 					  HorizSizing = "right";
 					  VertSizing = "bottom";
 					  position = "725 220";
-					  Extent = "225 120";
+					  Extent = "225 320";
 					  MinExtent = "2 4";
 					  canSave = "1";
 					  Visible = "1";
 					  hovertime = "1000";
 					  truncate=true;
 					  text="ajsdnajsdjfnasdjkfnakjsdnfjksdanfjkask vjasdnv jasd vjksafnjnsajkdvnaskjfv sajvnsajfnvjksnfjvnsdjnvjksdv sdvjnskdvsdkvnksadnvksadnvksdnvskd ksd vksd vksdmkvn";
+					};
+
+					new GuiMLTextCtrl(detailPrice) {  
+					  canSaveDynamicFields = "0";
+					  Profile = "GuiLogProfile";   
+					  HorizSizing = "right";
+					  VertSizing = "bottom";
+					  position = "740 520";
+					  Extent = "225 20";
+					  MinExtent = "2 4";
+					  canSave = "1";
+					  Visible = "1";
+					  hovertime = "1000";
+					  truncate=true;
+					  text="10";
+					  isContainer=true;
+
+
+					};
+
+					new GuiButtonCtrl(){
+						 canSaveDynamicFields = "0";
+					   Profile = "GuiButtonProfile";   
+					   HorizSizing = "right";
+					   VertSizing = "bottom";
+					   position = "845 510";
+					   Extent = "100 40";
+					   MinExtent = "2 2";
+					   canSave = "1";
+					   Visible = "1";
+					   hovertime = "1000";
+					   text="BUY";
+					   Command="buy();";
 					};
 				   new GuiButtonCtrl(){
 						 canSaveDynamicFields = "0";
@@ -801,6 +834,8 @@ function createSidebar() {
 			};	 
 			
 		};
+
+		$SYMPTOMS_UPGRADED=0;
 	
 	transmissionTab.setCameraPosition( 0, 0 );
     transmissionTab.setCameraSize( 642, 383 );
@@ -841,9 +876,10 @@ function transmissionTabInit(){
 
 function item::onTouchDown(%this, %touchid, %worldposition){
 	echo("item" SPC %this.id);
-	if(%this.kind$="s"){
+	if(%this.kind$="s" && %this.getImageFrame()>0){
 		detailText.setText(getVariable("$DIS_"@%this.id@"_DESC"));
 		detailTitle.setText(getVariable("$DIS_"@%this.id@"_NAME"));
+		detailPrice.setText(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1);//cost*(//already_upgraded)*COST_SCALING+1
 	}
 }
 
