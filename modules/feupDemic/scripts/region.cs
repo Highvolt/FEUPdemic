@@ -65,7 +65,7 @@ function region::red_prob(%this, %infecter){
 function region::prob_from_infection_upgrades(%this){
 	%p = 0;
 
-	switch$ (temperature) 
+	switch$ (%this.temperature) 
 	{
 	   case "cold":
 			%p+= $disease.temp_cold_lv1*$TEMP_COLD_LV1_PROBABILITY+
@@ -78,7 +78,7 @@ function region::prob_from_infection_upgrades(%this){
 				 $disease.temp_hot_lv2*$TEMP_HOT_LV2_PROBABILITY;
     }
 
-    switch$ (density) 
+    switch$ (%this.density) 
 	{
 	   case "low":
 			%p+= $disease.dens_low_lv1*$DENS_LOW_LV1_PROBABILITY+
@@ -91,7 +91,7 @@ function region::prob_from_infection_upgrades(%this){
 				 $disease.dens_high_lv2*$DENS_HIGH_LV2_PROBABILITY;
     }
 
-    switch$ (tech_level) 
+    switch$ (%this.tech_level) 
 	{
 	   case "primitive":
 			%p+= $disease.tech_primitive_lv1*$TECH_PRIMITIVE_LV1_PROBABILITY+
