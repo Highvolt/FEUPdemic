@@ -112,7 +112,7 @@ function setDna(%i){
 	if(%per>1){
 		%per=1;
 	}
-	dnaBar.Extent=Vector2Mult(infectivityBar.originalExtent,%per SPC "1");
+	dnaBar.Extent=Vector2Mult(dnaBar.originalExtent,%per SPC "1");
 	dnaVal.setText(%i);
 
 }

@@ -625,13 +625,46 @@ function createSidebar() {
 					  HorizSizing = "right";
 					  VertSizing = "bottom";
 					  position = "725 220";
-					  Extent = "225 120";
+					  Extent = "225 320";
 					  MinExtent = "2 4";
 					  canSave = "1";
 					  Visible = "1";
 					  hovertime = "1000";
 					  truncate=true;
 					  text="ajsdnajsdjfnasdjkfnakjsdnfjksdanfjkask vjasdnv jasd vjksafnjnsajkdvnaskjfv sajvnsajfnvjksnfjvnsdjnvjksdv sdvjnskdvsdkvnksadnvksadnvksdnvskd ksd vksd vksdmkvn";
+					};
+
+					new GuiMLTextCtrl(detailPrice) {  
+					  canSaveDynamicFields = "0";
+					  Profile = "GuiLogProfile";   
+					  HorizSizing = "right";
+					  VertSizing = "bottom";
+					  position = "740 520";
+					  Extent = "225 20";
+					  MinExtent = "2 4";
+					  canSave = "1";
+					  Visible = "1";
+					  hovertime = "1000";
+					  truncate=true;
+					  text="10";
+					  isContainer=true;
+
+
+					};
+
+					new GuiButtonCtrl(){
+						 canSaveDynamicFields = "0";
+					   Profile = "GuiButtonProfile";   
+					   HorizSizing = "right";
+					   VertSizing = "bottom";
+					   position = "845 510";
+					   Extent = "100 40";
+					   MinExtent = "2 2";
+					   canSave = "1";
+					   Visible = "1";
+					   hovertime = "1000";
+					   text="BUY";
+					   Command="buy();";
 					};
 				   new GuiButtonCtrl(){
 						 canSaveDynamicFields = "0";
@@ -801,6 +834,8 @@ function createSidebar() {
 			};	 
 			
 		};
+
+		$SYMPTOMS_UPGRADED=0;
 	
 	transmissionTab.setCameraPosition( 0, 0 );
     transmissionTab.setCameraSize( 642, 383 );
@@ -839,11 +874,37 @@ function transmissionTabInit(){
 }
 
 
+
+function buy(){
+	if(detailPrice.selected.kind$="s"  && detailPrice.selected.getImageFrame()>0){
+		%v=getVariable("$DIS_"@detailPrice.selected.id@"_CONN");
+		%t=getVariable("$disease.dis"@detailPrice.selected.id);
+		%t=1;
+		$SYMPTOMS_UPGRADED++;
+		
+		$disease.infection_percentage+=getVariable("$DIS_"@detailPrice.selected.id@"_INFECT");
+		$disease.severity_percentage+=getVariable("$DIS_"@detailPrice.selected.id@"_SEVERITY");
+		$disease.fatality_percentage+=getVariable("$DIS_"@detailPrice.selected.id@"_LETHAL");
+		
+		detailPrice.selected.setImageFrame(2);
+		%len=getWordCount(%v);
+		for(%i=0;%i<%len;%i++){
+			if(getWord($symptomsIcons,getWord(%v,%i)-1).getImageFrame()==0){
+				getWord($symptomsIcons,getWord(%v,%i)-1).setImageFrame(1);
+			}
+		}
+	}
+	$disease.updateMenu();
+
+}
+
 function item::onTouchDown(%this, %touchid, %worldposition){
 	echo("item" SPC %this.id);
-	if(%this.kind$="s"){
+	if(%this.kind$="s" && %this.getImageFrame()>0){
 		detailText.setText(getVariable("$DIS_"@%this.id@"_DESC"));
-		detailTitle.setText(getVariable("$DIS_"@%this.id@"_NAME"));
+		detailTitle.setText(getVariable("$DIS_"@%this.id@"_NAME")SPC "-" SPC %this.id);
+		detailPrice.setText(mCeil(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1));//cost*(//already_upgraded)*COST_SCALING+1
+		detailPrice.selected=%this;
 	}
 }
 
@@ -863,7 +924,12 @@ function symptomsTabInit(){
    	$s.Position="0 0";
    	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");	
    	%s.setUseInputEvents(true);
-   	%s.setImageFrame(1);
+   	switch(getVariable("$DIS_"@%s.id@"_COST")){
+   		case 1:
+   			%s.setImageFrame(1);
+   		default: 
+   			%s.setImageFrame(0);
+   	}
    	$symptomsScene.add(%s);
    	$symptomsIcons=%s;
 
@@ -877,7 +943,13 @@ function symptomsTabInit(){
 		%s.Size="62 66";
 	   	%s.Image="feupDemic:s"@%i;
 	   	$s.Position="0 0";
-	   	%s.setImageFrame(1);
+	   	//%s.setImageFrame(1);
+	   	switch(getVariable("$DIS_"@%s.id@"_COST")){
+	   		case 1:
+	   			%s.setImageFrame(1);
+	   		default: 
+	   			%s.setImageFrame(0);
+   		}
 	   	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");
 	   	$symptomsScene.add(%s);
 	   	$symptomsIcons=$symptomsIcons SPC %s;
