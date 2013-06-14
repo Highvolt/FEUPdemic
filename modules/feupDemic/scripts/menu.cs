@@ -991,6 +991,8 @@ function buy(){
 		}
 	}else if(detailPrice.selected.kind$="t" && detailPrice.selected.getImageFrame()==1 && has_dna(detailPrice.selected.calc)){
 		%v=getVariable("$T_"@detailPrice.selected.id);
+		%t=getVariable("$disease."@detailPrice.info);
+		%t=1;
 		detailPrice.selected.setImageFrame(2);
 		$TRANS_UPGRADED++;
 		$disease.infection_percentage+=getVariable(detailPrice.selected.info@"_INFECT");
@@ -1017,6 +1019,8 @@ function buy(){
 		}
 	}else if(detailPrice.selected.kind$="r"  && detailPrice.selected.getImageFrame()==1 && has_dna(detailPrice.selected.calc)){
 		remove_dna(detailPrice.selected.calc);
+		%t=getVariable("$disease.res"@(detailPrice.id+1));
+		%t=1;
 		echo("$"@detailPrice.selected.info@"_CONN");
 		%v=getVariable("$"@detailPrice.selected.info@"_CONN");
 		//%t=getVariable("$disease.dis"@detailPrice.selected.id);
@@ -1237,9 +1241,14 @@ function resistenceTabInit(){
 }
 
 function menuVisible(%state){
+
 	if(menuOverlay.Visible$="1" && %state==0){
 		timerXPTO.startTimer(hideOverlay, 2.5);
 	}else{
+		detailText.setText("");
+		detailTitle.setText("");
+		detailPrice.setText("");
+		buyBTN.Active=0;
 		timerXPTO.startTimer(showOverlay, 2.5);
 		$menu_open=true;
 	}
@@ -1300,6 +1309,10 @@ function timerXPTO::showOverlay(){
 
 
 function changeToTab(%page){
+		detailText.setText("");
+		detailTitle.setText("");
+		detailPrice.setText("");
+		buyBTN.Active=0;
 	switch(%page){
 		case 1:
 			transmissionTab.Visible="1";
