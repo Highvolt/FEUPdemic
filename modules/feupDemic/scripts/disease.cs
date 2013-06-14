@@ -1,9 +1,9 @@
 function create_disease(){
 	%this=new ScriptObject(){ class="disease"; };
 
-	%this.infection_percentage=0.01;
-	%this.severity_percentage=0.0;
-	%this.fatality_percentage=0.0;
+	%this.infection_percentage=1;
+	%this.severity_percentage=0;
+	%this.fatality_percentage=0;
 	
 	%this.world_total=$FEUP_POPULATION;
 	%this.world_uninfected=%this.world_total;

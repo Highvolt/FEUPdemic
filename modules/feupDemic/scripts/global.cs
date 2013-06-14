@@ -1,5 +1,5 @@
-$YELLOW_PROBABILITY = 0.0001;
-
+$YELLOW_PROBABILITY = 0.0059;
+$INFECTED_ON_INFECTER_RATIO=0.001;
 $FEUP_POPULATION = 10833;
 
 //INFECTIONS
@@ -97,8 +97,7 @@ $PH2_INFECT=0.01;
 $PL3_INFECT=0.01;
 $PH3_INFECT=0.01;
 $P4_INFECT=0.01;
-
-$INFECTED_ON_INFECTER_RATIO=0.01; //has to be lower -- 0.01
+ //has to be lower -- 0.01
 
 $TL1_NAME="Infect primitive tech I";
 $TL2_NAME="Infect primitive tech II";
@@ -355,21 +354,21 @@ $DIS_21_SEVERITY=0.01;
 $DIS_21_NAME="Hemorrhagic Shock";
 $DIS_21_DESC="Failure of the heart to pump effectively causes oxygen deprivation, loss of consciousness and death.";
 
-$RES_1_PROB=0.01;
-$RES_1_NAME="Res1";
-$RES_1_DESC="Desc1";
+$R1_PROB=0.01;
+$R1_NAME="Drug resistance I";
+$R1_DESC="Improves the disease resistance to the cure";
 
-$RES_2_PROB=0.01;
-$RES_2_NAME="Res2";
-$RES_2_DESC="Desc2";
+$R2_PROB=0.01;
+$R2_NAME="Drug resistance II";
+$R2_DESC="Improves the disease resistance to the cure";
 
-$RES_3_PROB=0.01;
-$RES_3_NAME="Res3";
-$RES_3_DESC="Desc3";
+$R3_PROB=0.01;
+$R3_NAME="Drug resistance III";
+$R3_DESC="Improves the disease resistance to the cure";
 
-$RES_4_PROB=0.01;
-$RES_4_NAME="Res4";
-$RES_4_DESC="Desc4";
+$R4_PROB=0.01;
+$R4_NAME="Drug resistance IV";
+$R4_DESC="Improves the disease resistance to the cure";
 
 
 

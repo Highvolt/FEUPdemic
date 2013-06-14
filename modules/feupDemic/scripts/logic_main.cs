@@ -2,6 +2,7 @@
 $disease = create_disease();
 $cure = create_cure();
 $dna_points = 0;
+$logic_tick=false;
 
 $REGIONS_SIZE = 57;
 $regions[0]=create_region(0, "Auditorio", "HOT", "HIGH", "HITECH", 193, "1,3");
@@ -82,32 +83,34 @@ function remove_dna(%n){
 }
 
 function logic_timer::logic_tick(){
-   
-  if(!$menu_open){
-     %active=false;
-      for(%i=0; %i<$REGIONS_SIZE; %i++){
-         %reg = $regions[%i];
-         if(%reg.infected>0)
-            %active=true;
-         if(%reg.is_infected()){
-            %reg.tick();
-            %reg.yelLOW_prob();
-            %reg.propagate();
+  if(!$logic_tick) {
+     $logic_tick=true;
+     if(!$menu_open){
+        %active=false;
+         for(%i=0; %i<$REGIONS_SIZE; %i++){
+            %reg = $regions[%i];
+            if(%reg.infected>0)
+               %active=true;
+            if(%reg.is_infected()){
+               %reg.tick();
+               %reg.yelLOW_prob();
+               %reg.propagate();
+            }
          }
-      }
-      
-      if($disease.world_death==$disease.world_total){
-         echo("you win");
-         logic_timer.stopTimer();
-      } else if(!%active){
-         echo("you lose");
-         logic_timer.stopTimer();
-      }
-      
-       
+         
+         if($disease.world_death==$disease.world_total){
+            echo("you win");
+            logic_timer.stopTimer();
+         } else if(!%active){
+            echo("you lose");
+            logic_timer.stopTimer();
+         }
+         
+     }
+     $logic_tick=false;
    }
 }
 
 
 new SimObject(logic_timer);
-logic_timer.startTimer(logic_tick, 10);
+logic_timer.startTimer(logic_tick, 100);

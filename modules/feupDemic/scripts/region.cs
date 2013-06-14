@@ -22,11 +22,11 @@ function region::tick(%this){
       //echo("g:" SPC %g TAB "pass:" SPC $disease.infection_percentage*%cutoff);
       if(%g < $disease.infection_percentage*%cutoff){
          
-         %this.infect(1+mFloor($disease.infection_percentage*%cutoff*%this.population));
+         %this.infect(1/*+mFloor($disease.infection_percentage*0.1*%this.population)*/);
       }
-      if(gen() < 0.001+$disease.fatality_percentage*%cutoff+$disease.severity_percentage*%cutoff){
+      if(gen() < 0.001+$disease.fatality_percentage*%cutoff*0.08+$disease.severity_percentage*%cutoff*0.05){
          
-         %this.kill(1+mFloor($disease.fatality_percentage*%cutoff*%this.population));
+         %this.kill(1/*+mFloor($disease.fatality_percentage*%cutoff*%this.population*0.09)*/);
       }
       
       if(!$cure.curing){
@@ -37,7 +37,7 @@ function region::tick(%this){
             }
       }
       
-      if(%his.deving_cure){
+      if(%this.deving_cure){
          if(gen() < 0.1-($disease.res1*$RES_1_PROB+$disease.res2*$RES_2_PROB+$disease.res3*$RES_3_PROB+$disease.res4*$RES_4_PROB)){
             $cure.progression++;
             setCure($cure.progression); 
@@ -77,13 +77,13 @@ function region::red_prob(%this, %infecter){
 	%p+=%infected_on_infecter+%upgrades_percentages;
 	%g = gen();
    //echo("gen:" SPC %g SPC"infected_on_infecter:" SPC %infected_on_infecter SPC "upgrades_percentages:" SPC %upgrades_percentages);
-	if( %g < %p ){
+	if( %g < %p*0.3 ){
 	   if(!%this.has_popup && !%this.is_infected()){
 		   createPopup(%this,"red");
 		   %this.has_popup=true;
 		   add_dna(1); 
 	   }
-		%this.infect(1+mFloor(%p*%this.population*0.5));
+		%this.infect(1/*+mFloor(%p*%this.population*0.5)*/);
 	}
 }
 
