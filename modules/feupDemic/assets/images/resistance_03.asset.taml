@@ -1,0 +1,9 @@
+<ImageAsset
+    AssetName="R3"
+    ImageFile="resistance_03.png"
+    FilterMode="Nearest"
+    CellCountX="1"
+    CellCountY="3"
+    CellWidth="62"
+    CellHeight="66"
+ />
