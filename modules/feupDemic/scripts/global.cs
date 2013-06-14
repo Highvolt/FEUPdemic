@@ -332,6 +332,22 @@ $DIS_21_SEVERITY=0.1;
 $DIS_21_NAME="Hemorrhagic Shock";
 $DIS_21_DESC="Failure of the heart to pump effectively causes oxygen deprivation, loss of consciousness and death.";
 
+$RES_1_PROB=0.01;
+$RES_1_NAME="Res1";
+$RES_1_DESC="Desc1";
+
+$RES_2_PROB=0.01;
+$RES_2_NAME="Res2";
+$RES_2_DESC="Desc2";
+
+$RES_3_PROB=0.01;
+$RES_3_NAME="Res3";
+$RES_3_DESC="Desc3";
+
+$RES_4_PROB=0.01;
+$RES_4_NAME="Res4";
+$RES_4_DESC="Desc4";
+
 
 
 //Symptoms CONN
