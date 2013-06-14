@@ -878,8 +878,14 @@ function transmissionTabInit(){
 function buy(){
 	if(detailPrice.selected.kind$="s"  && detailPrice.selected.getImageFrame()>0){
 		%v=getVariable("$DIS_"@detailPrice.selected.id@"_CONN");
-		getVariable("$disease.dis"@detailPrice.selected.id)=1;
+		%t=getVariable("$disease.dis"@detailPrice.selected.id);
+		%t=1;
 		$SYMPTOMS_UPGRADED++;
+		
+		$disease.infection_percentage+=getVariable("$DIS_"@detailPrice.selected.id@"_INFECT");
+		$disease.severity_percentage+=getVariable("$DIS_"@detailPrice.selected.id@"_SEVERITY");
+		$disease.fatality_percentage+=getVariable("$DIS_"@detailPrice.selected.id@"_LETHAL");
+		
 		detailPrice.selected.setImageFrame(2);
 		%len=getWordCount(%v);
 		for(%i=0;%i<%len;%i++){
@@ -888,6 +894,7 @@ function buy(){
 			}
 		}
 	}
+	$disease.updateMenu();
 
 }
 
@@ -896,7 +903,7 @@ function item::onTouchDown(%this, %touchid, %worldposition){
 	if(%this.kind$="s" && %this.getImageFrame()>0){
 		detailText.setText(getVariable("$DIS_"@%this.id@"_DESC"));
 		detailTitle.setText(getVariable("$DIS_"@%this.id@"_NAME")SPC "-" SPC %this.id);
-		detailPrice.setText(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1);//cost*(//already_upgraded)*COST_SCALING+1
+		detailPrice.setText(mCeil(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1));//cost*(//already_upgraded)*COST_SCALING+1
 		detailPrice.selected=%this;
 	}
 }
