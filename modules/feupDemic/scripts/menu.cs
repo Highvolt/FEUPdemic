@@ -663,7 +663,7 @@ function createSidebar() {
 					  truncate=true;
 					  text="ajsdnajsdjfnasdjkfnakjsdnfjksdanfjkask vjasdnv jasd vjksafnjnsajkdvnaskjfv sajvnsajfnvjksnfjvnsdjnvjksdv sdvjnskdvsdkvnksadnvksadnvksdnvskd ksd vksd vksdmkvn";
 					};
-
+					
 					new GuiMLTextCtrl(detailPrice) {  
 					  canSaveDynamicFields = "0";
 					  Profile = "GuiLogProfile";   
@@ -923,7 +923,7 @@ function transmissionTabInit(){
 	//$transmissionScene.setDebugOn("collision");
 	%len=getWordCount(%transmissionToLoad);
 	for(%i=0;%i<%len;%i++){
-		echo(%i);
+		//echo(%i);
    		%s=new Sprite(){
    			class="item";
    			id=%i;
@@ -1014,7 +1014,7 @@ function buy(){
 		remove_dna(detailPrice.selected.calc);
 		%len=getWordCount(%v);
 		for(%i=0;%i<%len;%i++){
-			echo(getVariable("$T_"@getWord(%v,%i)@"_N"));
+			//echo(getVariable("$T_"@getWord(%v,%i)@"_N"));
 			if(getVariable("$T_"@getWord(%v,%i)@"_N")!$=""){
 				%f=getVariable("$T_"@getWord(%v,%i)@"_N");
 				%lenF=getWordCount(%f);
@@ -1028,7 +1028,7 @@ function buy(){
 					getWord($transmissionIcons,getWord(%v,%i)).setImageFrame(1);
 				}
 			}else{
-				echo(getWord(%v,%i));
+				//echo(getWord(%v,%i));
 				getWord($transmissionIcons,getWord(%v,%i)).setImageFrame(1);
 			}
 		}
@@ -1036,7 +1036,7 @@ function buy(){
 		remove_dna(detailPrice.selected.calc);
 		%t=getVariable("$disease.res"@(detailPrice.id+1));
 		%t=1;
-		echo("$"@detailPrice.selected.info@"_CONN");
+		//echo("$"@detailPrice.selected.info@"_CONN");
 		%v=getVariable("$"@detailPrice.selected.info@"_CONN");
 		//%t=getVariable("$disease.dis"@detailPrice.selected.id);
 		//%t=1;
@@ -1057,11 +1057,11 @@ function buy(){
 }
 
 function item::onTouchDown(%this, %touchid, %worldposition){
-	echo("item" SPC %this.id);
+	//echo("item" SPC %this.id);
 	if(%this.kind$="s" && %this.getImageFrame()>0){
 		detailText.setText(getVariable("$DIS_"@%this.id@"_DESC"));
 		detailTitle.setText(getVariable("$DIS_"@%this.id@"_NAME")SPC "-" SPC %this.id);
-		detailPrice.setText(mCeil(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1));//cost*(//already_upgraded)*COST_SCALING+1
+		detailPrice.setText(mCeil(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1) SPC "/" SPC $dna_points SPC "DNA");//cost*(//already_upgraded)*COST_SCALING+1
 		%this.calc=mCeil(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1);
 		detailPrice.selected=%this;
 		if(has_dna(detailPrice.getText()) && %this.getImageFrame()==1){
@@ -1072,7 +1072,7 @@ function item::onTouchDown(%this, %touchid, %worldposition){
 	}else if(%this.kind$="t" && %this.getImageFrame()>0){
 		detailText.setText("");
 		detailTitle.setText(getVariable(%this.info@"_NAME")SPC "-" SPC %this.id);
-		detailPrice.setText(mCeil(getVariable(%this.info@"_COST")*$TRANS_UPGRADED*$COST_SCALING+1));
+		detailPrice.setText(mCeil(getVariable(%this.info@"_COST")*$TRANS_UPGRADED*$COST_SCALING+1) SPC "/" SPC $dna_points SPC "DNA");
 		%this.calc=mCeil(getVariable(%this.info@"_COST")*$TRANS_UPGRADED*$COST_SCALING+1);
 		detailPrice.selected=%this;
 		if(has_dna(detailPrice.getText())  && %this.getImageFrame()==1){
@@ -1083,7 +1083,7 @@ function item::onTouchDown(%this, %touchid, %worldposition){
 	}else if(%this.kind$="r" && %this.getImageFrame()>0){
 		detailText.setText(getVariable("$"@%this.info@"_DESC"));
 		detailTitle.setText(getVariable(%this.info@"_NAME")SPC "-" SPC %this.id);
-		detailPrice.setText(mCeil(getVariable(%this.info@"_COST")*$RES_UPGRADED*$COST_SCALING+1));
+		detailPrice.setText(mCeil(getVariable(%this.info@"_COST")*$RES_UPGRADED*$COST_SCALING+1) SPC "/" SPC $dna_points SPC "DNA");
 		%this.calc=mCeil(getVariable(%this.info@"_COST")*$RES_UPGRADED*$COST_SCALING+1);
 		detailPrice.selected=%this;
 		if(has_dna(detailPrice.getText())  && %this.getImageFrame()==1){
@@ -1219,7 +1219,7 @@ function resistenceTabInit(){
 	//$transmissionScene.setDebugOn("collision");
 	%len=getWordCount(%resistenceToLoad);
 	for(%i=0;%i<%len;%i++){
-		echo(%i);
+		//echo(%i);
    		%s=new Sprite(){
    			class="item";
    			id=%i;
