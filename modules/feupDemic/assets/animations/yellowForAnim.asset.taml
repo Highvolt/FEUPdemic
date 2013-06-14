@@ -1,0 +1,10 @@
+<ImageAsset
+    AssetName="yellow.png"
+    ImageFile="yellow.png"
+    FilterMode="Nearest"
+    CellCountX="29"
+    CellCountY="1"
+    CellWidth="31"
+    CellHeight="49"
+   
+/>
