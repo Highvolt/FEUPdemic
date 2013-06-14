@@ -19,6 +19,8 @@ function createPopup(%region,%kind){
 	%obj.Animation="feupDemic:yellowAnim";
 	if(%kind$="red"){
 		%obj.Animation="feupDemic:redAnim";
+	}else if(%kind$="blue"){
+		%obj.Animation="feupDemic:blueAnim";
 	}
 	if(feupDemic.pops$=""){
 		feupDemic.pops=%obj;
@@ -97,6 +99,8 @@ function popUP::onTouchDown(%this, %touchid, %worldposition)
 	%obj.Animation="feupDemic:yellowClickAnim";
 	if(%this.kind$="red"){
 		%obj.Animation="feupDemic:redClickAnim";
+	}else if(%this.kind$="blue"){
+		%obj.Animation="feupDemic:blueClickAnim";
 	}
 	//echo("down");
 	echo("popup Click");

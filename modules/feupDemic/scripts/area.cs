@@ -94,7 +94,12 @@ function graphTimer::updateGraph(%this){
 
 function Area::onTouchDown(%this, %touchID, %worldPosition)  
 {  
-	
+	if(feupDemic.notStarted){
+		$regions[%this.id_Area].infect(1);
+		new SimObject(logic_timer);
+		logic_timer.startTimer(logic_tick, 100);
+		feupDemic.notStarted=false;
+	}
 
 	echo("clicked area with id" SPC %this.id_Area);
 	unselectArea();
