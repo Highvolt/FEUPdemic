@@ -16,20 +16,22 @@ function create_region(%id, %name, %temperature, %density, %tech_level, %populat
 }
 
 function region::tick(%this){
-   %cutoff = 0.15;
-   if(gen() < $disease.infection_percentage*%cutoff)
-	   %this.infect(1+mFloor($disease.infection_percentage*%cutoff*%this.population/10));
-   if(gen() < $disease.fatality_percentage*%cutoff+$disease.severity_percentage*%cutoff/10)
-      %this.kill(1+mFloor($disease.fatality_percentage*%cutoff*%this.population/10));
+   if(%this.infected>0){
+      %cutoff = 0.15;
+      if(gen() < $disease.infection_percentage*%cutoff)
+         %this.infect(1+mFloor($disease.infection_percentage*%cutoff*%this.population));
+      if(gen() < $disease.fatality_percentage*%cutoff+$disease.severity_percentage*%cutoff)
+         %this.kill(1+mFloor($disease.fatality_percentage*%cutoff*%this.population));
+   }
 }
 
 function region::propagate(%this){
    if(%this.is_infected()){
       for(%i = 0; %i < %this.nr_of_neighbours; %i++){
          %reg = $regions[getUnit(%this.neighbours,%i,",")];
-         if(!%reg.is_infected()){
+         //if(!%reg.is_infected()){
             %reg.red_prob(%this);
-         }
+         //}
       }
    }
 }
@@ -48,17 +50,17 @@ function region::yellow_prob(%this){
 
 function region::red_prob(%this, %infecter){
 	%p = 0;
-	%infected_on_infecter = %infecter.infected/%infecter.population*$INFECTED_ON_INFECTER_RATIO;
+	%infected_on_infecter = (%infecter.infected/%infecter.population)*$INFECTED_ON_INFECTER_RATIO;
 	%upgrades_percentages = %this.prob_from_infection_upgrades();
 	%p+=%infected_on_infecter+%upgrades_percentages;
 	%g = gen();
-   //echo("gen:" SPC %g SPC"infected_on_infecter:" SPC %infected_on_infecter SPC "upgrades_percentages:" SPC %upgrades_percentages);
+   echo("gen:" SPC %g SPC"infected_on_infecter:" SPC %infected_on_infecter SPC "upgrades_percentages:" SPC %upgrades_percentages);
 	if( %g < %p ){
-	   if(!%this.has_popup){
+	   if(!%this.has_popup && !%this.is_infected()){
 		   createPopup(%this,"red");
 		   %this.has_popup=true;
 	   }
-		%this.infect(1);
+		%this.infect(mFloor(%p*%this.population*0.5));
 	}
 }
 
@@ -141,9 +143,9 @@ function region::handlePopUp(%this, %kind){
       case "close":
          
       case "red":
-         %this.infect(60);
+         add_dna(40);
       case "yellow": 
-         %this.infect(80); 
+         add_dna(15);
    }
    %this.has_popup=false;
 }

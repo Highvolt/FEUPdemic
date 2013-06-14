@@ -1,5 +1,7 @@
 $YELLOW_PROBABILITY = 0.0001;
 
+$FEUP_POPULATION = 10833;
+
 //INFECTIONS
 //probabilities
 $TECH_PRIMITIVE_LV1_PROBABILITY=0.01;
@@ -83,7 +85,7 @@ $DENS_MEDIUM_LV2_INFECTION_P=0.01;
 $DENS_HIGH_LV1_INFECTION_P=0.01;
 $DENS_HIGH_LV2_INFECTION_P=0.01;
 
-$INFECTED_ON_INFECTER_RATIO=0.01; //has to be lower -- 0.01
+$INFECTED_ON_INFECTER_RATIO=0.1; //has to be lower -- 0.01
 
 $TECH_PRIMITIVE_LV1_INFECTION_DESC="";
 $TECH_PRIMITIVE_LV2_INFECTION_DESC="";
@@ -308,18 +310,18 @@ $DIS_30_NAME="Insanity";
 $DIS_30_DESC="Neuropathic action of the pathogen in the frontal cortex causes severe emotional and behavioral abnormalities. Significantly harder to cure.";
 
 $DIS_31_COST=5;
-$DIS_32_INFECT=0.1;
-$DIS_33_LETHAL=0.1;
-$DIS_34_SEVERITY=0.1;
-$DIS_35_NAME="Coma";
-$DIS_36_DESC="Neuropathic effects in the brain stem causes loss of consciousness and sometimes death. Significantly harder to cure.";
+$DIS_31_INFECT=0.1;
+$DIS_31_LETHAL=0.1;
+$DIS_31_SEVERITY=0.1;
+$DIS_31_NAME="Coma";
+$DIS_31_DESC="Neuropathic effects in the brain stem causes loss of consciousness and sometimes death. Significantly harder to cure.";
 
-$DIS_37_COST=5;
-$DIS_37_INFECT=0.1;
-$DIS_37_LETHAL=0.1;
-$DIS_37_SEVERITY=0.1;
-$DIS_37_NAME="Hemorrhagic Shock";
-$DIS_37_DESC="Failure of the heart to pump effectively causes oxygen deprivation, loss of consciousness and death.";
+$DIS_32_COST=5;
+$DIS_32_INFECT=0.1;
+$DIS_32_LETHAL=0.1;
+$DIS_32_SEVERITY=0.1;
+$DIS_32_NAME="Hemorrhagic Shock";
+$DIS_32_DESC="Failure of the heart to pump effectively causes oxygen deprivation, loss of consciousness and death.";
 
 function gen(){
 	return getRandomF(0,1);
