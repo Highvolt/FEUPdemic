@@ -72,7 +72,7 @@ function region::yellow_prob(%this){
 
 function region::red_prob(%this, %infecter){
 	%p = 0;
-	%infected_on_infecter = (%infecter.infected/%infecter.population)*$INFECTED_ON_INFECTER_RATIO;
+	//%infected_on_infecter = (%infecter.infected/%infecter.population)*$INFECTED_ON_INFECTER_RATIO;
 	%upgrades_percentages = %this.prob_from_infection_upgrades();
 	%p+=%infected_on_infecter+%upgrades_percentages;
 	%g = gen();

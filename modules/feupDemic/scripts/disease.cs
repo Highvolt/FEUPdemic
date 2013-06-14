@@ -1,7 +1,7 @@
 function create_disease(){
 	%this=new ScriptObject(){ class="disease"; };
 
-	%this.infection_percentage=0.5;
+	%this.infection_percentage=0.1;
 	%this.severity_percentage=0;
 	%this.fatality_percentage=0;
 	
@@ -11,33 +11,32 @@ function create_disease(){
 	%this.world_death=0;
 
 	//infections
-	%this.tech_primitive_lv1=0;
-	%this.tech_primitive_lv2=0;
-	%this.tech_medium_lv1=0;
-	%this.tech_medium_lv2=0;
-	%this.tech_hitech_lv1=0;
-	%this.tech_hitech_lv2=0;
-
-	%this.tech_temp_lv3=0;
-
-	%this.temp_cold_lv1=0;
-	%this.temp_cold_lv2=0;
-	%this.temp_cold_lv3=0;
-	%this.temp_temperate_lv1=0;
-	%this.temp_temperate_lv2=0;
-	%this.temp_hot_lv1=0;
-	%this.temp_hot_lv2=0;
-	%this.temp_hot_lv3=0;
-	%this.temp_lv4=0;
-
-	%this.temp_dens_lv3=0;
-
-	%this.dens_low_lv1=0;
-	%this.dens_low_lv2=0;
-	%this.dens_medium_lv1=0;
-	%this.dens_medium_lv2=0;
-	%this.dens_high_lv1=0;
-	%this.dens_high_lv2=0;
+	%this.TL1=0;
+	%this.TL2=0;
+	%this.TM1=0;
+	%this.TM2=0;
+	%this.TH1=0;
+	%this.TH2=0;
+	%this.TL3=0;
+	%this.TH3=0;
+	%this.TempL1=0;
+	%this.TempL2=0;
+	%this.TempM1=0;
+	%this.TempM2=0;
+	%this.TempH1=0;
+	%this.TempH2=0;
+	%this.TempL3=0;
+	%this.TempH3=0;
+	%this.Temp4=0;
+	%this.PL1=0;
+	%this.PL2=0;
+	%this.PM1=0;
+	%this.PM2=0;
+	%this.PH1=0;
+	%this.PH2=0;
+	%this.PL3=0;
+	%this.PH3=0;
+	%this.P4=0;
 
 	//disease
 	%this.dis1=0;
