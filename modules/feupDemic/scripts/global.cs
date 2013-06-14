@@ -354,22 +354,22 @@ $DIS_21_SEVERITY=0.03;
 $DIS_21_NAME="Hemorrhagic Shock";
 $DIS_21_DESC="Failure of the heart to pump effectively causes oxygen deprivation, loss of consciousness and death.";
 
-$R1_PROB=0.01;
+$R1_PROB=0.03;
 $R1_NAME="Drug resistance I";
 $R1_DESC="Improves the disease resistance to the cure";
 $R1_COST=1;
 
-$R2_PROB=0.01;
+$R2_PROB=0.04;
 $R2_NAME="Drug resistance II";
 $R2_DESC="Improves the disease resistance to the cure";
 $R2_COST=2;
 
-$R3_PROB=0.01;
+$R3_PROB=0.015;
 $R3_NAME="Drug resistance III";
 $R3_DESC="Improves the disease resistance to the cure";
 $R3_COST=3;
 
-$R4_PROB=0.01;
+$R4_PROB=0.014;
 $R4_NAME="Drug resistance IV";
 $R4_DESC="Improves the disease resistance to the cure";
 $R4_COST=4;
