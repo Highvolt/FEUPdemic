@@ -34,7 +34,7 @@ function createPopup(%region,%kind){
 	%obj.timer=%timer;
 }
 
-function popUpTimer::remove(%this){
+function popUpTimer::remove2(%this){
 	myScene.remove(%this.obj);
 	for(%i=0;%i<%len;%i++){
 		%obj=getWord(feupDemic.pops,%i);
@@ -102,7 +102,7 @@ function popUP::onTouchDown(%this, %touchid, %worldposition)
 	echo("popup Click");
 	$regions[%this.id_A].handlePopUp(%this.kind);
 	%this.timer.stopTimer();
-	%this.timer.startTimer("remove",200);
+	%this.timer.startTimer("remove2",200);
 	/*%len=getWordCount(feupDemic.pops);
 	//echo(%len);
 	for(%i=0;%i<%len;%i++){
