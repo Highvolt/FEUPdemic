@@ -874,12 +874,29 @@ function transmissionTabInit(){
 }
 
 
+
+function buy(){
+	if(detailPrice.selected.kind$="s"  && detailPrice.selected.getImageFrame()>0){
+		%v=getVariable("$DIS_"@detailPrice.selected.id@"_CONN");
+		getVariable("$disease.dis"@detailPrice.selected.id)=1;
+		detailPrice.selected.setImageFrame(2);
+		%len=getWordCount(%v);
+		for(%i=0;%i<%len;%i++){
+			if(getWord($symptomsIcons,getWord(%v,%i)-1).getImageFrame()==0){
+				getWord($symptomsIcons,getWord(%v,%i)-1).setImageFrame(1);
+			}
+		}
+	}
+
+}
+
 function item::onTouchDown(%this, %touchid, %worldposition){
 	echo("item" SPC %this.id);
 	if(%this.kind$="s" && %this.getImageFrame()>0){
 		detailText.setText(getVariable("$DIS_"@%this.id@"_DESC"));
-		detailTitle.setText(getVariable("$DIS_"@%this.id@"_NAME"));
+		detailTitle.setText(getVariable("$DIS_"@%this.id@"_NAME")SPC "-" SPC %this.id);
 		detailPrice.setText(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1);//cost*(//already_upgraded)*COST_SCALING+1
+		detailPrice.selected=%this;
 	}
 }
 
@@ -899,7 +916,12 @@ function symptomsTabInit(){
    	$s.Position="0 0";
    	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");	
    	%s.setUseInputEvents(true);
-   	%s.setImageFrame(1);
+   	switch(getVariable("$DIS_"@%s.id@"_COST")){
+   		case 1:
+   			%s.setImageFrame(1);
+   		default: 
+   			%s.setImageFrame(0);
+   	}
    	$symptomsScene.add(%s);
    	$symptomsIcons=%s;
 
@@ -913,7 +935,13 @@ function symptomsTabInit(){
 		%s.Size="62 66";
 	   	%s.Image="feupDemic:s"@%i;
 	   	$s.Position="0 0";
-	   	%s.setImageFrame(1);
+	   	//%s.setImageFrame(1);
+	   	switch(getVariable("$DIS_"@%s.id@"_COST")){
+	   		case 1:
+	   			%s.setImageFrame(1);
+	   		default: 
+	   			%s.setImageFrame(0);
+   		}
 	   	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");
 	   	$symptomsScene.add(%s);
 	   	$symptomsIcons=$symptomsIcons SPC %s;
