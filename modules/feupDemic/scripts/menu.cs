@@ -260,7 +260,7 @@ function createSidebar() {
 					   Profile = "GuiDefaultProfile";   
 					   HorizSizing = "right";
 					   VertSizing = "bottom";
-					   position = "85 315";
+					   position = "85 290";
 					   Extent = "250 160";
 					   MinExtent = "2 2";
 					   canSave = "1";
@@ -348,21 +348,37 @@ function createSidebar() {
 						};
 
 					};
-					/*new GuiTextCtrl(LogClick) {   ////TODO REMOVE
+
+					/*
+					 * Cure
+					 */
+					new GuiTextCtrl() {
 						   canSaveDynamicFields = "0";
-						   Profile = "GuiLogProfile";   
+						   Profile = "GuiDnaBarLabelProfile";   
 						   HorizSizing = "right";
 						   VertSizing = "bottom";
-						   position = "0 310";
-						   Extent = "323 50";
+						   position = "45 390";
+						   Extent = "320 50";
 						   MinExtent = "2 4";
 						   canSave = "1";
 						   Visible = "1";
 						   hovertime = "1000";
-						   text="";	
-					};*/
+						   text="CURE";
+					};
 
-
+					new GuiTextCtrl(cureVal) {
+						   canSaveDynamicFields = "0";
+						   Profile = "GuiDnaBarValueProfile";
+						   HorizSizing = "right";
+						   VertSizing = "bottom";
+						   position = "200 390";
+						   Extent = "90 38";
+						   MinExtent = "2 4";
+						   canSave = "1";
+						   Visible = "1";
+						   hovertime = "1000";
+						   text="0";
+						};
 
 					/*
 					 * Infectivity
@@ -542,11 +558,11 @@ function createSidebar() {
 						};
 						new GuiTextCtrl(dnaVal) {
 						   canSaveDynamicFields = "0";
-						   Profile = "GuiDnaBarLabelProfile";
+						   Profile = "GuiDnaBarValueProfile";
 						   HorizSizing = "right";
 						   VertSizing = "bottom";
-						   position = "200 0";
-						   Extent = "100 38";
+						   position = "40 0";
+						   Extent = "190 38";
 						   MinExtent = "2 4";
 						   canSave = "1";
 						   Visible = "1";

@@ -354,3 +354,27 @@ new GuiControlProfile (GuiDnaBarLabelProfile) {
     
 };  
 
+new GuiControlProfile (GuiDnaBarValueProfile) {
+    fontType = $platformFontType;
+    fontSize = 24;
+    
+    fillColor="255 255 255";
+    fillColorHL="0 0 0";
+    fillColorNA="0 0 0";
+
+    opaque = 1;
+ 
+    border = 0;
+
+    fontColor = "255 255 255";
+    modal = true;
+    justify = "right";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+    
+    
+}; 
+

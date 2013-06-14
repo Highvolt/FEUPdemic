@@ -78,14 +78,14 @@ if(%pieData!$=""){
 		//echo(%shape.getPoly());
 		//myScene.add(%shape);
 		if(%i==0){
-			%shape.setFillColor("0.0 0.0 1.0");
+			%shape.setFillColor(VectorScale("33 166 206",1/255));
 			wellChart.setSceneObject(%shape);
 			//wellChart.setCaption("1");
 		}else if(%i==1){
-			%shape.setFillColor("1.0 0.0 0.0");
+			%shape.setFillColor(VectorScale("254 0 0",1/255));
 			infectedChart.setSceneObject(%shape);
 		}else{
-			%shape.setFillColor("0.0 0.0 0.0");
+			%shape.setFillColor(VectorScale("24 28 24",1/255));
 			deadChart.setSceneObject(%shape);
 		}
 	}
