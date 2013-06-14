@@ -1,7 +1,7 @@
 function create_disease(){
 	%this=new ScriptObject(){ class="disease"; };
 
-	%this.infection_percentage=0.0;
+	%this.infection_percentage=0.01;
 	%this.severity_percentage=0.0;
 	%this.fatality_percentage=0.0;
 	
@@ -22,10 +22,13 @@ function create_disease(){
 
 	%this.temp_cold_lv1=0;
 	%this.temp_cold_lv2=0;
+	%this.temp_cold_lv3=0;
 	%this.temp_temperate_lv1=0;
 	%this.temp_temperate_lv2=0;
 	%this.temp_hot_lv1=0;
 	%this.temp_hot_lv2=0;
+	%this.temp_hot_lv3=0;
+	%this.temp_lv4=0;
 
 	%this.temp_dens_lv3=0;
 
