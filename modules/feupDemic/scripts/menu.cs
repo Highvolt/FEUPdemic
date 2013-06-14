@@ -603,13 +603,29 @@ function createSidebar() {
 						   //isContainer=true;
 					};
 
-					new GuiMLTextCtrl(detailText) {  
+					new GuiMLTextCtrl(detailTitle) {  
 					  canSaveDynamicFields = "0";
 					  Profile = "GuiLogProfile";   
 					  HorizSizing = "right";
 					  VertSizing = "bottom";
 					  position = "725 190";
-					  Extent = "225 150";
+					  Extent = "225 50";
+					  MinExtent = "2 4";
+					  canSave = "1";
+					  Visible = "1";
+					  hovertime = "1000";
+					  truncate=true;
+					  text="Title";
+					};
+
+
+					new GuiMLTextCtrl(detailText) {  
+					  canSaveDynamicFields = "0";
+					  Profile = "GuiLogProfile";   
+					  HorizSizing = "right";
+					  VertSizing = "bottom";
+					  position = "725 220";
+					  Extent = "225 120";
 					  MinExtent = "2 4";
 					  canSave = "1";
 					  Visible = "1";
@@ -687,7 +703,7 @@ function createSidebar() {
 							   hovertime = "1000";
 							   isContainer = true;
 
-							  new GuiTextCtrl() {  
+							 /* new GuiTextCtrl() {  
 								  canSaveDynamicFields = "0";
 								  Profile = "GuiLogProfile";   
 								  HorizSizing = "right";
@@ -699,7 +715,7 @@ function createSidebar() {
 								  Visible = "1";
 								  hovertime = "1000";
 								  text="1";
-								};
+								};*/
 						   
 							};
 							 new SceneWindow(symptomsTab) {
@@ -714,7 +730,7 @@ function createSidebar() {
 							   Visible = "0";
 							   hovertime = "1000";
 							   isContainer=true;
-							   new GuiTextCtrl() {  
+							  /* new GuiTextCtrl() {  
 								   canSaveDynamicFields = "0";
 								   Profile = "GuiLogProfile";   
 								   HorizSizing = "right";
@@ -730,7 +746,7 @@ function createSidebar() {
 								
 									 
 									
-								};
+								};*/
 						   
 							};
 							new SceneWindow(resistenceTab) {
@@ -745,7 +761,7 @@ function createSidebar() {
 							   Visible = "0";
 							   hovertime = "1000";
 							   isContainer=true;
-							   new GuiTextCtrl() {  
+							  /* new GuiTextCtrl() {  
 								   canSaveDynamicFields = "0";
 								   Profile = "GuiLogProfile";   
 								   HorizSizing = "right";
@@ -761,7 +777,7 @@ function createSidebar() {
 								
 									 
 									
-								};
+								};*/
 						   
 							};
 					};
@@ -822,30 +838,54 @@ function transmissionTabInit(){
 	transmissionTab.setScene($transmissionScene);
 }
 
+
+function item::onTouchDown(%this, %touchid, %worldposition){
+	echo("item" SPC %this.id);
+	if(%this.kind$="s"){
+		detailText.setText(getVariable("$DIS_"@%this.id@"_DESC"));
+		detailTitle.setText(getVariable("$DIS_"@%this.id@"_NAME"));
+	}
+}
+
 function symptomsTabInit(){
 	$symptomsScene=new Scene();
 	symptomsTab.setScene($symptomsScene);
+	symptomsTab.setUseObjectInputEvents(true);
 	$symptomsIcons="";
-	%s=new Sprite();
+	$symptomsScene.setDebugOn("collision");
+	%s=new Sprite(){
+   			class="item";
+   			id=1;
+   			kind="s";
+   	};
 	%s.Size="62 66";
    	%s.Image="feupDemic:s1";
    	$s.Position="0 0";
+   	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");	
+   	%s.setUseInputEvents(true);
    	%s.setImageFrame(1);
    	$symptomsScene.add(%s);
    	$symptomsIcons=%s;
+
    	for(%i=2;%i<=31;%i++){
-   		%s=new Sprite();
+   		%s=new Sprite(){
+   			class="item";
+   			id=%i;
+   			kind="s";
+   		};
+   		%s.setUseInputEvents(true);
 		%s.Size="62 66";
 	   	%s.Image="feupDemic:s"@%i;
 	   	$s.Position="0 0";
 	   	%s.setImageFrame(1);
+	   	%s.createPolygonCollisionShape("0 -33 31 -16 31 16 0 33 -31 16 -31 -16");
 	   	$symptomsScene.add(%s);
 	   	$symptomsIcons=$symptomsIcons SPC %s;
    	}
-   	%len=getWordCount($symptomsIcons);
+   	/*%len=getWordCount($symptomsIcons);
    	%h=0;
    	%v=0;
-   	/*for(%i=0;%i<%len;%i++){
+   	for(%i=0;%i<%len;%i++){
    		%s=getWord($symptomsIcons,%i);
 
    		//%s.Position=((%i%10)*62-280) SPC (-(mCeil(%i/10)+1)*66+191);
