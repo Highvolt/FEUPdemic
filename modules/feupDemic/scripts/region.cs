@@ -67,39 +67,39 @@ function region::prob_from_infection_upgrades(%this){
 
 	switch$ (%this.temperature) 
 	{
-	   case "cold":
+	   case "COLD":
 			%p+= $disease.temp_cold_lv1*$TEMP_COLD_LV1_PROBABILITY+
 				 $disease.temp_cold_lv2*$TEMP_COLD_LV2_PROBABILITY;
-	   case "temperate":
+	   case "TEMPERATE":
 	   		%p+= $disease.temp_temperate_lv1*$TEMP_TEMPERATE_LV1_PROBABILITY+
 				 $disease.temp_temperate_lv2*$TEMP_TEMPERATE_LV2_PROBABILITY;
-	   case "hot":
+	   case "HOT":
 	   		%p+= $disease.temp_hot_lv1*$TEMP_HOT_LV1_PROBABILITY+
 				 $disease.temp_hot_lv2*$TEMP_HOT_LV2_PROBABILITY;
     }
 
     switch$ (%this.density) 
 	{
-	   case "low":
+	   case "LOW":
 			%p+= $disease.dens_low_lv1*$DENS_LOW_LV1_PROBABILITY+
 				 $disease.dens_low_lv2*$DENS_LOW_LV2_PROBABILITY;
-	   case "medium":
+	   case "MEDIUM":
 	   		%p+= $disease.dens_medium_lv1*$DENS_MEDIUM_LV1_PROBABILITY+
 				 $disease.dens_medium_lv2*$DENS_MEDIUM_LV2_PROBABILITY;
-	   case "high":
+	   case "HIGH":
 	   		%p+= $disease.dens_high_lv1*$DENS_HIGH_LV1_PROBABILITY+
 				 $disease.dens_high_lv2*$DENS_HIGH_LV2_PROBABILITY;
     }
 
     switch$ (%this.tech_level) 
 	{
-	   case "primitive":
+	   case "PRIMITIVE":
 			%p+= $disease.tech_primitive_lv1*$TECH_PRIMITIVE_LV1_PROBABILITY+
 				 $disease.tech_primitive_lv2*$TECH_PRIMITIVE_LV2_PROBABILITY;
-	   case "medium":
+	   case "MEDIUM":
 	   		%p+= $disease.tech_medium_lv1*$TECH_MEDIUM_LV1_PROBABILITY+
 				 $disease.tech_medium_lv2*$TECH_MEDIUM_LV2_PROBABILITY;
-	   case "hitech":
+	   case "HITECH":
 	   		%p+= $disease.tech_hitech_lv1*$TECH_HITECH_LV1_PROBABILITY+
 				 $disease.tech_hitech_lv2*$TECH_HITECH_LV2_PROBABILITY;
     }
