@@ -55,7 +55,7 @@ function createPieChart(%vals, %radius){
 
 
 function populatePie(%v){
-	echo(%v);
+	//echo(%v);
 	%pieData=createPieChart(%v,0.5);
 if(%pieData!$=""){
 	%len=getUnitCount(%pieData,",");
