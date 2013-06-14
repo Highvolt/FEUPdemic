@@ -861,7 +861,22 @@ function createSidebar() {
 					   Command="menuVisible(0);";
 					};
 				};
-			};	 
+			};	
+
+			 new GuiBitmapCtrl(splash) {
+								   canSaveDynamicFields = "0";
+								   Profile = "GuiDefaultProfile";   
+								   HorizSizing = "right";
+								   VertSizing = "bottom";
+								   position = "0 0";
+								   Extent = "1000 640";
+								   MinExtent = "0 0";
+								   canSave = "1";
+								   Visible = "1";
+								   hovertime = "1000";
+								   bitmap = "^feupDemic/gui/images/splash.png";
+								   //isContainer=true;
+							}; 
 			
 		};
 

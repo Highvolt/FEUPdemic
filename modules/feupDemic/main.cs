@@ -49,26 +49,39 @@ function feupDemic::create( %this )
 	mySceneWindow.setScene(myScene);
 	mySceneWindow.setUseObjectInputEvents(true);
 	//myScene.setDebugOn("collision");
-	createGrass();
-	echo("grass done");
-	initializeBars();
-	echo("bars done");
-
-
-	createAreas();
-	echo("area done");
-	drawAreas();
-	echo("areas draw done");
-	chartWorld();
-	echo("char world done");
-	$disease.updateMenu();
-	echo("update disease done");
-	new SimObject(main_timer);
-		main_timer.startTimer(msg, 100);
 	
 	//createPopup($regions[0],"blue");
-	
+	new ActionMap(moveMap);
+	moveMap.bind(keyboard, "enter", startGame);
+	//startGame();
+	moveMap.push();
 
+}
+
+
+function startGame(%val){
+	if(%val){
+		splash.delete();
+		moveMap.pop();
+		
+		createGrass();
+		echo("grass done");
+		initializeBars();
+		echo("bars done");
+
+
+		createAreas();
+		echo("area done");
+		drawAreas();
+		echo("areas draw done");
+		chartWorld();
+		echo("char world done");
+		$disease.updateMenu();
+		echo("update disease done");
+		new SimObject(main_timer);
+			main_timer.startTimer(msg, 100);
+	}
+	
 }
 
 function main_timer::msg(%this){
