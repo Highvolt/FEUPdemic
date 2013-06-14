@@ -2,6 +2,7 @@ function create_cure(){
 	%this=new ScriptObject(){ class="cure"; };
 	%this.progression=0;
 	%this.curing=false;
+	return %this;
 }
 
 function cure::awareness_prob(){
