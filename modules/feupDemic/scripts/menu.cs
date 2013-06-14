@@ -878,6 +878,27 @@ function symptomsTabInit(){
    	getWord($symptomsIcons,7).Position=Vector2Hex(2,2);
    	getWord($symptomsIcons,8).Position=Vector2Hex(4,1);
    	getWord($symptomsIcons,9).Position=Vector2Hex(5,1);
+	getWord($symptomsIcons,10).Position=Vector2Hex(3,3);
+	getWord($symptomsIcons,11).Position=Vector2Hex(0,6);
+	getWord($symptomsIcons,12).Position=Vector2Hex(1,5);
+	getWord($symptomsIcons,13).Position=Vector2Hex(0,4);
+	getWord($symptomsIcons,14).Position=Vector2Hex(1,4);
+	getWord($symptomsIcons,15).Position=Vector2Hex(2,4);
+   	getWord($symptomsIcons,16).Position=Vector2Hex(0,3);
+   	getWord($symptomsIcons,17).Position=Vector2Hex(6,0);
+   	getWord($symptomsIcons,18).Position=Vector2Hex(6,1);
+   	getWord($symptomsIcons,19).Position=Vector2Hex(7,6);
+   	getWord($symptomsIcons,20).Position=Vector2Hex(6,4);
+	getWord($symptomsIcons,21).Position=Vector2Hex(6,3);
+	getWord($symptomsIcons,22).Position=Vector2Hex(6,6);
+	getWord($symptomsIcons,23).Position=Vector2Hex(6,5);
+   	getWord($symptomsIcons,24).Position=Vector2Hex(3,6);
+   	getWord($symptomsIcons,25).Position=Vector2Hex(3,5);
+   	getWord($symptomsIcons,26).Position=Vector2Hex(5,5);
+   	getWord($symptomsIcons,27).Position=Vector2Hex(5,2);
+	getWord($symptomsIcons,28).Position=Vector2Hex(4,2);
+   	getWord($symptomsIcons,29).Position=Vector2Hex(4,3);
+   	getWord($symptomsIcons,30).Position=Vector2Hex(4,6);
 }
 
 function Vector2Hex(%x,%y){
