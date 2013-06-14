@@ -35,6 +35,7 @@ function feupDemic::create( %this )
   	$menu_open=false;	
 	feupDemic.pops="";
 	feupDemic.zonesCount=0;
+	feupDemic.notStarted=true;
 
 	%obj = new ScriptObject(Listener)  
 	{  
@@ -62,11 +63,18 @@ function feupDemic::create( %this )
 	echo("char world done");
 	$disease.updateMenu();
 	echo("update disease done");
+	new SimObject(main_timer);
+		main_timer.startTimer(msg, 100);
+	
 
 	
 
 }
 
+function main_timer::msg(%this){
+	messageBox("Select starting region","Click in the region where you what the virus to start spreading");
+	%this.stopTimer();
+}
 
 
 
