@@ -668,7 +668,7 @@ function createSidebar() {
 
 					};
 
-					new GuiButtonCtrl(){
+					new GuiButtonCtrl(buyBTN){
 						 canSaveDynamicFields = "0";
 					   Profile = "GuiButtonProfile";   
 					   HorizSizing = "right";
@@ -892,7 +892,8 @@ function transmissionTabInit(){
 
 
 function buy(){
-	if(detailPrice.selected.kind$="s"  && detailPrice.selected.getImageFrame()>0){
+	if(detailPrice.selected.kind$="s"  && detailPrice.selected.getImageFrame()>0 && has_dna(detailPrice.selected.calc)){
+		remove_dna(detailPrice.selected.calc);
 		%v=getVariable("$DIS_"@detailPrice.selected.id@"_CONN");
 		%t=getVariable("$disease.dis"@detailPrice.selected.id);
 		%t=1;
@@ -920,7 +921,13 @@ function item::onTouchDown(%this, %touchid, %worldposition){
 		detailText.setText(getVariable("$DIS_"@%this.id@"_DESC"));
 		detailTitle.setText(getVariable("$DIS_"@%this.id@"_NAME")SPC "-" SPC %this.id);
 		detailPrice.setText(mCeil(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1));//cost*(//already_upgraded)*COST_SCALING+1
+		%this.calc=mCeil(getVariable("$DIS_"@%this.id@"_COST")*$SYMPTOMS_UPGRADED*$COST_SCALING+1);
 		detailPrice.selected=%this;
+		if(has_dna(detailPrice.getText())){
+			buyBTN.Active=1;
+		}else{
+			buyBTN.Active=0;
+		}
 	}
 }
 
