@@ -57,6 +57,23 @@ function create_disease(){
 	%this.dis18=0;
 	%this.dis19=0;
 	%this.dis20=0;
+	%this.dis21=0;
+	%this.dis22=0;
+	%this.dis23=0;
+	%this.dis24=0;
+	%this.dis25=0;
+	%this.dis26=0;
+	%this.dis27=0;
+	%this.dis28=0;
+	%this.dis29=0;
+	%this.dis30=0;
+	%this.dis31=0;
+	%this.dis32=0;
+	%this.dis33=0;
+	%this.dis34=0;
+	%this.dis35=0;
+	%this.dis36=0;
+	%this.dis37=0;
 
 	return %this;
 }
