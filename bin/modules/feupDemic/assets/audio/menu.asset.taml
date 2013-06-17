@@ -1,0 +1,6 @@
+<AudioAsset
+    AssetName="menuSound"
+    AssetAutoUnload="0"
+    AudioFile="menu.wav"
+    Looping="0"
+    />

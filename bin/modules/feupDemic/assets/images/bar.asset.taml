@@ -1,0 +1,5 @@
+<ImageAsset
+    AssetName="bar"
+    ImageFile="bar.png"
+    FilterMode="Nearest"
+    />

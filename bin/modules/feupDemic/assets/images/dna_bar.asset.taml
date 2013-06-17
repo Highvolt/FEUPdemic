@@ -1,0 +1,5 @@
+<ImageAsset
+    AssetName="dna_bar"
+    ImageFile="dna_bar.png"
+    FilterMode="Nearest"
+    />
